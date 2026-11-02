@@ -1,0 +1,20 @@
+[
+  {
+    "project": "HackerTube AI",
+    "scope": "existing public experience quality pass",
+    "genre": "pine editorial archive",
+    "structure": "real archive reel + catalog + functional atlas + long-form guide",
+    "navigation": "preserved visible masthead plus search accelerator",
+    "critique": {
+      "philosophy": 4,
+      "hierarchy": 4,
+      "execution": 4,
+      "specificity": 5,
+      "restraint": 4,
+      "variety": 4
+    },
+    "rounds": 3,
+    "evidence": "docs/quality/REVIEW.md",
+    "awardClaim": false
+  }
+]

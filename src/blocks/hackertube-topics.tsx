@@ -36,7 +36,7 @@ export function HackerTubeTopics({
         <p>{m['hackertube.brand.topics_description']()}</p>
         <div className="ht-topics-mode">
           <Link
-            href="/topics"
+            href="/topics?view=directory"
             aria-current={view === 'directory' ? 'page' : false}
           >
             <List size={17} />

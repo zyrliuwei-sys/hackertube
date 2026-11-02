@@ -34,7 +34,7 @@ Implemented pages: homepage, topic directory, video details, guide, privacy/term
 sign-in and sign-up. Existing dashboards inherit the new semantic tokens and body
 font while keeping their configured sidebar/layout behavior.
 
-Local preview for this revision is `http://127.0.0.1:3010/zh`; the earlier port
+Local preview for this revision is `http://127.0.0.1:3010/`; the earlier port
 3001 overlaps with another local project, so this revision uses its own port.
 No production deployment or DNS changes were made.
 
@@ -53,3 +53,7 @@ Unknown video IDs return HTTP 404. No real login or payment transaction was sent
 
 Calculated sRGB contrast: primary button text 9.44:1 light / 9.79:1 dark; body
 15.91:1 / 15.36:1; muted body 6.22:1 / 7.49:1.
+
+## Quality iteration
+
+The current English-only revision adds a real-video editorial reel, the data-derived curiosity atlas and command search. See `docs/quality/REVIEW.md` for the three review passes, updated 8-test validation, accessibility checks and qualified lab performance results. The palette and mark stay consistent. Atlas edges mean shared video classifications, never shared people. Public controls have a 44px target floor.

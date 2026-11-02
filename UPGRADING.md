@@ -4,6 +4,15 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-02 — Cloudflare production and Git deployment
+
+`cloudflare/production.json` now records the public Worker/D1/domain settings.
+`pnpm cf:prepare` reconstructs gitignored working configuration in CI;
+`cf:deploy` invokes it automatically. Runtime secrets stay in Cloudflare.
+Drizzle migrations are now versioned so fresh checkouts retain migration history.
+Production schema changes still require review and explicit migration execution.
+See `docs/deployment/CLOUDFLARE.md`. Existing D1 records and administrator remain.
+
 ## 2026-11-02 — Discovery atlas and public experience quality
 
 Home now features real archive selections and an interactive atlas derived from

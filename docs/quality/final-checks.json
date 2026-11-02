@@ -21,7 +21,7 @@
     "modes": [
       {
         "text": "Topic directory",
-        "current": "page"
+        "current": "false"
       },
       {
         "text": "Curiosity atlas",
@@ -40,5 +40,8 @@
   },
   {
     "darkHome": []
+  },
+  {
+    "mobileMenu": true
   }
 ]

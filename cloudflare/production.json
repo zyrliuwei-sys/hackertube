@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "hackertube",
+  "account_id": "d7c3d8fa2229ed65b03fd28fc8659989",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "DATABASE_PROVIDER": "d1",
+    "VITE_APP_URL": "https://hacker-tube.com",
+    "VITE_APP_NAME": "HackerTube AI",
+    "VITE_APP_DESCRIPTION": "Discover Hacker News videos with HackerTube AI. Search 6,454 videos across programming, AI, science and more.",
+    "VITE_DEFAULT_LOCALE": "en"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "hackertube",
+      "database_id": "e086afad-c010-42a4-8d5f-a409a1b24a3e",
+      "migrations_dir": "drizzle",
+      "remote": true
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "hacker-tube.com",
+      "custom_domain": true
+    }
+  ],
+  "workers_dev": false
+}
