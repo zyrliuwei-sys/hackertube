@@ -1,0 +1,36 @@
+{
+  "name": "HackerTube AI",
+  "url": "https://hacker-tube.com",
+  "type": "video-directory",
+  "description": "An independent directory for discovering, searching, categorizing, and watching videos from the public HackerTube collection.",
+  "description_zh": "一个独立的视频导航站，用于聚合 HackerTube 公开合集、按分类浏览、搜索和在线播放视频。",
+  "features": [
+    "HackerTube video aggregation",
+    "Topic and category browsing",
+    "Keyword search",
+    "Embedded video playback",
+    "Usage guide and source context"
+  ],
+  "features_zh": [
+    "聚合 HackerTube 视频列表",
+    "按主题和分类浏览",
+    "关键词搜索",
+    "嵌入式在线播放",
+    "使用指南与来源说明"
+  ],
+  "guide": {
+    "path": "/guide",
+    "static_page": "/usage-guide"
+  },
+  "support": {
+    "email": "support@hacker-tube.com",
+    "mailto": "mailto:support@hacker-tube.com"
+  },
+  "source": {
+    "name": "HackerTube",
+    "url": "https://hackertube.org",
+    "license": "Open Data Commons Attribution License (ODC-By) v1.0",
+    "license_url": "https://opendatacommons.org/licenses/by/1-0/"
+  },
+  "locales": ["en", "zh"]
+}

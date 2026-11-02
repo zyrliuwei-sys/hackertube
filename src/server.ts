@@ -25,8 +25,13 @@ function ensureCloudflareEnv(): Promise<void> {
         (globalThis as any).__CF_ENV__ = mod.env;
         ensureDefaultUserAgent();
       })
-      .catch(() => {
-        // Not running on Cloudflare Workers — nothing to stash.
+      .catch(async () => {
+        // Vite runs in Node. Use the same D1 as production when remote: true
+        // is configured, including on machines behind an HTTP proxy.
+        if (import.meta.env.DEV && envConfigs.database_provider === 'd1') {
+          const { getDevD1Env } = await import('./core/db/d1-dev');
+          (globalThis as any).__CF_ENV__ = await getDevD1Env();
+        }
       });
   }
   return cfEnvPromise;
@@ -95,6 +100,11 @@ function withPoweredBy(response: Response): Response {
 // so getLocale() resolves per-request (AsyncLocalStorage) during SSR.
 export default {
   async fetch(req: Request): Promise<Response> {
+    const url = new URL(req.url);
+    if (url.pathname === '/zh' || url.pathname.startsWith('/zh/')) {
+      url.pathname = url.pathname.slice(3) || '/';
+      return Response.redirect(url, 308);
+    }
     await ensureCloudflareEnv();
     // Wrap the whole request so anything before/after the handler shares
     // the same db client too.

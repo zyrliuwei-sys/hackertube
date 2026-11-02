@@ -42,12 +42,16 @@ import { SandboxPreviewBridge } from '@/components/sandbox-preview-bridge';
 import { Toaster } from '@/components/ui/sonner';
 
 import '@fontsource-variable/inter';
+import '@fontsource-variable/manrope';
+import '@fontsource/dm-serif-display/400.css';
+import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource-variable/nunito';
 import '@fontsource-variable/source-serif-4';
-import '@fontsource/libre-baskerville/400.css';
-import '@fontsource/libre-baskerville/700.css';
-import '@fontsource/libre-baskerville/400-italic.css';
 import '@/styles/globals.css';
+import '@/styles/hackertube.css';
+import '@/styles/hackertube-editorial.css';
+import '@/styles/hackertube-pages.css';
+import '@/styles/hackertube-quality.css';
 
 // Analytics IDs live in the DB config (1h-cached service). Fetched via a
 // server function so drizzle/db code never reaches the client bundle.
@@ -146,7 +150,7 @@ export const Route = createRootRoute({
       ],
       links: [
         { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
-        { rel: 'apple-touch-icon', href: '/favicon.svg' },
+        { rel: 'apple-touch-icon', href: '/brand/app-icon.png' },
         ...locales.map((loc) => ({
           rel: 'alternate',
           hrefLang: loc,

@@ -1,6 +1,5 @@
 import { useRouter, useRouterState } from '@tanstack/react-router';
 
-import { tDynamic } from '@/core/i18n/dynamic';
 import {
   appearanceStyle,
   COLOR_MODES,
@@ -18,6 +17,7 @@ import {
   type ThemeId,
 } from '@/config/appearance';
 import { deleteCookie, setCookie } from '@/lib/cookie';
+import { m } from '@/paraglide/messages.js';
 import type { AppearanceOption } from '@/components/appearance-options';
 
 // Appearance (theme, font, size, sidebar), resolved server-side by the root
@@ -98,32 +98,32 @@ export function appearanceOptions(key: AppearanceKey): AppearanceOption[] {
   if (key === 'theme') {
     return THEMES.map((t) => ({
       id: t.id,
-      label: tDynamic(`common.themes.${t.id}`),
+      label: appearanceLabel(`common.themes.${t.id}`),
       swatch: t.swatch,
     }));
   }
   if (key === 'font') {
     return FONTS.map((f) => ({
       id: f.id,
-      label: tDynamic(`common.fonts.${f.id}`),
+      label: appearanceLabel(`common.fonts.${f.id}`),
       fontFamily: f.stack,
     }));
   }
   if (key === 'sidebarVariant') {
     return SIDEBAR_VARIANTS.map((v) => ({
       id: v.id,
-      label: tDynamic(`common.sidebar_variants.${v.id}`),
+      label: appearanceLabel(`common.sidebar_variants.${v.id}`),
     }));
   }
   if (key === 'sidebarCollapsible') {
     return SIDEBAR_COLLAPSIBLES.map((v) => ({
       id: v.id,
-      label: tDynamic(`common.sidebar_collapsibles.${v.id}`),
+      label: appearanceLabel(`common.sidebar_collapsibles.${v.id}`),
     }));
   }
   return FONT_SIZES.map((f) => ({
     id: f.id,
-    label: tDynamic(`common.font_sizes.${f.id}`),
+    label: appearanceLabel(`common.font_sizes.${f.id}`),
   }));
 }
 
@@ -131,6 +131,39 @@ export function appearanceOptions(key: AppearanceKey): AppearanceOption[] {
 export function colorModeOptions(): AppearanceOption[] {
   return COLOR_MODES.map((c) => ({
     id: c.id,
-    label: tDynamic(`common.color_modes.${c.id}`),
+    label: appearanceLabel(`common.color_modes.${c.id}`),
   }));
+}
+
+// Known appearance keys preserve all picker choices without importing every message.
+const appearanceLabels: Record<string, () => string> = {
+  'common.themes.site_default': m['common.themes.site_default'],
+  'common.themes.forest': m['common.themes.forest'],
+  'common.themes.ocean': m['common.themes.ocean'],
+  'common.themes.violet': m['common.themes.violet'],
+  'common.themes.sunset': m['common.themes.sunset'],
+  'common.themes.rose': m['common.themes.rose'],
+  'common.themes.slate': m['common.themes.slate'],
+  'common.font_sizes.sm': m['common.font_sizes.sm'],
+  'common.font_sizes.md': m['common.font_sizes.md'],
+  'common.font_sizes.lg': m['common.font_sizes.lg'],
+  'common.fonts.inter': m['common.fonts.inter'],
+  'common.fonts.system': m['common.fonts.system'],
+  'common.fonts.rounded': m['common.fonts.rounded'],
+  'common.fonts.serif': m['common.fonts.serif'],
+  'common.sidebar_variants.inset': m['common.sidebar_variants.inset'],
+  'common.sidebar_variants.floating': m['common.sidebar_variants.floating'],
+  'common.sidebar_variants.sidebar': m['common.sidebar_variants.sidebar'],
+  'common.sidebar_collapsibles.offcanvas':
+    m['common.sidebar_collapsibles.offcanvas'],
+  'common.sidebar_collapsibles.icon': m['common.sidebar_collapsibles.icon'],
+  'common.color_modes.system': m['common.color_modes.system'],
+  'common.color_modes.light': m['common.color_modes.light'],
+  'common.color_modes.dark': m['common.color_modes.dark'],
+  'common.themes.classic': m['common.themes.classic'],
+  'common.fonts.manrope': m['common.fonts.manrope'],
+};
+
+function appearanceLabel(key: string): string {
+  return appearanceLabels[key]?.() ?? key;
 }

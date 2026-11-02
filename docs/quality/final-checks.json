@@ -1,0 +1,44 @@
+[
+  {
+    "path": "/sign-in",
+    "width": 320,
+    "scrollWidth": 320,
+    "violations": [],
+    "modes": []
+  },
+  {
+    "path": "/sign-up",
+    "width": 320,
+    "scrollWidth": 320,
+    "violations": [],
+    "modes": []
+  },
+  {
+    "path": "/topics?view=map",
+    "width": 320,
+    "scrollWidth": 320,
+    "violations": [],
+    "modes": [
+      {
+        "text": "Topic directory",
+        "current": "page"
+      },
+      {
+        "text": "Curiosity atlas",
+        "current": "page"
+      }
+    ]
+  },
+  {
+    "emptySearch": "A little too far down this rabbit hole.Try a different search or explore another topic."
+  },
+  {
+    "errorSearch": "The video library couldn’t load. Please try again.Try again"
+  },
+  {
+    "retryRecovered": true
+  },
+  {
+    "darkHome": []
+  }
+]

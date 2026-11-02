@@ -1,0 +1,64 @@
+[
+  {
+    "path": "/",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 46
+  },
+  {
+    "path": "/topics",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 39
+  },
+  {
+    "path": "/topics?view=map",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 40
+  },
+  {
+    "path": "/guide",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 36
+  },
+  {
+    "path": "/watch/VMj-3S1tku0",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 38
+  },
+  {
+    "path": "/privacy-policy",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [],
+    "passes": 37
+  },
+  {
+    "path": "/sign-in",
+    "width": 375,
+    "scrollWidth": 375,
+    "h1": 1,
+    "violations": [
+      {
+        "id": "page-has-heading-one",
+        "impact": "moderate",
+        "targets": [["html"]]
+      }
+    ],
+    "passes": 36
+  }
+]

@@ -10,9 +10,10 @@ import { resolveAfterAuthUrl, safeInternalPath } from '@/lib/redirect';
 import { m } from '@/paraglide/messages.js';
 import { localizeHref } from '@/paraglide/runtime.js';
 import { usePublicConfig } from '@/hooks/use-public-config';
+import { HackerTubeAuthLayout } from '@/blocks/hackertube-auth-layout';
 import { TextField } from '@/components/form-field';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import {
   Field,
   FieldDescription,
@@ -132,16 +133,13 @@ function SignInPage() {
   }
 
   return (
-    <div className="bg-muted flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-      <div className="flex w-full max-w-sm flex-col gap-6">
-        <Link href="/" className="self-center font-serif text-lg italic">
-          {configs.app_name || envConfigs.app_name}
-        </Link>
+    <HackerTubeAuthLayout>
+      <div className="ht-auth-form">
         <Card>
           <CardHeader className="text-center">
-            <CardTitle className="text-xl">
+            <h1 data-slot="card-title" className="text-xl">
               {m['common.sign.sign_in_title']()}
-            </CardTitle>
+            </h1>
           </CardHeader>
           <CardContent>
             {configsLoaded && !hasAnyMethod ? (
@@ -309,7 +307,7 @@ function SignInPage() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </HackerTubeAuthLayout>
   );
 }
 

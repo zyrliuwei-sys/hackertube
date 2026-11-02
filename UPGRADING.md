@@ -4,6 +4,83 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-02 — Discovery atlas and public experience quality
+
+Home now features real archive selections and an interactive atlas derived from
+shared video classifications. `/topics?view=map` opens the atlas; the topic
+directory remains at `/topics`. Public navigation adds keyboard search (Cmd/Ctrl K
+or `/` outside text fields), with accessible results and focus restoration.
+Mobile controls have larger targets, public text is more readable, and auth pages
+now expose the visible form title as their H1. Local bookmarks retain the same key.
+
+Atlas payloads contain only displayed fields; bounded translation maps avoid
+loading all admin copy on public pages. Nitro builds now generate gzip/Brotli
+static assets; hosts must preserve the generated variants and content negotiation.
+See `docs/quality/REVIEW.md` for lab conditions and known limits. No schema,
+environment variable, payment or authorization change is required.
+
+## 2026-11-02 — English-only interface and simplified footer
+
+The site now supports only English. Language switches are removed, saved locale
+cookies no longer change the interface, and legacy `/zh` URLs redirect to the
+equivalent English URL. Rebuild to regenerate Paraglide and the English-only
+sitemap. The public footer no longer renders its copyright/ShipAny bottom bar.
+No database migration is required.
+
+## 2026-11-02 - HackerTube AI brand and public pages
+
+The public website now uses the editorial archive identity: pine/graphite tokens,
+DM Serif Display headings, Manrope interface type and IBM Plex Mono metadata.
+Manrope is a new font preset and the code default; previously saved font choices
+retain their meaning. Admin-configured appearance remains supported.
+
+New public routes: `/topics`, `/guide` and `/watch/<YouTube ID>`. Topic/category
+links populate the homepage URL filters; `?collection=saved` opens the existing
+browser-local collection. Header/footer, login/signup and legal shells share the
+new visual system. Bookmarks retain the existing localStorage key and synchronize
+between page components. No database migration or new API credential is needed.
+
+Vector marks, wordmarks, the social cover and design tokens are in `public/brand/`;
+see `/brand/brand-board.html` and `docs/brand/BRAND.md` for usage.
+
+## 2026-11-02 - HackerTube AI video discovery
+
+The demo homepage is replaced with the HackerTube AI catalog at `hacker-tube.com`.
+Set `VITE_APP_NAME=HackerTube AI`, `VITE_APP_URL=https://hacker-tube.com` and a
+product description in each deployment environment. The default color mode is
+now light, with a neutral palette, Lato body and Space Grotesk display type.
+The homepage also includes localized HackerTube discovery copy, a visible usage
+guide and native FAQ disclosures; its title and description now target the
+HackerTube / Hacker News video discovery intent. No new environment variables
+are needed for this content update.
+
+The existing authentication, admin, payments and database settings are retained;
+the catalog needs no schema migration or YouTube API key.
+
+`/api/videos` searches a bundled snapshot of 6,454 videos and 150 topics.
+Refresh it with `node scripts/import-hackertube.mjs --thumbnails`, then rebuild.
+See `docs/research/DATA_SOURCE.md` for source, attribution and metadata limits.
+Browser bookmarks are local to each device and do not sync to user accounts.
+Playback requires access to YouTube and can be restricted by the uploader or region.
+
+## 2026-11-02 — Local development against remote D1
+
+With `DATABASE_PROVIDER=d1`, the Vite server now loads the `DB` binding through
+Wrangler. To share the cloud database with production, set `account_id` and
+`remote: true` on the D1 binding in `wrangler.jsonc`, authenticate with `wrangler login`, and leave
+`DATABASE_URL` empty in `.env.development`. Restart the dev server after switching.
+Both environments then read and write the same data, including admin settings.
+Keep `CONFIG_ENCRYPTION_KEY` identical in both environments.
+Local remote queries use D1's official REST API with Wrangler's saved login,
+including OAuth refresh, so they also work behind an HTTP proxy. Production
+continues using the native D1 binding. Batch writes remain one atomic request.
+
+For D1, `pnpm db:generate` still generates SQLite migrations, but Drizzle no
+longer falls back to `data/local.db`. Apply migrations with
+`pnpm exec wrangler d1 migrations apply <database_name> --remote`; review
+production migrations before applying them. Existing SQLite projects keep
+their current behavior.
+
 ## How to upgrade (every time)
 
 1. **Find the baseline.** The last template commit the project took. Check

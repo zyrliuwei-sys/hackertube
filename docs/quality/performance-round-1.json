@@ -1,0 +1,188 @@
+[
+  {
+    "mobile": false,
+    "profile": "local unthrottled; cache disabled",
+    "metrics": {
+      "lcp": 168,
+      "cls": 0.000051680725265105236,
+      "longTasks": 0,
+      "largestTask": 0,
+      "clsWindow": 0.000051680725265105236,
+      "clsStart": 0,
+      "clsLast": 131.29999999701977
+    },
+    "navigation": [
+      {
+        "ttfb": 18.399999998509884,
+        "domInteractive": 102.39999999850988,
+        "load": 142.5,
+        "htmlBytes": 134705
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 132
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 132
+      }
+    ],
+    "resources": [
+      {
+        "name": "/assets/index-CH98Y8fJ.js",
+        "bytes": 416995,
+        "duration": 32.79999999701977
+      },
+      {
+        "name": "/assets/index-BP8SO1jq.css",
+        "bytes": 214394,
+        "duration": 30.799999997019768
+      },
+      {
+        "name": "/assets/dynamic-DquPf7Ba.js",
+        "bytes": 148065,
+        "duration": 46
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 83508,
+        "duration": 71.10000000149012
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 59898,
+        "duration": 39.19999999552965
+      },
+      {
+        "name": "/assets/useOpenInteractionType-C9qfKzoz.js",
+        "bytes": 44787,
+        "duration": 89.10000000149012
+      },
+      {
+        "name": "/assets/createServerFn-DhfZSIi_.js",
+        "bytes": 36753,
+        "duration": 38.5
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 12.599999994039536
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 12.800000004470348
+      },
+      {
+        "name": "/assets/api-client-e8_5YPyU.js",
+        "bytes": 24016,
+        "duration": 70
+      },
+      {
+        "name": "/assets/routes-DnbdzQbt.js",
+        "bytes": 18742,
+        "duration": 79.10000000149012
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 12.700000002980232
+      }
+    ]
+  },
+  {
+    "mobile": true,
+    "profile": "150 ms latency; 1.6 Mbps down; 4x CPU; cache disabled",
+    "metrics": {
+      "lcp": 4976,
+      "cls": 0.000037998611111111115,
+      "longTasks": 129,
+      "largestTask": 75,
+      "clsWindow": 0.000037998611111111115,
+      "clsStart": 5794.29999999702,
+      "clsLast": 5794.29999999702
+    },
+    "navigation": [
+      {
+        "ttfb": 19.399999998509884,
+        "domInteractive": 4958.79999999702,
+        "load": 7808.79999999702,
+        "htmlBytes": 134705
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 4908
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 4908
+      }
+    ],
+    "resources": [
+      {
+        "name": "/assets/index-CH98Y8fJ.js",
+        "bytes": 416995,
+        "duration": 7574.20000000298
+      },
+      {
+        "name": "/assets/index-BP8SO1jq.css",
+        "bytes": 214394,
+        "duration": 4670.5
+      },
+      {
+        "name": "/assets/dynamic-DquPf7Ba.js",
+        "bytes": 148065,
+        "duration": 5164.89999999851
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 83508,
+        "duration": 6893
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 59898,
+        "duration": 2419.6999999955297
+      },
+      {
+        "name": "/assets/useOpenInteractionType-C9qfKzoz.js",
+        "bytes": 44787,
+        "duration": 7019
+      },
+      {
+        "name": "/assets/createServerFn-DhfZSIi_.js",
+        "bytes": 36753,
+        "duration": 1737.1999999955297
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 856.8000000044703
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 917.3000000044703
+      },
+      {
+        "name": "/assets/api-client-e8_5YPyU.js",
+        "bytes": 24016,
+        "duration": 5166.79999999702
+      },
+      {
+        "name": "/assets/routes-DnbdzQbt.js",
+        "bytes": 18742,
+        "duration": 6052.29999999702
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 641.5
+      }
+    ]
+  }
+]

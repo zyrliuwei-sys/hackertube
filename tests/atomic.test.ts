@@ -66,6 +66,7 @@ if (useD1) {
   const proxy = await getPlatformProxy<{ DB: any }>({
     configPath: 'wrangler.jsonc',
     persist: { path: join(directory, 'd1') },
+    remoteBindings: false,
   });
   for (const statement of ddl) await proxy.env.DB.prepare(statement).run();
   (globalThis as any).__CF_ENV__ = proxy.env;
@@ -128,21 +129,19 @@ async function grantCredits(userId: string, credits: number) {
 }
 async function createdOrder(userId: string, creditsAmount = 100) {
   const orderNo = id('ORD');
-  await db()
-    .insert(schema.order)
-    .values({
-      id: orderNo,
-      orderNo,
-      userId,
-      status: 'created',
-      amount: 500,
-      currency: 'usd',
-      paymentProvider: 'stripe',
-      paymentSessionId: orderNo,
-      checkoutInfo: '{}',
-      paymentType: 'one-time',
-      creditsAmount,
-    });
+  await db().insert(schema.order).values({
+    id: orderNo,
+    orderNo,
+    userId,
+    status: 'created',
+    amount: 500,
+    currency: 'usd',
+    paymentProvider: 'stripe',
+    paymentSessionId: orderNo,
+    checkoutInfo: '{}',
+    paymentType: 'one-time',
+    creditsAmount,
+  });
   const [row] = await db()
     .select()
     .from(schema.order)
@@ -191,18 +190,16 @@ for (const mode of MODES) {
           .update(schema.order)
           .set({ status: 'paid' })
           .where(eq(schema.order.id, order.id)),
-        q
-          .insert(schema.credit)
-          .values({
-            id: dupId,
-            userId: u,
-            transactionNo: id('t'),
-            transactionType: 'grant',
-            transactionScene: 'gift',
-            credits: 1,
-            remainingCredits: 1,
-            status: 'active',
-          }),
+        q.insert(schema.credit).values({
+          id: dupId,
+          userId: u,
+          transactionNo: id('t'),
+          transactionType: 'grant',
+          transactionScene: 'gift',
+          credits: 1,
+          remainingCredits: 1,
+          status: 'active',
+        }),
       ])
     );
     const [row] = await db()

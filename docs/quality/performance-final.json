@@ -1,0 +1,374 @@
+[
+  {
+    "mobile": false,
+    "profile": "local unthrottled; cache disabled",
+    "metrics": {
+      "lcp": 4224,
+      "cls": 0.00009233401786479767,
+      "longTasks": 0,
+      "largestTask": 0,
+      "clsWindow": 0.00009233401786479767,
+      "clsStart": 4229.89999999851,
+      "clsLast": 4229.89999999851
+    },
+    "navigation": [
+      {
+        "ttfb": 4117.29999999702,
+        "domInteractive": 4218.39999999851,
+        "load": 4254.39999999851,
+        "htmlBytes": 112594
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 4224
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 4224
+      }
+    ],
+    "resources": [
+      {
+        "name": "/imgs/hackertube/intelligence.jpg",
+        "bytes": 136355,
+        "duration": 8.100000001490116
+      },
+      {
+        "name": "/assets/index-BzcasMaJ.js",
+        "bytes": 112237,
+        "duration": 33.5
+      },
+      {
+        "name": "/imgs/hackertube/computing.jpg",
+        "bytes": 107657,
+        "duration": 7.5
+      },
+      {
+        "name": "/imgs/hackertube/science.jpg",
+        "bytes": 81057,
+        "duration": 7.600000001490116
+      },
+      {
+        "name": "/assets/index-DFj0gNxd.css",
+        "bytes": 31230,
+        "duration": 29.5
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 4.700000002980232
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 4.799999997019768
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 21006,
+        "duration": 43.100000001490116
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 19203,
+        "duration": 34.899999998509884
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 4.699999995529652
+      },
+      {
+        "name": "/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2",
+        "bytes": 14500,
+        "duration": 2.100000001490116
+      },
+      {
+        "name": "/assets/useOpenInteractionType-Cl1BThPM.js",
+        "bytes": 13928,
+        "duration": 48.600000001490116
+      }
+    ]
+  },
+  {
+    "mobile": true,
+    "profile": "150 ms latency; 1.6 Mbps down; 4x CPU; cache disabled",
+    "metrics": {
+      "lcp": 1108,
+      "cls": 0.000037998611111111115,
+      "longTasks": 127,
+      "largestTask": 72,
+      "clsWindow": 0.000037998611111111115,
+      "clsStart": 2060.89999999851,
+      "clsLast": 2060.89999999851
+    },
+    "navigation": [
+      {
+        "ttfb": 27.5,
+        "domInteractive": 2133.5,
+        "load": 2763.2999999970198,
+        "htmlBytes": 112594
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1108
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1108
+      }
+    ],
+    "resources": [
+      {
+        "name": "/assets/index-BzcasMaJ.js",
+        "bytes": 112237,
+        "duration": 2194.89999999851
+      },
+      {
+        "name": "/assets/index-DFj0gNxd.css",
+        "bytes": 31230,
+        "duration": 822.3999999985099
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 974.5
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 995.8999999985099
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 21006,
+        "duration": 2553.7000000029802
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 19203,
+        "duration": 1286.5999999940395
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 831.2999999970198
+      },
+      {
+        "name": "/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2",
+        "bytes": 14500,
+        "duration": 975.3000000044703
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/NGFhc8R_uO4.jpg",
+        "bytes": 11593,
+        "duration": 606.5
+      },
+      {
+        "name": "/assets/createServerFn-DhfZSIi_.js",
+        "bytes": 10629,
+        "duration": 1077.5
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/aMcJ1Jvtef0.jpg",
+        "bytes": 10353,
+        "duration": 695
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/PUv66718DII.jpg",
+        "bytes": 9673,
+        "duration": 358.6000000014901
+      }
+    ]
+  },
+  {
+    "mobile": true,
+    "profile": "150 ms latency; 1.6 Mbps down; 4x CPU; cache disabled",
+    "metrics": {
+      "lcp": 1104,
+      "cls": 0.000037998611111111115,
+      "longTasks": 71,
+      "largestTask": 71,
+      "clsWindow": 0.000037998611111111115,
+      "clsStart": 2061,
+      "clsLast": 2061
+    },
+    "navigation": [
+      {
+        "ttfb": 24.299999997019768,
+        "domInteractive": 2100.2000000029802,
+        "load": 2767,
+        "htmlBytes": 112594
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1104
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1104
+      }
+    ],
+    "resources": [
+      {
+        "name": "/assets/index-BzcasMaJ.js",
+        "bytes": 112237,
+        "duration": 2215.5
+      },
+      {
+        "name": "/assets/index-DFj0gNxd.css",
+        "bytes": 31230,
+        "duration": 824.1999999955297
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 959.7000000029802
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 1010.1000000014901
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 21006,
+        "duration": 2551.39999999851
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 19203,
+        "duration": 1270.1000000014901
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 748.1999999955297
+      },
+      {
+        "name": "/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2",
+        "bytes": 14500,
+        "duration": 971.3999999985099
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/NGFhc8R_uO4.jpg",
+        "bytes": 11593,
+        "duration": 614
+      },
+      {
+        "name": "/assets/createServerFn-DhfZSIi_.js",
+        "bytes": 10629,
+        "duration": 1068.7000000029802
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/aMcJ1Jvtef0.jpg",
+        "bytes": 10353,
+        "duration": 703.5999999940395
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/PUv66718DII.jpg",
+        "bytes": 9673,
+        "duration": 359.6000000014901
+      }
+    ]
+  },
+  {
+    "mobile": true,
+    "profile": "150 ms latency; 1.6 Mbps down; 4x CPU; cache disabled",
+    "metrics": {
+      "lcp": 1104,
+      "cls": 0.000037998611111111115,
+      "longTasks": 133,
+      "largestTask": 83,
+      "clsWindow": 0.000037998611111111115,
+      "clsStart": 2053,
+      "clsLast": 2053
+    },
+    "navigation": [
+      {
+        "ttfb": 19.099999994039536,
+        "domInteractive": 2098.39999999851,
+        "load": 2795,
+        "htmlBytes": 112594
+      }
+    ],
+    "paint": [
+      {
+        "name": "first-paint",
+        "time": 1104
+      },
+      {
+        "name": "first-contentful-paint",
+        "time": 1104
+      }
+    ],
+    "resources": [
+      {
+        "name": "/assets/index-BzcasMaJ.js",
+        "bytes": 112237,
+        "duration": 2233.60000000149
+      },
+      {
+        "name": "/assets/index-DFj0gNxd.css",
+        "bytes": 31230,
+        "duration": 826.6000000014901
+      },
+      {
+        "name": "/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "bytes": 24836,
+        "duration": 948.1999999955297
+      },
+      {
+        "name": "/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "bytes": 24744,
+        "duration": 1015.2000000029802
+      },
+      {
+        "name": "/assets/schemas-bFCerqc-.js",
+        "bytes": 21006,
+        "duration": 2575.2999999970198
+      },
+      {
+        "name": "/assets/useMatch-CEdXI8N2.js",
+        "bytes": 19203,
+        "duration": 1264.0999999940395
+      },
+      {
+        "name": "/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "bytes": 14708,
+        "duration": 745.3999999985099
+      },
+      {
+        "name": "/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2",
+        "bytes": 14500,
+        "duration": 968
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/NGFhc8R_uO4.jpg",
+        "bytes": 11593,
+        "duration": 594.7000000029802
+      },
+      {
+        "name": "/assets/createServerFn-DhfZSIi_.js",
+        "bytes": 10629,
+        "duration": 1063
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/aMcJ1Jvtef0.jpg",
+        "bytes": 10353,
+        "duration": 699.3999999985099
+      },
+      {
+        "name": "/imgs/hackertube/thumbs/PUv66718DII.jpg",
+        "bytes": 9673,
+        "duration": 362.6000000014901
+      }
+    ]
+  }
+]

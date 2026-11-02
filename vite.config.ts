@@ -1,5 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
 import { tanstackStart } from '@tanstack/react-start/plugin/vite';
 import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import mdx from '@mdx-js/rollup';
@@ -25,8 +26,9 @@ loadEnvFiles();
 const isCloudflareBuild = (process.env.NITRO_PRESET || '').includes(
   'cloudflare'
 );
-const driverStub = new URL('./src/core/db/driver-stub.ts', import.meta.url)
-  .pathname;
+const driverStub = fileURLToPath(
+  new URL('./src/core/db/driver-stub.ts', import.meta.url)
+);
 
 // Prefer wrangler.jsonc over the build-time env, which can be polluted by
 // .env.local (e.g. DATABASE_PROVIDER=sqlite for local dev).
@@ -97,38 +99,15 @@ export default defineConfig({
       outdir: './src/paraglide',
       outputStructure: 'message-modules',
       cookieName: 'PARAGLIDE_LOCALE',
-      strategy: ['url', 'cookie', 'baseLocale'],
-      urlPatterns: [
-        // API endpoints are never locale-prefixed.
-        {
-          pattern: '/api/:path(.*)?',
-          localized: [
-            ['en', '/api/:path(.*)?'],
-            ['zh', '/api/:path(.*)?'],
-          ],
-        },
-        // Bare locale homes match without a trailing-slash redirect.
-        {
-          pattern: '/',
-          localized: [
-            ['zh', '/zh'],
-            ['en', '/'],
-          ],
-        },
-        // "as-needed" prefix: zh under /zh, en (default) unprefixed.
-        {
-          pattern: '/:path(.*)?',
-          localized: [
-            ['zh', '/zh/:path(.*)?'],
-            ['en', '/:path(.*)?'],
-          ],
-        },
-      ],
+      strategy: ['baseLocale'],
     }),
     tanstackStart({
       srcDirectory: 'src',
     }),
     viteReact(),
-    nitro(),
+    nitro({
+      // Ship compressed public assets for standalone Node as well as CDN hosting.
+      compressPublicAssets: { gzip: true, brotli: true },
+    }),
   ],
 });

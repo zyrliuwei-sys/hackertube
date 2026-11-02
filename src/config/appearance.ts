@@ -28,6 +28,7 @@ export const THEMES = [
 
 export const FONTS = [
   // Matches :root --font-sans in globals.css.
+  { id: 'manrope', stack: "'Manrope Variable', 'PingFang SC', sans-serif" },
   { id: 'inter', stack: "'Inter Variable', 'Inter', sans-serif" },
   {
     id: 'system',
@@ -79,7 +80,7 @@ export const COLOR_MODES = [
 ] as const;
 export type ColorModeId = (typeof COLOR_MODES)[number]['id'];
 export const COLOR_MODE_CONFIG_KEY = 'app_color_mode';
-export const DEFAULT_COLOR_MODE: ColorModeId = 'system';
+export const DEFAULT_COLOR_MODE: ColorModeId = 'light';
 
 export function isColorMode(value: unknown): value is ColorModeId {
   return typeof value === 'string' && COLOR_MODES.some((m) => m.id === value);
@@ -102,7 +103,7 @@ export type AppearanceKey = keyof Appearance;
 
 export const DEFAULT_APPEARANCE: Appearance = {
   theme: 'classic',
-  font: 'inter',
+  font: 'manrope',
   fontSize: 'md',
   sidebarVariant: 'inset',
   sidebarCollapsible: 'offcanvas',

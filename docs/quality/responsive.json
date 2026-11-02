@@ -1,0 +1,162 @@
+[
+  {
+    "width": 320,
+    "scrollWidth": 320,
+    "header": [
+      {
+        "label": "HackerTube AI",
+        "width": 159.4296875,
+        "height": 44
+      },
+      {
+        "label": "My collection",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "Open navigation",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "width": 375,
+    "scrollWidth": 375,
+    "header": [
+      {
+        "label": "HackerTube AI",
+        "width": 159.4296875,
+        "height": 44
+      },
+      {
+        "label": "My collection",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "Open navigation",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "width": 414,
+    "scrollWidth": 414,
+    "header": [
+      {
+        "label": "HackerTube AI",
+        "width": 159.4296875,
+        "height": 44
+      },
+      {
+        "label": "My collection",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "Open navigation",
+        "width": 44,
+        "height": 44
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "width": 768,
+    "scrollWidth": 768,
+    "header": [
+      {
+        "label": "HackerTube AI",
+        "width": 171.78125,
+        "height": 44
+      },
+      {
+        "label": "Explore videos",
+        "width": 76.15625,
+        "height": 76.5
+      },
+      {
+        "label": "Browse topics",
+        "width": 73.453125,
+        "height": 76.5
+      },
+      {
+        "label": "Collections",
+        "width": 60.296875,
+        "height": 76.5
+      },
+      {
+        "label": "How it works",
+        "width": 65.921875,
+        "height": 76.5
+      },
+      {
+        "label": "Search the archive",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "Toggle theme",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "My collection",
+        "width": 58.40625,
+        "height": 44
+      }
+    ],
+    "overflow": []
+  },
+  {
+    "width": 1440,
+    "scrollWidth": 1440,
+    "header": [
+      {
+        "label": "HackerTube AI",
+        "width": 186.1328125,
+        "height": 44
+      },
+      {
+        "label": "Explore videos",
+        "width": 83.078125,
+        "height": 78
+      },
+      {
+        "label": "Browse topics",
+        "width": 80.1328125,
+        "height": 78
+      },
+      {
+        "label": "Collections",
+        "width": 65.78125,
+        "height": 78
+      },
+      {
+        "label": "How it works",
+        "width": 71.9140625,
+        "height": 78
+      },
+      {
+        "label": "Search the archive",
+        "width": 125.3359375,
+        "height": 44
+      },
+      {
+        "label": "Toggle theme",
+        "width": 44,
+        "height": 44
+      },
+      {
+        "label": "My collection",
+        "width": 146.4453125,
+        "height": 44
+      }
+    ],
+    "overflow": []
+  }
+]

@@ -1,59 +1,77 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { createServerFn } from '@tanstack/react-start';
 
 import { envConfigs } from '@/config';
 import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
-import { Blog } from '@/blocks/blog';
-import { CTA } from '@/blocks/cta';
-import { FAQ } from '@/blocks/faq';
-import { Features } from '@/blocks/features';
-import { Footer } from '@/blocks/footer';
-import { Header } from '@/blocks/header';
-import { Hero } from '@/blocks/hero';
-import { Pricing } from '@/blocks/pricing';
-import { SupportWidget } from '@/blocks/support-widget';
-import { getBlogPostsFn } from '@/content/posts/server';
+import { HackerTube } from '@/blocks/hackertube';
 
-/**
- * Default landing page — demo content. Rewrite this file (and the blocks in
- * src/blocks/) for your project. The primitives in src/components/ stay.
- * See /quick-start or /clone-website to automate the rewrite.
- */
+import '@/styles/hackertube.css';
+import '@/styles/hackertube-editorial.css';
+
+const getInitialCatalog = createServerFn()
+  .validator((data: { q?: string; area?: string; category?: string }) => data)
+  .handler(async ({ data }) => {
+    const { listVideos, getDiscoveryAtlas } =
+      await import('@/modules/video-catalog/service');
+    return {
+      catalog: listVideos({ ...data, pageSize: 12 }),
+      atlas: getDiscoveryAtlas(),
+    };
+  });
+
 function HomePage() {
-  const { posts } = Route.useLoaderData();
-
+  const { catalog, atlas } = Route.useLoaderData();
+  const filters = Route.useSearch();
   return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <Header />
-      <main>
-        <Hero />
-        <Features />
-        <Pricing />
-        <FAQ />
-        <Blog posts={posts} />
-        <CTA />
-      </main>
-      <Footer />
-      <SupportWidget />
-    </div>
+    <HackerTube
+      key={JSON.stringify(filters)}
+      initialCatalog={catalog}
+      atlas={atlas}
+      initialFilters={filters}
+    />
   );
 }
 
 export const Route = createFileRoute('/')({
-  loader: async () => {
-    const locale = getLocale();
-    const posts = await getBlogPostsFn({ data: { locale, limit: 3 } });
-    return { locale, posts };
-  },
+  validateSearch: (search: Record<string, unknown>) => ({
+    q: typeof search.q === 'string' ? search.q.slice(0, 200) : undefined,
+    area:
+      typeof search.area === 'string' && /^[a-z0-9-]{1,100}$/.test(search.area)
+        ? search.area
+        : undefined,
+    category:
+      typeof search.category === 'string' &&
+      /^[a-z0-9-]{1,100}$/.test(search.category)
+        ? search.category
+        : undefined,
+    collection: search.collection === 'saved' ? 'saved' : undefined,
+  }),
+  loaderDeps: ({ search }) => search,
+  loader: async ({ deps }) => ({
+    locale: getLocale(),
+    ...(await getInitialCatalog({
+      data: { q: deps.q, area: deps.area, category: deps.category },
+    })),
+  }),
   head: ({ loaderData }) => {
     const locale = loaderData?.locale ?? 'en';
-    const urlFor = (loc: string) =>
-      localizeUrl(`${envConfigs.app_url}/`, { locale: loc as any }).href;
+    const title = m['hackertube.metadata.title']({}, { locale });
+    const description = m['hackertube.metadata.description']({}, { locale });
+    const urlFor = (loc: (typeof locales)[number]) =>
+      localizeUrl(`${envConfigs.app_url}/`, { locale: loc }).href;
     return {
       meta: [
+        { title },
+        { name: 'description', content: description },
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { property: 'og:url', content: urlFor(locale) },
         {
-          name: 'description',
-          content: m['landing.hero.subheadline']({}, { locale: locale as any }),
+          property: 'og:image',
+          content: `${envConfigs.app_url}/brand/social-card.png`,
         },
       ],
       links: [

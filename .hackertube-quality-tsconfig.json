@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["src/**/*.ts", "src/**/*.tsx", "tests/video-catalog.test.ts"],
+  "exclude": ["node_modules", "data", ".output", ".nitro", ".tanstack"]
+}

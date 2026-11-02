@@ -24,8 +24,9 @@ function getD1Binding(): D1Database {
   const binding = env?.DB;
   if (!binding) {
     throw new Error(
-      'D1 binding "DB" not found. DATABASE_PROVIDER=d1 only works on Cloudflare Workers ' +
-        'with a d1_databases binding named "DB" in wrangler.jsonc.'
+      'D1 binding "DB" not found. Configure a d1_databases binding named "DB" ' +
+        'in wrangler.jsonc. For local Vite development, sign in with wrangler login ' +
+        'and set remote: true on that binding to use the cloud database.'
     );
   }
   return binding as D1Database;

@@ -1,0 +1,17 @@
+{
+  "name": "HackerTube",
+  "url": "https://hackertube.org",
+  "exportUrl": "https://hackertube.org/download/hackertube-data.zip",
+  "generated": "2026-10-31",
+  "videos": 6454,
+  "mentions": 39834,
+  "categories": 150,
+  "areas": 16,
+  "license": "Open Data Commons Attribution License (ODC-By) v1.0",
+  "licenseUrl": "https://opendatacommons.org/licenses/by/1-0/",
+  "upstreamDataset": "https://huggingface.co/datasets/open-index/hacker-news",
+  "originalAuthor": "Andrej Karpathy",
+  "originalArticle": "https://karpathy.bearblog.dev/hacker-tube/",
+  "videosSha256": "4a63125d00076015eb04edf0eb65f9524410bb60f88c3b67d61e767a19389b1e",
+  "taxonomySha256": "40de4c333ced8ecbbf6067d97ce5f3aa111d22ab45d34a229cf85b28c476f00c"
+}
