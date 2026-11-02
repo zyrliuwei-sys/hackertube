@@ -41,6 +41,11 @@ export const VIDEO_CONTENT_TYPES = [
   ...new Set(videos.map((video) => video.contentType)),
 ].sort();
 
+/** Public watch pages in this snapshot; used for crawler discovery. */
+export function listVideoIds(): string[] {
+  return videos.map((video) => video.id);
+}
+
 let discoveryCache: DiscoveryAtlas | undefined;
 
 /** Derived only from the public snapshot. No behavioral or similarity claims. */

@@ -6,13 +6,15 @@ import { getLocalPosts, mergePosts } from '@/content/posts';
 
 const STATIC_PATHS = [
   '',
-  '/pricing',
   '/topics',
   '/guide',
-  '/blog',
   '/privacy-policy',
   '/terms-of-service',
 ];
+
+const DEMO_POST_SLUGS = new Set(['blocks-vs-components', 'what-is-shipany']);
+const publicLocalPosts = () =>
+  getLocalPosts(baseLocale).filter((post) => !DEMO_POST_SLUGS.has(post.slug));
 
 type Entry = {
   path: string;
@@ -57,6 +59,16 @@ export const Route = createFileRoute('/sitemap.xml')({
           priority: path === '' ? 1 : 0.8,
         }));
 
+        const { listVideoIds } =
+          await import('@/modules/video-catalog/service');
+        entries.push(
+          ...listVideoIds().map((id) => ({
+            path: `/watch/${id}`,
+            changeFrequency: 'monthly',
+            priority: 0.6,
+          }))
+        );
+
         // Blog posts: db posts merged with local MDX posts.
         try {
           const { listPublishedArticles } =
@@ -69,7 +81,7 @@ export const Route = createFileRoute('/sitemap.xml')({
             createdAt: new Date(row.createdAt).toISOString(),
             source: 'db' as const,
           }));
-          const posts = mergePosts(dbPosts, getLocalPosts(baseLocale));
+          const posts = mergePosts(dbPosts, publicLocalPosts());
           for (const post of posts) {
             entries.push({
               path: `/blog/${post.slug}`,
@@ -80,7 +92,7 @@ export const Route = createFileRoute('/sitemap.xml')({
           }
         } catch {
           // Database unreachable — static paths + local posts still listed.
-          for (const post of getLocalPosts(baseLocale)) {
+          for (const post of publicLocalPosts()) {
             entries.push({
               path: `/blog/${post.slug}`,
               lastModified: post.createdAt,

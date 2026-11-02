@@ -4,6 +4,14 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-02 — Search-engine discovery sitemap
+
+The public sitemap now includes all 6,454 watch pages plus the public product and
+legal pages. Template pricing and demo article URLs are excluded from submission;
+real published articles remain eligible. Video last-modified dates are omitted
+because the source snapshot does not provide page modification dates. No database
+change is required; the existing `/sitemap.xml` and robots declaration remain.
+
 ## 2026-11-02 — Cloudflare production and Git deployment
 
 `cloudflare/production.json` now records the public Worker/D1/domain settings.
