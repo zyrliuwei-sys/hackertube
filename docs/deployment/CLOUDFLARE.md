@@ -16,7 +16,7 @@ Workers holds `AUTH_SECRET` and `CONFIG_ENCRYPTION_KEY` as encrypted runtime
 secrets; never put their values in the public config or GitHub. Keep the encryption
 key stable. Provider keys can be configured in the existing admin settings.
 
-Cloudflare Workers Builds is intended to connect this repository's `main` branch.
+Cloudflare Workers Builds is connected to this repository's `main` branch.
 Build command: `pnpm cf:prepare && node --import tsx --test tests/video-catalog.test.ts`.
 Deploy command: `pnpm cf:deploy`.
 Node version: `24.14.0`; pnpm `11.15.1`. Production branches only, no preview
@@ -32,3 +32,14 @@ enabling file upload features.
 
 Rollback through Cloudflare's deployment history; do not rotate secrets during a
 normal code release. Manual release command: `pnpm cf:deploy`.
+
+## Connected resources
+
+- Native build trigger: `c4ab27f2-3bd4-44e7-be6e-d49a1d9802f9`.
+- Git repository connection: `9b9734fe-9d09-48be-8ab9-2d9d2ef98fa5`.
+- Dedicated build credential: `hackertube build token`, managed by Cloudflare.
+- Build variable `PNPM_VERSION=11.15.1`; build cache enabled; previews disabled.
+- Initial production release: `b85b003c-7fc9-4b55-a169-8a99ffebbd63`.
+- Runtime secrets and D1 binding were confirmed on the live Worker.
+
+The next commit exercises the Git push trigger rather than a local redeploy.
