@@ -5,6 +5,7 @@ import { ArrowUpRight, Bookmark, MessageSquare, Play } from 'lucide-react';
 import { Link } from '@/core/i18n/navigation';
 
 interface VideoCardProps {
+  href?: string;
   video: Video;
   saved: boolean;
   playLabel: string;
@@ -17,6 +18,7 @@ interface VideoCardProps {
 }
 
 export function VideoCard({
+  href,
   video,
   saved,
   playLabel,
@@ -31,9 +33,25 @@ export function VideoCard({
   return (
     <article className="ht-video-card">
       <div className="ht-video-frame">
-        <button
+        <Link
           className="ht-video-open"
-          onClick={onPlay}
+          href={href ?? `/watch/${video.id}`}
+          onClick={
+            href
+              ? undefined
+              : (event) => {
+                  if (
+                    event.button === 0 &&
+                    !event.metaKey &&
+                    !event.ctrlKey &&
+                    !event.shiftKey &&
+                    !event.altKey
+                  ) {
+                    event.preventDefault();
+                    onPlay();
+                  }
+                }
+          }
           aria-label={playLabel}
         >
           {!imageFailed ? (
@@ -60,7 +78,7 @@ export function VideoCard({
           <span className="ht-play">
             <Play size={21} fill="currentColor" strokeWidth={1.5} />
           </span>
-        </button>
+        </Link>
         <button
           className={`ht-bookmark ${saved ? 'is-saved' : ''}`}
           onClick={onSave}

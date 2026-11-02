@@ -2,6 +2,7 @@ import { createServerFn } from '@tanstack/react-start';
 
 import {
   getLocalPosts,
+  isDemoBlogSlug,
   loadLocalPost,
   mergePosts,
   type BlogPost,
@@ -15,17 +16,19 @@ async function getDbPosts(): Promise<BlogPost[]> {
   try {
     const { listPublishedArticles } = await import('@/modules/posts/service');
     const rows = await listPublishedArticles();
-    return rows.map((row) => ({
-      slug: row.slug,
-      title: row.title || row.slug,
-      description: row.description || '',
-      image: row.image || undefined,
-      createdAt: new Date(row.createdAt).toISOString(),
-      authorName: row.authorName || undefined,
-      authorImage: row.authorImage || undefined,
-      source: 'db' as const,
-      sponsored: row.type === 'guest',
-    }));
+    return rows
+      .filter((row) => !isDemoBlogSlug(row.slug))
+      .map((row) => ({
+        slug: row.slug,
+        title: row.title || row.slug,
+        description: row.description || '',
+        image: row.image || undefined,
+        createdAt: new Date(row.createdAt).toISOString(),
+        authorName: row.authorName || undefined,
+        authorImage: row.authorImage || undefined,
+        source: 'db' as const,
+        sponsored: row.type === 'guest',
+      }));
   } catch {
     // Database not configured/reachable — local posts still render.
     return [];
@@ -53,6 +56,7 @@ export const getBlogPostsFn = createServerFn()
 export const getBlogPostFn = createServerFn()
   .validator((data: { slug: string; locale: string }) => data)
   .handler(async ({ data }): Promise<BlogPostDetail | null> => {
+    if (isDemoBlogSlug(data.slug)) return null;
     try {
       const { findPublishedBySlug } = await import('@/modules/posts/service');
       const row = await findPublishedBySlug(data.slug);

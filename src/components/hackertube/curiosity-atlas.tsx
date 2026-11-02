@@ -168,7 +168,7 @@ export function CuriosityAtlas({
               })}
             </div>
           )}
-          <Link href={`/?area=${area.id}#explore`} className="ht-atlas-browse">
+          <Link href={`/topics#${area.id}`} className="ht-atlas-browse">
             {browseLabel}
             <ArrowRight size={17} aria-hidden="true" />
           </Link>

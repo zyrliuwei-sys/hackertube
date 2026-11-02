@@ -3,6 +3,7 @@ import type { DiscoveryAtlas, VideoArea } from '@/types/video-catalog';
 import { ArrowRight, List, Network, Search } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
+import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
 import { HackerTubeAtlas } from '@/blocks/hackertube-atlas';
@@ -11,12 +12,11 @@ import { HackerTubeShell } from '@/blocks/hackertube-shell';
 export function HackerTubeTopics({
   areas,
   atlas,
-  view,
 }: {
   areas: VideoArea[];
   atlas: DiscoveryAtlas;
-  view: 'map' | 'directory';
 }) {
+  const [view, setView] = useState<'map' | 'directory'>('directory');
   const [query, setQuery] = useState('');
   const visible = areas.filter((area) =>
     [
@@ -35,20 +35,22 @@ export function HackerTubeTopics({
         <h1>{m['hackertube.brand.topics_title']()}</h1>
         <p>{m['hackertube.brand.topics_description']()}</p>
         <div className="ht-topics-mode">
-          <Link
-            href="/topics?view=directory"
-            aria-current={view === 'directory' ? 'page' : false}
+          <button
+            type="button"
+            onClick={() => setView('directory')}
+            aria-pressed={view === 'directory'}
           >
             <List size={17} />
             {m['hackertube.quality.directory']()}
-          </Link>
-          <Link
-            href="/topics?view=map"
-            aria-current={view === 'map' ? 'page' : false}
+          </button>
+          <button
+            type="button"
+            onClick={() => setView('map')}
+            aria-pressed={view === 'map'}
           >
             <Network size={17} />
             {m['hackertube.atlas.eyebrow']()}
-          </Link>
+          </button>
         </div>
         {view === 'directory' && (
           <div className="ht-topic-search">
@@ -72,9 +74,9 @@ export function HackerTubeTopics({
             </p>
           )}
           {visible.map((area) => (
-            <section className="ht-topic-group" key={area.id}>
+            <section className="ht-topic-group" key={area.id} id={area.id}>
               <Link
-                href={`/?area=${area.id}#explore`}
+                href={`/topics#${area.id}`}
                 className="ht-topic-group-heading"
               >
                 <h2>{publicVideoLabel(`hackertube.area.${area.id}`)}</h2>
@@ -87,7 +89,7 @@ export function HackerTubeTopics({
                 {area.categories.map((category) => (
                   <Link
                     key={category.id}
-                    href={`/?area=${area.id}&category=${category.id}#explore`}
+                    href={topicPath(area.id, category.id)}
                   >
                     {category.name}
                     <span>{category.count}</span>

@@ -22,6 +22,16 @@
   color: var(--muted-foreground);
   max-width: 620px;
 }
+.ht-topic-intro {
+  padding: 32px 0 40px;
+}
+.ht-topic-intro > p:not(.ht-kicker) {
+  max-width: 80ch;
+  margin-bottom: 16px;
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.85;
+}
 .ht-topic-search {
   display: flex;
   align-items: center;

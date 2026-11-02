@@ -72,6 +72,7 @@ body {
 .ht-site
   :is(
     .ht-topic-tabs button,
+    .ht-topic-tabs a,
     .ht-trending button,
     .ht-footer-links a,
     .ht-topic-category-links a,
@@ -550,7 +551,7 @@ body {
   gap: 8px;
   margin: 28px 0 0;
 }
-.ht-topics-mode a {
+.ht-topics-mode button {
   display: inline-flex;
   gap: 9px;
   align-items: center;
@@ -561,12 +562,12 @@ body {
   font-size: 12px;
   white-space: nowrap;
 }
-.ht-topics-mode a[aria-current='page'] {
+.ht-topics-mode button[aria-pressed='true'] {
   background: var(--primary);
   color: var(--primary-foreground);
   border-color: var(--primary);
 }
-.ht-topics-mode a:not([aria-current='page']):hover {
+.ht-topics-mode button:not([aria-pressed='true']):hover {
   background: var(--secondary);
 }
 .ht-topics-header .ht-topic-search {

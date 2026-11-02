@@ -8,6 +8,7 @@ import {
   sanitizeReferrer,
   sanitizeUtm,
 } from './lib/cookie';
+import { legacyTopicPath } from './lib/topic-path';
 import { paraglideMiddleware } from './paraglide/server.js';
 
 // On Cloudflare Workers, stash the binding env (D1, ASSETS, …) on globalThis
@@ -101,6 +102,18 @@ function withPoweredBy(response: Response): Response {
 export default {
   async fetch(req: Request): Promise<Response> {
     const url = new URL(req.url);
+    if (
+      (req.method === 'GET' || req.method === 'HEAD') &&
+      url.pathname === '/'
+    ) {
+      const topic = legacyTopicPath(Object.fromEntries(url.searchParams));
+      if (topic) {
+        url.pathname = topic;
+        url.searchParams.delete('area');
+        url.searchParams.delete('category');
+        return Response.redirect(url, 301);
+      }
+    }
     if (url.pathname === '/zh' || url.pathname.startsWith('/zh/')) {
       url.pathname = url.pathname.slice(3) || '/';
       return Response.redirect(url, 308);

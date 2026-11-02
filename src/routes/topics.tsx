@@ -7,9 +7,6 @@ import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
 import { HackerTubeTopics } from '@/blocks/hackertube-topics';
 
 export const Route = createFileRoute('/topics')({
-  validateSearch: (search: Record<string, unknown>) => ({
-    view: search.view === 'map' ? ('map' as const) : ('directory' as const),
-  }),
   loader: async () => ({ ...(await getTopicDirectory()), locale: getLocale() }),
   head: ({ loaderData }) => ({
     meta: [
@@ -38,6 +35,5 @@ export const Route = createFileRoute('/topics')({
 
 function TopicsPage() {
   const { areas, atlas } = Route.useLoaderData();
-  const { view } = Route.useSearch();
-  return <HackerTubeTopics areas={areas} atlas={atlas} view={view} />;
+  return <HackerTubeTopics areas={areas} atlas={atlas} />;
 }

@@ -195,7 +195,7 @@ export function HackerTubeSearch() {
                 {m['hackertube.quick.all']()}
                 <ArrowUpRight size={15} />
               </Link>
-              <Link href="/topics?view=map" onClick={close}>
+              <Link href="/topics" onClick={close}>
                 {m['hackertube.atlas.eyebrow']()}
                 <ArrowUpRight size={15} />
               </Link>

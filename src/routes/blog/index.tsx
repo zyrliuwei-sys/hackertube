@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, notFound } from '@tanstack/react-router';
 import { ArrowRight } from 'lucide-react';
 
 import { Link } from '@/core/i18n/navigation';
@@ -18,6 +18,7 @@ export const Route = createFileRoute('/blog/')({
       getBlogPostsFn({ data: { locale } }),
       getGuestPostsOpenFn(),
     ]);
+    if (posts.length === 0) throw notFound();
     return { locale, posts, guestPostsOpen };
   },
   head: ({ loaderData }) => {

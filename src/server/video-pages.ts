@@ -1,5 +1,32 @@
 import { createServerFn } from '@tanstack/react-start';
 
+export const getTopicPage = createServerFn()
+  .validator((data: { area: string; category: string }) => {
+    if (
+      ![data.area, data.category].every((id) => /^[a-z0-9-]{1,100}$/.test(id))
+    )
+      throw new Error('Invalid topic');
+    return data;
+  })
+  .handler(async ({ data }) => {
+    const { listVideos } = await import('@/modules/video-catalog/service');
+    const { describeTopic } = await import('@/lib/topic-description');
+    const catalog = listVideos({ ...data, pageSize: 100 });
+    const area = catalog.areas.find((item) => item.id === data.area);
+    const category = area?.categories.find((item) => item.id === data.category);
+    if (!area || !category) return null;
+    const videos = [...catalog.items];
+    for (let page = 2; videos.length < catalog.total; page++) {
+      videos.push(...listVideos({ ...data, page, pageSize: 100 }).items);
+    }
+    return {
+      area,
+      category,
+      videos,
+      description: describeTopic(area, category, videos),
+    };
+  });
+
 export const getTopicDirectory = createServerFn().handler(async () => {
   const { listVideos, getDiscoveryAtlas } =
     await import('@/modules/video-catalog/service');

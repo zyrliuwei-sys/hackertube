@@ -22,9 +22,10 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Link } from '@/core/i18n/navigation';
+import { Link, useRouter } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { apiGet } from '@/lib/api-client';
+import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
@@ -51,6 +52,14 @@ const topicIds = [
   'computing-history-culture',
   'design-graphics-media',
 ];
+const featuredCategories: Record<string, string> = {
+  software: 'functional-programming',
+  'ai-data': 'llms-generative-ai',
+  'math-theory': 'recreational-math',
+  'physics-space': 'space-exploration',
+  'computing-history-culture': 'history-of-computing',
+  'design-graphics-media': 'computer-graphics-rendering',
+};
 const collectionSpecs = [
   { id: 'software', key: 'code', image: '/imgs/hackertube/computing.jpg' },
   { id: 'ai-data', key: 'ai', image: '/imgs/hackertube/intelligence.jpg' },
@@ -75,6 +84,7 @@ export function HackerTube({
     collection?: string;
   };
 }) {
+  const router = useRouter();
   const [searchInput, setSearchInput] = useState(initialFilters.q || '');
   const [query, setQuery] = useState(initialFilters.q || '');
   const [area, setArea] = useState(initialFilters.area || '');
@@ -294,7 +304,7 @@ export function HackerTube({
                 </button>
               ))}
             </div>
-            <Link className="ht-hero-atlas-link" href="/topics?view=map">
+            <Link className="ht-hero-atlas-link" href="/topics">
               {m['hackertube.quality.atlas_link']()}
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
@@ -356,17 +366,19 @@ export function HackerTube({
                 {m['hackertube.library.all']()}
               </button>
               {topicIds.map((id) => (
-                <button
+                <Link
                   key={id}
+                  href={topicPath(id, featuredCategories[id])}
                   className={area === id ? 'is-active' : ''}
-                  onClick={() => {
-                    setArea(id);
-                    setCategory('');
-                    setPage(1);
-                  }}
                 >
-                  {areaLabel(id)}
-                </button>
+                  {
+                    data.areas
+                      .find((item) => item.id === id)
+                      ?.categories.find(
+                        (item) => item.id === featuredCategories[id]
+                      )?.name
+                  }
+                </Link>
               ))}
             </div>
             <button
@@ -404,8 +416,12 @@ export function HackerTube({
                   value={category}
                   disabled={!selectedArea}
                   onChange={(e) => {
-                    setCategory(e.target.value);
-                    setPage(1);
+                    if (e.target.value)
+                      router.push(topicPath(area, e.target.value));
+                    else {
+                      setCategory('');
+                      setPage(1);
+                    }
                   }}
                 >
                   <option value="">{m['hackertube.search.all']()}</option>
@@ -440,6 +456,18 @@ export function HackerTube({
                 <X size={13} />
               </button>
             </div>
+          )}
+          {selectedArea && (
+            <nav
+              className="ht-topic-category-links"
+              aria-label={m['hackertube.library.category']()}
+            >
+              {selectedArea.categories.map((item) => (
+                <Link key={item.id} href={topicPath(selectedArea.id, item.id)}>
+                  {item.name}
+                </Link>
+              ))}
+            </nav>
           )}
           <div className="ht-results-toolbar">
             <div className="ht-results-count" aria-live="polite">

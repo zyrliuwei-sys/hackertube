@@ -1,7 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
 
 import { envConfigs } from '@/config';
+import { jsonLdScripts, websiteSchema } from '@/lib/structured-data';
+import { legacyTopicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
 import { HackerTube } from '@/blocks/hackertube';
@@ -34,6 +36,10 @@ function HomePage() {
 }
 
 export const Route = createFileRoute('/')({
+  beforeLoad: ({ search }) => {
+    const href = legacyTopicPath(search);
+    if (href) throw redirect({ href, statusCode: 301 });
+  },
   validateSearch: (search: Record<string, unknown>) => ({
     q: typeof search.q === 'string' ? search.q.slice(0, 200) : undefined,
     area:
@@ -61,6 +67,7 @@ export const Route = createFileRoute('/')({
     const urlFor = (loc: (typeof locales)[number]) =>
       localizeUrl(`${envConfigs.app_url}/`, { locale: loc }).href;
     return {
+      scripts: jsonLdScripts(websiteSchema()),
       meta: [
         { title },
         { name: 'description', content: description },

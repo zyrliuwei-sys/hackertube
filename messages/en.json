@@ -1652,5 +1652,8 @@
   "hackertube.atlas.node.politics-history-society": "Society",
   "hackertube.atlas.node.arts-entertainment": "Arts & culture",
   "hackertube.atlas.mobile_legend": "Select a field. Shared counts below show videos classified in both areas.",
-  "hackertube.quality.atlas_link": "Explore the curiosity atlas"
+  "hackertube.quality.atlas_link": "Explore the curiosity atlas",
+  "hackertube.seo.home": "Home",
+  "hackertube.seo.breadcrumb": "Breadcrumb",
+  "hackertube.seo.related_topics": "Related topics"
 }

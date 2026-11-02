@@ -1652,5 +1652,8 @@
   "hackertube.atlas.node.politics-history-society": "历史社会",
   "hackertube.atlas.node.arts-entertainment": "艺术文化",
   "hackertube.atlas.mobile_legend": "选择一个领域。下方的关联数量表示同时归入两个领域的视频。",
-  "hackertube.quality.atlas_link": "打开好奇心地图"
+  "hackertube.quality.atlas_link": "打开好奇心地图",
+  "hackertube.seo.home": "首页",
+  "hackertube.seo.breadcrumb": "面包屑导航",
+  "hackertube.seo.related_topics": "相关主题"
 }

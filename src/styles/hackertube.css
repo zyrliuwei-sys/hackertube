@@ -399,7 +399,8 @@
 .ht-topic-tabs::-webkit-scrollbar {
   display: none;
 }
-.ht-topic-tabs button {
+.ht-topic-tabs button,
+.ht-topic-tabs a {
   padding-bottom: 17px;
   font-size: 11px;
   white-space: nowrap;
@@ -986,7 +987,8 @@
   .ht-topic-tabs {
     gap: 21px;
   }
-  .ht-topic-tabs button {
+  .ht-topic-tabs button,
+  .ht-topic-tabs a {
     font-size: 10px;
   }
 }
@@ -1276,7 +1278,8 @@
   .ht-topic-tabs {
     gap: 21px;
   }
-  .ht-topic-tabs button {
+  .ht-topic-tabs button,
+  .ht-topic-tabs a {
     font-size: 10px;
     padding-bottom: 15px;
   }

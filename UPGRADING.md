@@ -4,6 +4,24 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-02 — Topic pages and SSR structured data
+
+All 150 configured categories now resolve at `/topics/<area>/<category>`.
+Legacy homepage category queries return 301 to the corresponding topic page;
+the topic directory switches views in local state. Existing public paths remain.
+The sitemap is now an index over `/sitemap-pages.xml` (157 current entries) and
+`/sitemap-videos.xml` (6,454 entries); real published blog posts are added when
+present. Two template articles are retired and an empty blog returns 404.
+Topic pages link to six sibling topics; watch pages link back to their categories.
+Router-generated internal URLs explicitly omit trailing slashes.
+
+WebSite, CollectionPage/BreadcrumbList and VideoObject JSON-LD are rendered in
+route heads during SSR. The public export has no verified video upload dates or
+durations: those fields are emitted only when actually available. In particular,
+do not substitute HN recommendation years for `uploadDate`. Video rich-result
+eligibility remains incomplete until real upload dates are supplied. Rebuild and
+deploy to apply these routing/content changes; no database migration is needed.
+
 ## 2026-11-02 — Search-engine discovery sitemap
 
 The public sitemap now includes all 6,454 watch pages plus the public product and

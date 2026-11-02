@@ -26,6 +26,7 @@ import { PaymentProviderModal } from '@/components/payment-provider-modal';
 import { Button, buttonVariants } from '@/components/ui/button';
 import {
   formatPostDate,
+  isDemoBlogSlug,
   loadLocalPost,
   type BlogPostDetail,
 } from '@/content/posts';
@@ -39,6 +40,7 @@ export const Route = createFileRoute('/blog/$slug')({
       : {},
   loaderDeps: ({ search }) => ({ preview: !!search.preview }),
   loader: async ({ params, deps }) => {
+    if (isDemoBlogSlug(params.slug)) throw notFound();
     const locale = getLocale();
     const post =
       (deps.preview

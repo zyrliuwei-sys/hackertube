@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 import { getVideoPage } from '@/server/video-pages';
 
 import { envConfigs } from '@/config';
+import { jsonLdScripts, videoSchema } from '@/lib/structured-data';
 import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
 import { HackerTubeWatch } from '@/blocks/hackertube-watch';
 
@@ -13,6 +14,7 @@ export const Route = createFileRoute('/watch/$videoId')({
     return { ...result, video: result.video, locale: getLocale() };
   },
   head: ({ loaderData }) => ({
+    scripts: loaderData ? jsonLdScripts(videoSchema(loaderData.video)) : [],
     meta: loaderData
       ? [
           { title: `${loaderData.video.title} | ${envConfigs.app_name}` },
@@ -46,7 +48,6 @@ export const Route = createFileRoute('/watch/$videoId')({
         key={data.video.id}
         video={data.video}
         related={data.related}
-        area={data.area}
       />
     );
   },

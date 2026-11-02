@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 
+import { envConfigs } from '@/config';
 import { m } from '@/paraglide/messages.js';
 import { getLocale } from '@/paraglide/runtime.js';
 import { Footer } from '@/blocks/footer';
@@ -15,6 +16,12 @@ export const Route = createFileRoute('/pricing')({
     };
   },
   head: ({ loaderData }) => ({
+    links: [
+      {
+        rel: 'canonical',
+        href: `${envConfigs.app_url.replace(/\/$/, '')}/pricing`,
+      },
+    ],
     meta: loaderData
       ? [
           { title: loaderData.title },

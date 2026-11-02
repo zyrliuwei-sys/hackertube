@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Video, VideoArea } from '@/types/video-catalog';
+import type { Video } from '@/types/video-catalog';
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -11,6 +11,7 @@ import {
 import { toast } from 'sonner';
 
 import { Link } from '@/core/i18n/navigation';
+import { videoTopicLinks } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
@@ -19,11 +20,9 @@ import { HackerTubeShell } from '@/blocks/hackertube-shell';
 export function HackerTubeWatch({
   video,
   related,
-  area,
 }: {
   video: Video;
   related: Video[];
-  area: VideoArea | null;
 }) {
   const [playing, setPlaying] = useState(false);
   const { savedIds, toggleSaved } = useVideoCollection();
@@ -41,17 +40,22 @@ export function HackerTubeWatch({
   return (
     <HackerTubeShell>
       <div className="ht-watch-wrap">
-        <div className="ht-breadcrumb">
+        <nav
+          className="ht-breadcrumb"
+          aria-label={m['hackertube.seo.breadcrumb']()}
+        >
           <Link href="/#explore">
             <ArrowLeft size={14} />
             {m['hackertube.brand.back_archive']()}
           </Link>
-          {area && (
-            <Link href={`/?area=${area.id}#explore`}>
-              {publicVideoLabel(`hackertube.area.${area.id}`)}
+          <Link href="/topics">{m['hackertube.nav.topics']()}</Link>
+          {videoTopicLinks(video.categoryIds).map((topic) => (
+            <Link key={topic.path} href={topic.path}>
+              {topic.name}
             </Link>
-          )}
-        </div>
+          ))}
+          <span aria-current="page">{video.title}</span>
+        </nav>
         <div className="ht-watch-layout">
           <article className="ht-watch-main">
             <div className="ht-watch-stage">
