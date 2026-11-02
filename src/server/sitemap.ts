@@ -20,10 +20,15 @@ export function sitemapIndex(paths: string[]) {
   return `${declaration}\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${paths.map((path) => `  <sitemap><loc>${escapeXml(absoluteUrl(path))}</loc></sitemap>`).join('\n')}\n</sitemapindex>\n`;
 }
 
-export function sitemapUrls(paths: string[]) {
+export function sitemapUrls(
+  entries: (string | { path: string; lastModified?: string })[]
+) {
+  const paths = entries.map((entry) =>
+    typeof entry === 'string' ? { path: entry } : entry
+  );
   if (paths.length > 50_000)
     throw new Error('Split this sitemap before it exceeds 50,000 URLs');
-  return `${declaration}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Set(paths)].map((path) => `  <url><loc>${escapeXml(absoluteUrl(path))}</loc></url>`).join('\n')}\n</urlset>\n`;
+  return `${declaration}\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${[...new Map(paths.map((entry) => [entry.path, entry])).values()].map((entry) => `  <url><loc>${escapeXml(absoluteUrl(entry.path))}</loc>${entry.lastModified ? `<lastmod>${escapeXml(entry.lastModified)}</lastmod>` : ''}</url>`).join('\n')}\n</urlset>\n`;
 }
 
 export function xmlResponse(xml: string) {

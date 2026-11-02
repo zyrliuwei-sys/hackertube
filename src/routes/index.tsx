@@ -5,7 +5,7 @@ import { envConfigs } from '@/config';
 import { jsonLdScripts, websiteSchema } from '@/lib/structured-data';
 import { legacyTopicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
-import { getLocale, locales, localizeUrl } from '@/paraglide/runtime.js';
+import { getLocale, localizeUrl } from '@/paraglide/runtime.js';
 import { HackerTube } from '@/blocks/hackertube';
 
 import '@/styles/hackertube.css';
@@ -64,7 +64,7 @@ export const Route = createFileRoute('/')({
     const locale = loaderData?.locale ?? 'en';
     const title = m['hackertube.metadata.title']({}, { locale });
     const description = m['hackertube.metadata.description']({}, { locale });
-    const urlFor = (loc: (typeof locales)[number]) =>
+    const urlFor = (loc: 'en') =>
       localizeUrl(`${envConfigs.app_url}/`, { locale: loc }).href;
     return {
       scripts: jsonLdScripts(websiteSchema()),
@@ -81,15 +81,7 @@ export const Route = createFileRoute('/')({
           content: `${envConfigs.app_url}/brand/social-card.png`,
         },
       ],
-      links: [
-        { rel: 'canonical', href: urlFor(locale) },
-        ...locales.map((loc) => ({
-          rel: 'alternate',
-          hrefLang: loc,
-          href: urlFor(loc),
-        })),
-        { rel: 'alternate', hrefLang: 'x-default', href: urlFor('en') },
-      ],
+      links: [{ rel: 'canonical', href: urlFor(locale) }],
     };
   },
   component: HomePage,

@@ -4,6 +4,26 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-03 — Single-language metadata and verified video enrichment
+
+Removed hreflang from the English-only site, including the root head inherited
+by every page. Watch/topic descriptions now use source sentence boundaries and
+never exceed 160 characters. Watch tags link to existing categories where known;
+unmapped tags and saved collections use buttons and transient frontend state.
+Existing topic routes, sitemap partitioning and retired blog behavior are retained.
+
+`scripts/enrich-youtube-metadata.mjs` reads `YOUTUBE_API_KEY` (offline only) and
+stores YouTube Data API v3 `snippet.publishedAt`/`contentDetails.duration` in
+`src/data/hackertube/youtube-metadata.json`. Run through `scripts/with-env.ts`,
+then rebuild/deploy. Refresh API metadata at least every 30 days. Never use HN
+years as upload dates. A watch page without verified API upload metadata emits
+no VideoObject; verified records include the publisher and ISO 8601 duration.
+
+Video sitemap entries now have stable lastmod values from this release's watch
+content update or a later actual metadata update. The timestamp is recorded in
+`catalog-state.json`, never generated anew per request and never used as uploadDate.
+This release does not require a database migration or new runtime secret.
+
 ## 2026-11-02 — Topic pages and SSR structured data
 
 All 150 configured categories now resolve at `/topics/<area>/<category>`.

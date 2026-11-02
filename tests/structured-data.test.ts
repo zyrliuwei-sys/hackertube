@@ -36,13 +36,19 @@ test('search and breadcrumbs target real public paths', () => {
 
 test('VideoObject emits verified metadata only, without inventing upload dates', () => {
   const snapshot = videoSchema(videos[0]);
-  assert.ok(!('uploadDate' in snapshot));
-  assert.ok(!('duration' in snapshot));
+  assert.equal(snapshot, null);
   const complete = videoSchema({
     ...videos[0],
     publishedAt: '2016-08-06T00:00:00Z',
     duration: 432,
+    durationIso: 'PT7M12S',
+    metadataSource: 'youtube-data-api-v3',
   });
-  assert.equal(complete.uploadDate, '2016-08-06T00:00:00Z');
-  assert.equal(complete.duration, 'PT432S');
+  assert.equal(complete?.uploadDate, '2016-08-06T00:00:00Z');
+  assert.equal(complete?.duration, 'PT7M12S');
+  assert.equal(complete?.publisher.name, 'HackerTube AI');
+  assert.equal(
+    videoSchema({ ...videos[0], publishedAt: '2018-01-01T00:00:00Z' }),
+    null
+  );
 });

@@ -1,6 +1,7 @@
 import type { Video } from '@/types/video-catalog';
 
 import { envConfigs } from '@/config';
+import { durationSeconds, validTimestamp } from '@/lib/video-metadata';
 
 export const siteUrl = (path = '/') =>
   `${envConfigs.app_url.replace(/\/$/, '')}${path}`;
@@ -70,6 +71,12 @@ export function topicSchema(name: string, path: string, description: string) {
 }
 
 export function videoSchema(video: Video) {
+  if (
+    video.metadataSource !== 'youtube-data-api-v3' ||
+    !validTimestamp(video.publishedAt) ||
+    Date.parse(video.publishedAt) > Date.now()
+  )
+    return null;
   return {
     '@context': 'https://schema.org',
     '@type': 'VideoObject',
@@ -79,10 +86,20 @@ export function videoSchema(video: Video) {
     description: video.summary,
     thumbnailUrl: [new URL(video.thumbnail, siteUrl()).href],
     embedUrl: `https://www.youtube-nocookie.com/embed/${video.id}`,
-    // The snapshot has no upload dates. Never substitute HN recommendation years.
-    ...(video.publishedAt ? { uploadDate: video.publishedAt } : {}),
+    uploadDate: video.publishedAt,
+    publisher: {
+      '@type': 'Organization',
+      name: envConfigs.app_name,
+      url: siteUrl(),
+    },
     ...(video.duration && video.duration > 0
-      ? { duration: `PT${Math.round(video.duration)}S` }
+      ? {
+          duration:
+            video.durationIso &&
+            durationSeconds(video.durationIso) === video.duration
+              ? video.durationIso
+              : `PT${Math.round(video.duration)}S`,
+        }
       : {}),
   };
 }

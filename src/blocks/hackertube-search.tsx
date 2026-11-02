@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import type { VideoCatalogResult } from '@/types/video-catalog';
 import { ArrowUpRight, LoaderCircle, Search, X } from 'lucide-react';
 
-import { Link } from '@/core/i18n/navigation';
+import { Link, useRouter } from '@/core/i18n/navigation';
 import { apiGet } from '@/lib/api-client';
 import { m } from '@/paraglide/messages.js';
 import {
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/dialog';
 
 export function HackerTubeSearch() {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [debounced, setDebounced] = useState('');
@@ -58,6 +59,14 @@ export function HackerTubeSearch() {
   });
   const waiting = query.trim() !== debounced || results.isFetching;
   const close = () => setOpen(false);
+  const showAll = () => {
+    router.push(
+      query.trim()
+        ? `/?q=${encodeURIComponent(query.trim())}#explore`
+        : '/#explore'
+    );
+    close();
+  };
   return (
     <>
       <button
@@ -93,6 +102,10 @@ export function HackerTubeSearch() {
               placeholder={m['hackertube.search.placeholder']()}
               aria-label={m['hackertube.search.label']()}
               onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  showAll();
+                }
                 if (e.key === 'ArrowDown') {
                   e.preventDefault();
                   resultsRef.current
@@ -114,12 +127,12 @@ export function HackerTubeSearch() {
             aria-busy={waiting}
             onKeyDown={(e) => {
               const links = [
-                ...(resultsRef.current?.querySelectorAll<HTMLAnchorElement>(
-                  'a'
+                ...(resultsRef.current?.querySelectorAll<HTMLElement>(
+                  'a, button'
                 ) ?? []),
               ];
               const index = links.indexOf(
-                document.activeElement as HTMLAnchorElement
+                document.activeElement as HTMLElement
               );
               if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
                 e.preventDefault();
@@ -184,17 +197,10 @@ export function HackerTubeSearch() {
               </div>
             )}
             <div className="ht-quick-nav">
-              <Link
-                href={
-                  query.trim()
-                    ? `/?q=${encodeURIComponent(query.trim())}#explore`
-                    : '/#explore'
-                }
-                onClick={close}
-              >
+              <button type="button" onClick={showAll}>
                 {m['hackertube.quick.all']()}
                 <ArrowUpRight size={15} />
-              </Link>
+              </button>
               <Link href="/topics" onClick={close}>
                 {m['hackertube.atlas.eyebrow']()}
                 <ArrowUpRight size={15} />

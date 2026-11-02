@@ -10,8 +10,9 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Link } from '@/core/i18n/navigation';
-import { videoTopicLinks } from '@/lib/topic-path';
+import { Link, useRouter } from '@/core/i18n/navigation';
+import { saveCatalogIntent } from '@/lib/catalog-intent';
+import { topicTagLink, videoTopicLinks } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
@@ -25,6 +26,7 @@ export function HackerTubeWatch({
   related: Video[];
 }) {
   const [playing, setPlaying] = useState(false);
+  const router = useRouter();
   const { savedIds, toggleSaved } = useVideoCollection();
   const saved = savedIds.includes(video.id);
   const save = () => {
@@ -118,14 +120,25 @@ export function HackerTubeWatch({
               <h2>{m['hackertube.brand.watch_about']()}</h2>
               <p>{video.summary}</p>
               <div className="ht-watch-tags">
-                {video.topics.slice(0, 6).map((topic) => (
-                  <Link
-                    key={topic}
-                    href={`/?q=${encodeURIComponent(topic)}#explore`}
-                  >
-                    {topic}
-                  </Link>
-                ))}
+                {video.topics.slice(0, 6).map((topic) => {
+                  const mapped = topicTagLink(topic);
+                  return mapped ? (
+                    <Link key={topic} href={mapped.path}>
+                      {topic}
+                    </Link>
+                  ) : (
+                    <button
+                      type="button"
+                      key={topic}
+                      onClick={() => {
+                        saveCatalogIntent({ type: 'search', query: topic });
+                        router.push('/#explore');
+                      }}
+                    >
+                      {topic}
+                    </button>
+                  );
+                })}
               </div>
             </section>
           </article>

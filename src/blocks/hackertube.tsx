@@ -1,4 +1,4 @@
-import { useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { keepPreviousData, useQuery } from '@tanstack/react-query';
 import type {
   DiscoveryAtlas,
@@ -25,6 +25,7 @@ import { toast } from 'sonner';
 import { Link, useRouter } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { apiGet } from '@/lib/api-client';
+import { consumeCatalogIntent } from '@/lib/catalog-intent';
 import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
@@ -100,6 +101,22 @@ export function HackerTube({
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [guideOpen, setGuideOpen] = useState(false);
   const [video, setVideo] = useState<Video | null>(null);
+  useEffect(() => {
+    const intent = consumeCatalogIntent();
+    if (!intent) return;
+    setPage(1);
+    setArea('');
+    setCategory('');
+    if (intent.type === 'saved') {
+      setSearchInput('');
+      setQuery('');
+      setView('saved');
+    } else {
+      setSearchInput(intent.query);
+      setQuery(intent.query);
+      setView('explore');
+    }
+  }, []);
   const libraryRef = useRef<HTMLElement>(null);
   const searchRef = useRef<HTMLInputElement>(null);
 

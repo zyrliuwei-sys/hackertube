@@ -16,6 +16,45 @@ export function videoTopicLinks(categoryIds: string[]) {
   });
 }
 
+const normalizeTopic = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+const tagAliases: Record<string, string> = {
+  'linear-algebra': 'pure-mathematics',
+  vectors: 'pure-mathematics',
+  'machine-learning-math': 'pure-mathematics',
+  'visual-math': 'recreational-math',
+  'neural-networks': 'machine-learning',
+  'deep-learning': 'machine-learning',
+  'generative-ai': 'llms-generative-ai',
+  llms: 'llms-generative-ai',
+  'functional-programming': 'functional-programming',
+  compilers: 'compilers-interpreters',
+  interpreters: 'compilers-interpreters',
+};
+const topicTagIndex = new Map(
+  areas.flatMap((area) =>
+    area.categories.flatMap((category) => [
+      [
+        normalizeTopic(category.name),
+        { name: category.name, path: topicPath(area.id, category.id) },
+      ] as const,
+      [
+        category.id,
+        { name: category.name, path: topicPath(area.id, category.id) },
+      ] as const,
+    ])
+  )
+);
+
+export function topicTagLink(tag: string) {
+  const normalized = normalizeTopic(tag);
+  return topicTagIndex.get(tagAliases[normalized] ?? normalized);
+}
+
 /** Only redirect a real category in its configured parent area. */
 export function legacyTopicPath(search: {
   area?: unknown;

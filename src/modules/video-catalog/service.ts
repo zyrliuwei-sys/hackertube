@@ -1,6 +1,8 @@
 import areaData from '@/data/hackertube/areas.json';
+import catalogState from '@/data/hackertube/catalog-state.json';
 import sourceData from '@/data/hackertube/source.json';
 import videoData from '@/data/hackertube/videos.json';
+import youtubeMetadata from '@/data/hackertube/youtube-metadata.json';
 import type {
   DiscoveryAtlas,
   Video,
@@ -9,7 +11,16 @@ import type {
   VideoCatalogResult,
 } from '@/types/video-catalog';
 
-const videos = videoData as Video[];
+import {
+  enrichVideo,
+  validTimestamp,
+  type YouTubeMetadata,
+} from '@/lib/video-metadata';
+
+const metadata = youtubeMetadata as Record<string, YouTubeMetadata>;
+const videos = (videoData as Video[]).map((video) =>
+  enrichVideo(video, metadata[video.id])
+);
 const areas = areaData as VideoArea[];
 const categoryNames = new Map(
   areas.flatMap((area) =>
@@ -44,6 +55,18 @@ export const VIDEO_CONTENT_TYPES = [
 /** Public watch pages in this snapshot; used for crawler discovery. */
 export function listVideoIds(): string[] {
   return videos.map((video) => video.id);
+}
+
+export function listVideoSitemapEntries() {
+  return videos.map((video) => ({
+    path: `/watch/${video.id}`,
+    lastModified:
+      validTimestamp(video.metadataUpdatedAt) &&
+      Date.parse(video.metadataUpdatedAt) >
+        Date.parse(catalogState.watchPagesUpdatedAt)
+        ? video.metadataUpdatedAt
+        : catalogState.watchPagesUpdatedAt,
+  }));
 }
 
 let discoveryCache: DiscoveryAtlas | undefined;

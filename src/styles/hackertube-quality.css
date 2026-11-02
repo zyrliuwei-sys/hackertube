@@ -672,7 +672,8 @@ body {
   border-top: 1px solid var(--border);
   margin-top: 12px;
 }
-.ht-quick-nav a {
+.ht-quick-nav a,
+.ht-quick-nav button {
   min-height: 44px;
   display: inline-flex;
   align-items: center;
@@ -680,10 +681,11 @@ body {
   color: var(--primary);
   font-size: 12px;
 }
-.ht-quick-nav a + a {
+.ht-quick-nav > :last-child {
   margin-left: auto;
 }
-.ht-quick-nav a:hover {
+.ht-quick-nav a:hover,
+.ht-quick-nav button:hover {
   text-decoration: underline;
   text-underline-offset: 4px;
 }

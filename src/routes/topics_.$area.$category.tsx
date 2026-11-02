@@ -2,6 +2,7 @@ import { createFileRoute, notFound } from '@tanstack/react-router';
 import { getTopicPage } from '@/server/video-pages';
 
 import { envConfigs } from '@/config';
+import { topicMetaDescription } from '@/lib/meta-description';
 import { jsonLdScripts, topicSchema } from '@/lib/structured-data';
 import { topicPath } from '@/lib/topic-path';
 import { HackerTubeTopic } from '@/blocks/hackertube-topic';
@@ -34,7 +35,10 @@ export const Route = createFileRoute('/topics_/$area/$category')({
             },
             {
               name: 'description',
-              content: loaderData.description[0].slice(0, 180),
+              content: topicMetaDescription(
+                loaderData.category.name,
+                loaderData.description[0]
+              ),
             },
           ],
           links: [

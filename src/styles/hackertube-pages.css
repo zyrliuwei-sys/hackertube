@@ -354,14 +354,16 @@
   gap: 8px;
   margin-top: 22px;
 }
-.ht-watch-tags a {
+.ht-watch-tags a,
+.ht-watch-tags button {
   font-size: 9px;
   padding: 7px 10px;
   border-radius: 4px;
   background: var(--secondary);
   color: var(--secondary-foreground);
 }
-.ht-watch-tags a:hover {
+.ht-watch-tags a:hover,
+.ht-watch-tags button:hover {
   background: var(--accent);
 }
 .ht-watch-context {

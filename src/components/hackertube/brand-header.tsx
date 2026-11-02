@@ -28,7 +28,7 @@ interface BrandHeaderProps {
   menuLabel: string;
   closeLabel: string;
   tools?: ReactNode;
-  onSaved?: () => void;
+  onSaved: () => void;
 }
 
 export function BrandHeader({
@@ -82,26 +82,17 @@ export function BrandHeader({
           <div className="ht-brand-nav-tools">{tools}</div>
         </nav>
         <div className="ht-brand-tools">
-          {onSaved ? (
-            <button
-              className="ht-collection-button"
-              aria-label={savedLabel}
-              onClick={() => {
-                setOpen(false);
-                onSaved();
-              }}
-            >
-              {bookmark}
-            </button>
-          ) : (
-            <Link
-              className="ht-collection-button"
-              href="/?collection=saved"
-              aria-label={savedLabel}
-            >
-              {bookmark}
-            </Link>
-          )}
+          <button
+            type="button"
+            className="ht-collection-button"
+            aria-label={savedLabel}
+            onClick={() => {
+              setOpen(false);
+              onSaved();
+            }}
+          >
+            {bookmark}
+          </button>
           <button
             type="button"
             className="ht-mobile-menu"

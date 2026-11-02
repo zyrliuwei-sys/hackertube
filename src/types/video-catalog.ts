@@ -7,6 +7,9 @@ export interface Video {
   /** The public export intentionally excludes YouTube API metadata. */
   duration: number | null;
   publishedAt: string | null;
+  durationIso?: string;
+  metadataSource?: 'youtube-data-api-v3';
+  metadataUpdatedAt?: string;
   thumbnail: string;
   areaIds: string[];
   categoryIds: string[];

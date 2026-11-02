@@ -1,5 +1,6 @@
-import { usePathname } from '@/core/i18n/navigation';
+import { usePathname, useRouter } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
+import { saveCatalogIntent } from '@/lib/catalog-intent';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
 import { HackerTubeSearch } from '@/blocks/hackertube-search';
@@ -16,6 +17,7 @@ export function HackerTubeHeader({
   onExplore?: () => void;
 }) {
   const pathname = usePathname();
+  const router = useRouter();
   const { savedIds } = useVideoCollection();
   return (
     <BrandHeader
@@ -43,7 +45,13 @@ export function HackerTubeHeader({
       savedCount={savedCount ?? savedIds.length}
       menuLabel={m['hackertube.nav.menu']()}
       closeLabel={m['hackertube.nav.close']()}
-      onSaved={onSaved}
+      onSaved={
+        onSaved ??
+        (() => {
+          saveCatalogIntent({ type: 'saved' });
+          router.push('/#explore');
+        })
+      }
       tools={
         <>
           <HackerTubeSearch />
