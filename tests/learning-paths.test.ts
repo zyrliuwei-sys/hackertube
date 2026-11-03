@@ -65,6 +65,10 @@ test('natural-language and Chinese goals retrieve prerequisites as well as the s
     assert.ok(selected.length <= 48);
     assert.ok(selected.some((v) => v.id === 'VMj-3S1tku0'));
     assert.ok(selected.some((v) => v.id === 'kjBOesZCoqc'));
+    assert.ok(
+      selected.some((v) => v.id === 'zjkBMFhNj_g'),
+      'Retain language-model coverage alongside prerequisites and code'
+    );
     assert.ok(selected.every((v) => catalog.some((item) => item.id === v.id)));
   }
   assert.equal(

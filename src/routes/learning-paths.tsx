@@ -33,5 +33,7 @@ export const Route = createFileRoute('/learning-paths')({
 function LearningPathsPage() {
   const example = Route.useLoaderData();
   const { goal } = Route.useSearch();
-  return <HackerTubeLearningPaths example={example} initialGoal={goal} />;
+  return (
+    <HackerTubeLearningPaths key={goal} example={example} initialGoal={goal} />
+  );
 }
