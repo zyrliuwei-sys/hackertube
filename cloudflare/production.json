@@ -12,7 +12,8 @@
     "VITE_APP_URL": "https://hacker-tube.com",
     "VITE_APP_NAME": "HackerTube AI",
     "VITE_APP_DESCRIPTION": "Discover Hacker News videos with HackerTube AI. Search 6,454 videos across programming, AI, science and more.",
-    "VITE_DEFAULT_LOCALE": "en"
+    "VITE_DEFAULT_LOCALE": "en",
+    "PLAUSIBLE_SCRIPT_HOSTS": "stats.cadcraft.org"
   },
   "d1_databases": [
     {

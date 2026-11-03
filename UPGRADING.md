@@ -4,6 +4,16 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-03 — Approved self-hosted Plausible analytics host
+
+Production now sets `PLAUSIBLE_SCRIPT_HOSTS=stats.cadcraft.org` in the versioned
+Workers configuration. This permits the operator-selected self-hosted Plausible
+script both when saving admin settings and when rendering analytics. Other
+unapproved script hosts remain blocked. CI retains this allow-list on subsequent
+deployments. No schema, credentials or analytics account changes are needed.
+An existing local `wrangler.jsonc` should carry the same runtime variable before
+a manual deployment; the script URL itself stays in the site's admin settings.
+
 ## 2026-11-03 — Public sign-in and administrator entry
 
 The public header now exposes Sign in on desktop and mobile. Signed-in users

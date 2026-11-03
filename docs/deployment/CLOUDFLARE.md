@@ -57,3 +57,12 @@ outputs are schema-checked and all video IDs are validated against retrieved
 catalog records. Failed generation shows a labeled catalog-based path. Limits,
 timeout, bounded tokens, and a small in-memory cache contain request cost.
 Workers AI usage follows the Cloudflare account's plan and quotas.
+
+## Self-hosted Plausible
+
+`PLAUSIBLE_SCRIPT_HOSTS=stats.cadcraft.org` explicitly approves the analytics
+host selected for this site. Keep the runtime variable in the versioned
+`cloudflare/production.json` and the local `wrangler.jsonc`. The actual site
+script URL is saved in Admin → Settings → Analytics. The allow-list is checked
+on save and on render; adding a URL in the admin panel alone does not approve
+its host. Preserve this restriction when changing analytics providers.
