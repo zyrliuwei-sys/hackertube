@@ -4,6 +4,29 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-03 — AI video learning paths
+
+Added `/learning-paths` and the public, rate-limited POST `/api/learning-paths`.
+The homepage, header and quick search link to the planner. The server ranks the
+real video catalog before sending a bounded shortlist to Workers AI; returned
+video IDs must belong to that shortlist and cannot repeat. Learning goals and
+model output are plain text and never execute tools or write database records.
+
+Deploy with the updated `cloudflare/production.json`: Workers AI binds as `AI`,
+and the native `LEARNING_PATH_LIMITER` allows three requests per minute per IP.
+Existing local `wrangler.jsonc` files need these two new binding entries copied
+from the public config; CI reconstructs them automatically. No new API key,
+D1 table or migration is required. Model usage is charged to the Cloudflare
+account under its Workers AI plan. A one-hour, 50-entry in-memory cache avoids
+repeating successful requests within an isolate; a 30-second deadline falls
+back to explicitly labeled catalog-based paths. Local Node development uses
+that fallback unless a binding is supplied. The fixed example is labeled as an
+example, not as a newly AI-generated answer.
+
+Completion progress is stored only in the current browser. Goals are sent to
+Cloudflare for generation, so the privacy page documents that data flow.
+Run `pnpm test:learning-paths` for grounding, failure, input and HTTP limit checks.
+
 ## 2026-11-03 — Single-language metadata and verified video enrichment
 
 Removed hreflang from the English-only site, including the root head inherited

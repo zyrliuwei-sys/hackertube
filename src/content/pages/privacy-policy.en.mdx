@@ -2,7 +2,7 @@ export const meta = {
   title: 'Privacy Policy',
   description:
     'How HackerTube AI handles browsing, saved videos, and external video players.',
-  updated_at: '2026-11-02',
+  updated_at: '2026-11-03',
 };
 
 ## About this site
@@ -18,6 +18,17 @@ Opening a page or searching sends a request to this site's hosting service. A se
 Saved video IDs are stored in your browser's `localStorage`. This collection belongs to that browser and is not an account-based or cross-device collection. You can remove individual saved videos through the site or clear this site's browser storage to remove the saved list. Clearing browser storage also removes locally saved preferences.
 
 The site's interface may store language or appearance preferences in browser storage or cookies. Browser settings let you inspect or clear this data. Blocking browser storage can prevent saved videos and preferences from working.
+
+## AI learning paths
+
+When you choose to generate a learning path, your learning goal and selected
+experience level are sent to this site's server. Your goal and a shortlist of
+public video metadata are sent to Cloudflare Workers AI to create the path.
+Avoid including private or sensitive information in your goal. The feature does
+not save your goal to an account or database. Up to 50 successful results can be
+cached in server memory for one hour. Ordinary hosting request logs may still
+apply. Completion progress is saved in this browser's `localStorage`; downloading
+a path saves a Markdown file on your own device.
 
 ## Video players and images
 

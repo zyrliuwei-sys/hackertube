@@ -196,6 +196,14 @@ export function HackerTubeSearch() {
                 ))}
               </div>
             )}
+            <Link
+              className="ht-quick-path-link"
+              href={`/learning-paths${query.trim() ? `?goal=${encodeURIComponent(query.trim())}` : ''}`}
+              onClick={close}
+            >
+              {m['hackertube.paths.search_cta']()}
+              <ArrowUpRight size={16} aria-hidden="true" />
+            </Link>
             <div className="ht-quick-nav">
               <button type="button" onClick={showAll}>
                 {m['hackertube.quick.all']()}

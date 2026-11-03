@@ -26,6 +26,7 @@ import { Link, useRouter } from '@/core/i18n/navigation';
 import { envConfigs } from '@/config';
 import { apiGet } from '@/lib/api-client';
 import { consumeCatalogIntent } from '@/lib/catalog-intent';
+import { queueLearningGoal } from '@/lib/learning-path-intent';
 import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
@@ -34,6 +35,7 @@ import { Footer } from '@/blocks/footer';
 import { HackerTubeAtlas } from '@/blocks/hackertube-atlas';
 import { HackerTubeDiscoveryGuide } from '@/blocks/hackertube-discovery-guide';
 import { HackerTubeHeader } from '@/blocks/hackertube-header';
+import { HackerTubeLearningTeaser } from '@/blocks/hackertube-learning-teaser';
 import { ArchiveReel } from '@/components/hackertube/archive-reel';
 import { EditorialSections } from '@/components/hackertube/editorial-sections';
 import { VideoCard } from '@/components/hackertube/video-card';
@@ -87,6 +89,7 @@ export function HackerTube({
 }) {
   const router = useRouter();
   const [searchInput, setSearchInput] = useState(initialFilters.q || '');
+  const [searchMode, setSearchMode] = useState<'videos' | 'learning'>('videos');
   const [query, setQuery] = useState(initialFilters.q || '');
   const [area, setArea] = useState(initialFilters.area || '');
   const [category, setCategory] = useState(initialFilters.category || '');
@@ -211,6 +214,13 @@ export function HackerTube({
   };
   const submitSearch = (event: FormEvent) => {
     event.preventDefault();
+    if (searchMode === 'learning') {
+      const goal = searchInput.trim();
+      if (goal.length < 5 || goal.length > 200) return;
+      queueLearningGoal(goal);
+      router.push(`/learning-paths?goal=${encodeURIComponent(goal)}`);
+      return;
+    }
     setQuery(searchInput.trim());
     setView('explore');
     setPage(1);
@@ -252,14 +262,44 @@ export function HackerTube({
             <p className="ht-hero-description">
               {m['hackertube.hero.description']()}
             </p>
+            <div
+              className="ht-home-search-mode"
+              role="group"
+              aria-label={m['hackertube.paths.search_mode']()}
+            >
+              <button
+                type="button"
+                aria-pressed={searchMode === 'videos'}
+                onClick={() => setSearchMode('videos')}
+              >
+                {m['hackertube.paths.find_videos']()}
+              </button>
+              <button
+                type="button"
+                aria-pressed={searchMode === 'learning'}
+                onClick={() => setSearchMode('learning')}
+              >
+                {m['hackertube.paths.search_mode_learning']()}
+              </button>
+            </div>
             <form className="ht-search" onSubmit={submitSearch} role="search">
               <Search size={23} aria-hidden="true" />
               <input
                 ref={searchRef}
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
-                placeholder={m['hackertube.search.placeholder']()}
-                aria-label={m['hackertube.search.label']()}
+                placeholder={
+                  searchMode === 'learning'
+                    ? m['hackertube.paths.prompt_ml']()
+                    : m['hackertube.search.placeholder']()
+                }
+                aria-label={
+                  searchMode === 'learning'
+                    ? m['hackertube.paths.goal_label']()
+                    : m['hackertube.search.label']()
+                }
+                required={searchMode === 'learning'}
+                minLength={searchMode === 'learning' ? 5 : undefined}
                 maxLength={200}
               />
               {searchInput && (
@@ -275,31 +315,41 @@ export function HackerTube({
                   <X size={16} />
                 </button>
               )}
-              <div className="ht-search-select">
-                <select
-                  aria-label={m['hackertube.search.all']()}
-                  value={area}
-                  onChange={(e) => {
-                    setArea(e.target.value);
-                    setCategory('');
-                    setPage(1);
-                  }}
-                >
-                  <option value="">{m['hackertube.search.all']()}</option>
-                  {data.areas.map((a) => (
-                    <option key={a.id} value={a.id}>
-                      {areaLabel(a.id)}
-                    </option>
-                  ))}
-                </select>
-                <ChevronDown size={14} />
-              </div>
+              {searchMode === 'videos' && (
+                <div className="ht-search-select">
+                  <select
+                    aria-label={m['hackertube.search.all']()}
+                    value={area}
+                    onChange={(e) => {
+                      setArea(e.target.value);
+                      setCategory('');
+                      setPage(1);
+                    }}
+                  >
+                    <option value="">{m['hackertube.search.all']()}</option>
+                    {data.areas.map((a) => (
+                      <option key={a.id} value={a.id}>
+                        {areaLabel(a.id)}
+                      </option>
+                    ))}
+                  </select>
+                  <ChevronDown size={14} />
+                </div>
+              )}
               <button
                 type="submit"
                 className="ht-search-submit"
-                aria-label={m['hackertube.search.button']()}
+                aria-label={
+                  searchMode === 'learning'
+                    ? m['hackertube.paths.generate']()
+                    : m['hackertube.search.button']()
+                }
               >
-                <span>{m['hackertube.search.button']()}</span>
+                <span>
+                  {searchMode === 'learning'
+                    ? m['hackertube.paths.short_generate']()
+                    : m['hackertube.search.button']()}
+                </span>
                 <ArrowRight size={19} />
               </button>
             </form>
@@ -351,6 +401,8 @@ export function HackerTube({
             <ArrowUpRight size={18} />
           </p>
         </div>
+
+        <HackerTubeLearningTeaser />
 
         <section
           ref={libraryRef}

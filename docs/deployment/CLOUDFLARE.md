@@ -43,3 +43,17 @@ normal code release. Manual release command: `pnpm cf:deploy`.
 - Runtime secrets and D1 binding were confirmed on the live Worker.
 
 The next commit exercises the Git push trigger rather than a local redeploy.
+
+## AI learning paths
+
+The `AI` Workers AI binding requires no API secret. The `LEARNING_PATH_LIMITER`
+native rate-limit binding has namespace `1001`, with three requests per minute
+per IP. Both bindings are versioned in `cloudflare/production.json`; copy them
+to an existing local `wrangler.jsonc` before a manual release. CI creates them
+from the public configuration on each build. No D1 migration is involved.
+
+The planner uses `@cf/meta/llama-3.3-70b-instruct-fp8-fast` in JSON mode. AI
+outputs are schema-checked and all video IDs are validated against retrieved
+catalog records. Failed generation shows a labeled catalog-based path. Limits,
+timeout, bounded tokens, and a small in-memory cache contain request cost.
+Workers AI usage follows the Cloudflare account's plan and quotas.

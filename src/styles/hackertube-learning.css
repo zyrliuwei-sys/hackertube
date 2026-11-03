@@ -1,0 +1,712 @@
+.ht-learning-teaser {
+  max-width: 1536px;
+  margin: 0 auto;
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 80px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+.ht-learning-teaser h2,
+.ht-path-page-heading h1,
+.ht-path-result h2,
+.ht-path-about h2 {
+  font-family: var(--font-serif-display);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.12;
+}
+.ht-learning-teaser h2 {
+  font-size: clamp(30px, 3.3vw, 46px);
+  max-width: 490px;
+  margin: 12px 0 16px;
+}
+.ht-learning-teaser-description {
+  color: var(--muted-foreground);
+  line-height: 1.8;
+  max-width: 500px;
+}
+.ht-path-teaser-link {
+  display: inline-flex;
+  gap: 18px;
+  align-items: center;
+  min-height: 46px;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+.ht-learning-preview {
+  padding: 24px 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--card);
+}
+.ht-learning-preview > p {
+  font-size: 14px;
+  font-weight: 650;
+  margin-bottom: 22px;
+}
+.ht-learning-preview ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.ht-learning-preview li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 48px;
+}
+.ht-learning-preview li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 36px;
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+.ht-learning-preview li > span {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 29px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--primary);
+  font-size: 12px;
+}
+.ht-learning-preview a {
+  min-height: 44px;
+  display: flex;
+  flex: 1;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.ht-learning-preview a:hover {
+  color: var(--primary);
+}
+.ht-path-page {
+  max-width: 1536px;
+  margin: auto;
+  padding: 64px 48px 0;
+}
+.ht-path-page-heading {
+  max-width: 760px;
+  margin-bottom: 48px;
+}
+.ht-path-page-heading h1 {
+  font-size: clamp(38px, 4.4vw, 60px);
+  margin: 15px 0 20px;
+}
+.ht-path-page-heading > p:last-child {
+  max-width: 650px;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+.ht-path-layout {
+  display: grid;
+  grid-template-columns: minmax(270px, 330px) minmax(0, 1fr);
+  gap: 60px;
+  align-items: start;
+}
+.ht-path-planner {
+  position: sticky;
+  top: 108px;
+  background: var(--secondary);
+  padding: 26px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.ht-path-planner > svg {
+  color: var(--primary);
+}
+.ht-path-planner h2 {
+  margin: 14px 0 26px;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+.ht-path-planner form {
+  display: grid;
+  gap: 20px;
+}
+.ht-path-planner textarea {
+  background: var(--background);
+  min-height: 106px;
+  resize: vertical;
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.ht-path-planner label {
+  font-size: 12px;
+  font-weight: 650;
+}
+.ht-path-level {
+  display: grid;
+  gap: 8px;
+}
+.ht-path-level select {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--input);
+  border-radius: 6px;
+  background: var(--background);
+  padding: 0 12px;
+  font-size: 13px;
+}
+.ht-path-generate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  border-radius: 6px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 650;
+}
+.ht-path-generate:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+.ht-path-prompts {
+  margin: 28px 0 20px;
+}
+.ht-path-prompts > p {
+  color: var(--muted-foreground);
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.ht-path-prompts button {
+  text-align: left;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 12px;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 8px 0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.ht-path-prompts button svg {
+  flex-shrink: 0;
+}
+.ht-path-planner-note {
+  border-top: 1px solid var(--border);
+  padding-top: 18px;
+  color: var(--muted-foreground);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.ht-path-error {
+  color: var(--destructive);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.ht-path-result-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: space-between;
+}
+.ht-path-result-heading > div {
+  min-width: 0;
+}
+.ht-path-mode {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  margin-bottom: 12px;
+}
+.ht-path-result h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  overflow-wrap: anywhere;
+  scroll-margin-top: 110px;
+}
+.ht-path-result h2:focus {
+  outline: none;
+}
+.ht-path-summary {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.85;
+  margin-top: 16px;
+  max-width: 640px;
+}
+.ht-path-export {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ht-path-export:hover {
+  background: var(--secondary);
+}
+.ht-path-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin: 24px 0 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--muted-foreground);
+  font-size: 11px;
+}
+.ht-path-fallback {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--primary);
+  background: var(--secondary);
+  color: var(--muted-foreground);
+  font-size: 12px;
+  line-height: 1.8;
+}
+.ht-path-stages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.ht-path-stages > li {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 20px;
+  position: relative;
+  padding-bottom: 48px;
+  scroll-margin-top: 110px;
+}
+.ht-path-stages > li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 42px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border);
+}
+.ht-path-stage-number {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+.is-complete > .ht-path-stage-number {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+}
+.ht-path-stage-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.ht-path-stage-heading h3 {
+  font-size: 20px;
+  letter-spacing: -0.025em;
+  line-height: 1.4;
+  font-weight: 650;
+}
+.ht-path-complete {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  min-height: 44px;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.ht-path-complete[aria-pressed='true'] {
+  color: var(--primary);
+}
+.ht-path-objective {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+  margin: 6px 0 22px;
+  max-width: 650px;
+}
+.ht-path-video-list {
+  display: grid;
+  gap: 14px;
+}
+.ht-path-video {
+  display: grid;
+  grid-template-columns: 146px minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  align-items: start;
+}
+.ht-path-video-image {
+  position: relative;
+  display: block;
+  aspect-ratio: 16/9;
+  background: var(--secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.ht-path-video-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 180ms;
+}
+.ht-path-video-image > svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  fill: white;
+  filter: drop-shadow(0 1px 3px #16211d);
+}
+.ht-path-video-image:hover img {
+  transform: scale(1.04);
+}
+.ht-path-channel {
+  color: var(--muted-foreground);
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.ht-path-video h4 {
+  font-size: 13px;
+  line-height: 1.65;
+  font-weight: 650;
+}
+.ht-path-video h4 a:hover {
+  color: var(--primary);
+}
+.ht-path-video h4 svg {
+  display: inline;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+.ht-path-reason {
+  font-size: 11px;
+  line-height: 1.85;
+  margin-top: 10px;
+  color: var(--muted-foreground);
+}
+.ht-path-reason strong {
+  color: var(--foreground);
+  font-weight: 600;
+}
+.ht-path-context {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted-foreground);
+  line-height: 1.8;
+}
+.ht-path-context summary {
+  cursor: pointer;
+  min-height: 34px;
+  padding: 7px 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.ht-path-context p {
+  margin: 6px 0 12px;
+}
+.ht-path-context > span {
+  display: block;
+  margin-bottom: 4px;
+}
+.ht-path-context a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 36px;
+  color: var(--primary);
+}
+.ht-path-exercise {
+  margin-top: 18px;
+  padding-left: 14px;
+  border-left: 2px solid var(--border);
+}
+.ht-path-exercise > span {
+  font-size: 10px;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+}
+.ht-path-exercise p {
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+.ht-path-source {
+  color: var(--muted-foreground);
+  font-size: 11px;
+  line-height: 1.9;
+  padding-top: 12px;
+}
+.ht-path-empty,
+.ht-path-loading {
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  max-width: 520px;
+  padding: 30px;
+}
+.ht-path-empty h2,
+.ht-path-loading h2 {
+  font-family: var(--font-serif-display);
+  font-size: 32px;
+  line-height: 1.2;
+}
+.ht-path-empty p,
+.ht-path-loading p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--muted-foreground);
+}
+.ht-path-empty a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  color: var(--primary);
+  font-size: 13px;
+}
+.ht-path-about {
+  padding: 56px 0 72px;
+  margin-top: 56px;
+  border-top: 1px solid var(--border);
+  max-width: 800px;
+}
+.ht-path-about h2 {
+  font-size: 30px;
+  margin-bottom: 18px;
+}
+.ht-path-about p {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.ht-path-about a {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--primary);
+}
+.ht-quick-path-link {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 48px;
+  padding: 12px 24px;
+  background: var(--secondary);
+  color: var(--primary);
+  font-size: 12px;
+}
+@media (max-width: 1100px) {
+  .ht-path-layout {
+    gap: 30px;
+    grid-template-columns: 280px minmax(0, 1fr);
+  }
+  .ht-path-video {
+    grid-template-columns: 105px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px;
+  }
+  .ht-path-result-heading {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .ht-path-stage-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+  .ht-path-stage-heading h3 {
+    font-size: 18px;
+  }
+  .ht-path-stages > li {
+    gap: 14px;
+  }
+  .ht-learning-teaser {
+    gap: 40px;
+  }
+}
+@media (max-width: 800px) {
+  .ht-learning-teaser {
+    grid-template-columns: 1fr;
+    padding: 40px 24px;
+    gap: 30px;
+  }
+  .ht-path-page {
+    padding: 40px 24px 0;
+  }
+  .ht-path-page-heading {
+    margin-bottom: 30px;
+  }
+  .ht-path-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .ht-path-planner {
+    position: static;
+  }
+  .ht-path-prompts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+  .ht-path-prompts > p {
+    width: 100%;
+  }
+  .ht-path-prompts button {
+    width: auto;
+    max-width: 100%;
+  }
+  .ht-path-result-heading {
+    flex-direction: row;
+  }
+  .ht-path-video {
+    grid-template-columns: 146px minmax(0, 1fr);
+  }
+  .ht-path-empty,
+  .ht-path-loading {
+    min-height: 260px;
+    padding: 16px 0;
+  }
+}
+@media (max-width: 520px) {
+  .ht-path-page,
+  .ht-learning-teaser {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .ht-path-page-heading h1 {
+    font-size: 39px;
+  }
+  .ht-path-planner {
+    padding: 22px;
+  }
+  .ht-path-result-heading {
+    flex-direction: column;
+  }
+  .ht-path-stages > li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    gap: 12px;
+    padding-bottom: 34px;
+  }
+  .ht-path-stage-number {
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+  }
+  .ht-path-stages > li:not(:last-child)::before {
+    left: 14px;
+    top: 32px;
+  }
+  .ht-path-video {
+    display: block;
+    padding: 14px;
+  }
+  .ht-path-video-image {
+    width: 100%;
+    margin-bottom: 14px;
+  }
+  .ht-path-video h4 {
+    font-size: 14px;
+  }
+  .ht-path-channel,
+  .ht-path-reason,
+  .ht-path-context,
+  .ht-path-objective,
+  .ht-path-exercise p {
+    font-size: 12px;
+  }
+  .ht-path-context summary,
+  .ht-path-context a {
+    min-height: 44px;
+  }
+  .ht-path-complete {
+    font-size: 11px;
+  }
+  .ht-learning-preview {
+    padding: 20px;
+  }
+  .ht-path-about {
+    margin-top: 34px;
+    padding: 40px 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ht-path-video-image img {
+    transition: none;
+  }
+}
+
+.ht-home-search-mode {
+  display: flex;
+  gap: 22px;
+  margin-top: 22px;
+  margin-bottom: -8px;
+}
+.ht-home-search-mode button {
+  min-height: 44px;
+  font-size: 12px;
+  color: var(--muted-foreground);
+  border-bottom: 2px solid transparent;
+}
+.ht-home-search-mode button[aria-pressed='true'] {
+  color: var(--primary);
+  border-color: var(--primary);
+  font-weight: 700;
+}
+@media (min-width: 801px) {
+  .ht-path-reason,
+  .ht-path-context {
+    font-size: 12px;
+  }
+  .ht-path-video h4 {
+    font-size: 14px;
+  }
+  .ht-path-channel {
+    font-size: 11px;
+  }
+  .ht-path-objective {
+    font-size: 13px;
+  }
+}

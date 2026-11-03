@@ -52,6 +52,7 @@ import '@/styles/hackertube.css';
 import '@/styles/hackertube-editorial.css';
 import '@/styles/hackertube-pages.css';
 import '@/styles/hackertube-quality.css';
+import '@/styles/hackertube-learning.css';
 
 // Analytics IDs live in the DB config (1h-cached service). Fetched via a
 // server function so drizzle/db code never reaches the client bundle.

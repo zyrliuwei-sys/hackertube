@@ -34,7 +34,11 @@ export function HackerTubeHeader({
           label: m['hackertube.nav.topics'](),
           active: pathname === '/topics',
         },
-        { href: '/#collections', label: m['hackertube.nav.collections']() },
+        {
+          href: '/learning-paths',
+          label: m['hackertube.paths.nav'](),
+          active: pathname === '/learning-paths',
+        },
         {
           href: '/guide',
           label: m['hackertube.nav.guide'](),

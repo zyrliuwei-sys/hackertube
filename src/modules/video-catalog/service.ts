@@ -57,6 +57,11 @@ export function listVideoIds(): string[] {
   return videos.map((video) => video.id);
 }
 
+/** Server-only snapshot for features that need to rank the whole archive. */
+export function getCatalogVideos(): readonly Video[] {
+  return videos;
+}
+
 export function listVideoSitemapEntries() {
   return videos.map((video) => ({
     path: `/watch/${video.id}`,

@@ -8,7 +8,7 @@
     "prebuild": "node scripts/db-setup.mjs",
     "build": "vite build",
     "start": "node .output/server/index.mjs",
-    "precf:build": "node scripts/db-setup.mjs",
+    "precf:build": "node scripts/db-setup.mjs && pnpm test:learning-paths",
     "cf:build": "NITRO_PRESET=cloudflare_module vite build",
     "cf:deploy": "node scripts/cloudflare-prepare.mjs && sh -c 'set -a && [ -f .env.production ] && . ./.env.production; set +a && pnpm cf:build && exec wrangler deploy'",
     "postinstall": "mkdir -p data && (test -f src/config/db/schema.ts || node scripts/db-setup.mjs)",
@@ -32,7 +32,8 @@
     "test:atomic": "node --import tsx --test tests/atomic.test.ts",
     "test:atomic:d1": "ATOMIC_D1=1 node --import tsx --test tests/atomic.test.ts",
     "test:atomic:pg": "TSX_TSCONFIG_PATH=tests/tsconfig.pg.json node --import tsx --test tests/atomic.test.ts",
-    "cf:prepare": "node scripts/cloudflare-prepare.mjs"
+    "cf:prepare": "node scripts/cloudflare-prepare.mjs",
+    "test:learning-paths": "node --import tsx --test tests/learning-paths.test.ts"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx,mjs,cjs}": "prettier --write",
