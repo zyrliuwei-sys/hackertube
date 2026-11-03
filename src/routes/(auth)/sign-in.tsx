@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from '@tanstack/react-form';
 import { createFileRoute } from '@tanstack/react-router';
+import { ShieldCheck } from 'lucide-react';
 import { z } from 'zod';
 
 import { authClient, signIn, useSession } from '@/core/auth/client';
@@ -306,6 +307,13 @@ function SignInPage() {
             )}
           </CardContent>
         </Card>
+        <div className="ht-auth-admin-entry">
+          <ShieldCheck size={19} aria-hidden="true" />
+          <div>
+            <Link href="/admin">{m['hackertube.account.admin_sign_in']()}</Link>
+            <p>{m['hackertube.account.admin_hint']()}</p>
+          </div>
+        </div>
       </div>
     </HackerTubeAuthLayout>
   );

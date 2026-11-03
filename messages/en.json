@@ -1712,5 +1712,8 @@
   "hackertube.paths.search_mode": "Search mode",
   "hackertube.paths.find_videos": "Find videos",
   "hackertube.paths.search_mode_learning": "AI learning path",
-  "hackertube.paths.short_generate": "Build path"
+  "hackertube.paths.short_generate": "Build path",
+  "hackertube.account.menu": "Account menu",
+  "hackertube.account.admin_sign_in": "Administrator sign in",
+  "hackertube.account.admin_hint": "Use your administrator account. Access to the admin console requires the appropriate permissions."
 }

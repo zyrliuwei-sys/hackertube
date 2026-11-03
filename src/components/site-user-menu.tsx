@@ -1,9 +1,8 @@
-'use client';
-
 import { LogOutIcon, SettingsIcon, ShieldIcon } from 'lucide-react';
 
 import { signOut } from '@/core/auth/client';
 import { Link, useRouter } from '@/core/i18n/navigation';
+import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { useUserPermissions } from '@/hooks/use-user-permissions';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -21,10 +20,14 @@ export function SiteUserMenu({
   name,
   email,
   image,
+  label,
+  className,
 }: {
   name: string;
   email: string;
   image?: string | null;
+  label?: string;
+  className?: string;
 }) {
   const router = useRouter();
   const { data } = useUserPermissions();
@@ -37,7 +40,13 @@ export function SiteUserMenu({
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="focus-visible:ring-ring rounded-full outline-none focus-visible:ring-2">
+      <DropdownMenuTrigger
+        aria-label={label || m['common.nav.profile']()}
+        className={cn(
+          'focus-visible:ring-ring rounded-full outline-none focus-visible:ring-2',
+          className
+        )}
+      >
         <Avatar className="size-9">
           <AvatarImage src={image || undefined} alt={name} />
           <AvatarFallback className="text-xs">

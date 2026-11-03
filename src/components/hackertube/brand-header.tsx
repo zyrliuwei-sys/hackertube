@@ -28,6 +28,7 @@ interface BrandHeaderProps {
   menuLabel: string;
   closeLabel: string;
   tools?: ReactNode;
+  account?: ReactNode;
   onSaved: () => void;
 }
 
@@ -39,6 +40,7 @@ export function BrandHeader({
   menuLabel,
   closeLabel,
   tools,
+  account,
   onSaved,
 }: BrandHeaderProps) {
   const [open, setOpen] = useState(false);
@@ -82,6 +84,7 @@ export function BrandHeader({
           <div className="ht-brand-nav-tools">{tools}</div>
         </nav>
         <div className="ht-brand-tools">
+          {account}
           <button
             type="button"
             className="ht-collection-button"

@@ -4,6 +4,15 @@ Read this when a project built from this template pulls newer template code.
 Entries are newest first. Apply **every entry dated after the template version
 the project last pulled**, oldest of those first.
 
+## 2026-11-03 — Public sign-in and administrator entry
+
+The public header now exposes Sign in on desktop and mobile. Signed-in users
+get the existing account menu, including Admin Panel when the server permission
+summary reports administrative access. The sign-in page links to `/admin`,
+whose existing session guard preserves the destination through login. This adds
+navigation only: existing authentication and server-side RBAC stay authoritative.
+No migration, new account, role grant or secret is required.
+
 ## 2026-11-03 — AI video learning paths
 
 Added `/learning-paths` and the public, rate-limited POST `/api/learning-paths`.

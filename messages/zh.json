@@ -1712,5 +1712,8 @@
   "hackertube.paths.search_mode": "搜索模式",
   "hackertube.paths.find_videos": "搜索视频",
   "hackertube.paths.search_mode_learning": "AI 学习路线",
-  "hackertube.paths.short_generate": "生成路线"
+  "hackertube.paths.short_generate": "生成路线",
+  "hackertube.account.menu": "账户菜单",
+  "hackertube.account.admin_sign_in": "管理员登录",
+  "hackertube.account.admin_hint": "使用管理员账号登录，拥有相应权限后即可进入管理后台。"
 }

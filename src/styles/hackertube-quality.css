@@ -40,6 +40,131 @@ body {
 .ht-brand-header-inner {
   gap: 24px;
 }
+.ht-sign-in {
+  display: inline-flex;
+  min-height: 44px;
+  min-width: 44px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border: 1px solid var(--primary);
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.ht-sign-in:hover {
+  opacity: 0.9;
+}
+.ht-account-button {
+  display: inline-grid;
+  place-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--secondary);
+}
+.ht-auth-admin-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: 28px;
+  padding-top: 20px;
+}
+.ht-auth-admin-entry > svg {
+  flex-shrink: 0;
+  margin-top: 12px;
+  color: var(--primary);
+}
+.ht-auth-admin-entry a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+.ht-auth-admin-entry a:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.ht-auth-admin-entry p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: var(--muted-foreground);
+}
+@media (max-width: 1150px) and (min-width: 761px) {
+  .ht-brand-tools {
+    gap: 8px;
+  }
+  .ht-sign-in {
+    padding-inline: 10px;
+  }
+}
+@media (max-width: 540px) {
+  .ht-sign-in {
+    padding: 0;
+  }
+  .ht-sign-in > span {
+    display: none;
+  }
+}
+@media (max-width: 360px) {
+  .ht-site .ht-brand-header-inner {
+    padding-inline: 12px;
+    gap: 6px;
+  }
+  .ht-brand-header .ht-brand-wordmark {
+    font-size: 18px;
+    gap: 6px;
+  }
+  .ht-brand-header .ht-brand-wordmark img {
+    width: 24px;
+    height: 24px;
+  }
+}
+@media (min-width: 761px) and (max-width: 1040px) {
+  .ht-brand-header-inner {
+    justify-content: space-between;
+  }
+  .ht-brand-nav {
+    display: none;
+  }
+  .ht-brand-nav.is-open {
+    position: absolute;
+    inset: 100% 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: var(--background);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px 20px;
+    gap: 0;
+  }
+  .ht-brand-nav.is-open > a {
+    padding: 12px 4px;
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .ht-brand-nav a[aria-current]::after {
+    display: none;
+  }
+  .ht-brand-nav-tools {
+    gap: 12px;
+    padding-top: 12px;
+    margin-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+  .ht-mobile-menu {
+    display: inline-grid;
+    place-items: center;
+  }
+}
 .ht-brand-nav-tools {
   display: flex;
   gap: 8px;
