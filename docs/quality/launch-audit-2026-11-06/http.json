@@ -1,0 +1,551 @@
+[
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/",
+      "status": 200,
+      "ms": 2478,
+      "bytes": 132022,
+      "title": "HackerTube AI | Hacker News Videos, Search &amp; Discovery",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/topics",
+      "status": 200,
+      "ms": 2419,
+      "bytes": 84932,
+      "title": "Browse topics | HackerTube AI",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/topics",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/guide",
+      "status": 200,
+      "ms": 2534,
+      "bytes": 33034,
+      "title": "How it works | HackerTube AI",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/guide",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/learning-paths",
+      "status": 200,
+      "ms": 3158,
+      "bytes": 62343,
+      "title": "AI Video Learning Paths from Hacker News | HackerTube AI",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/learning-paths",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/pricing",
+      "status": 200,
+      "ms": 323,
+      "bytes": 41222,
+      "title": "Pricing",
+      "h1": 0,
+      "canonical": "https://hacker-tube.com/pricing",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/blog",
+      "status": 404,
+      "ms": 367,
+      "bytes": 9765,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/guest-post",
+      "status": 200,
+      "ms": 302,
+      "bytes": 31936,
+      "title": "Guest Post",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/privacy-policy",
+      "status": 200,
+      "ms": 331,
+      "bytes": 37182,
+      "title": "Privacy Policy",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/privacy-policy",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/terms-of-service",
+      "status": 200,
+      "ms": 346,
+      "bytes": 36347,
+      "title": "Terms of Service",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/terms-of-service",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/usage-guide",
+      "status": 200,
+      "ms": 303,
+      "bytes": 35149,
+      "title": "HackerTube AI Usage Guide",
+      "h1": 1,
+      "canonical": "https://hacker-tube.com/usage-guide",
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/forgot-password",
+      "status": 200,
+      "ms": 357,
+      "bytes": 16837,
+      "title": "HackerTube AI",
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/reset-password",
+      "status": 200,
+      "ms": 271,
+      "bytes": 13424,
+      "title": "HackerTube AI",
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/sign-in",
+      "status": 200,
+      "ms": 306,
+      "bytes": 20416,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/sign-up",
+      "status": 200,
+      "ms": 279,
+      "bytes": 23389,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/watch/not-a-real-video",
+      "status": 404,
+      "ms": 332,
+      "bytes": 9765,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/topics/not-a-real-topic",
+      "status": 404,
+      "ms": 259,
+      "bytes": 9721,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/definitely-not-a-real-page",
+      "status": 404,
+      "ms": 276,
+      "bytes": 9721,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/robots.txt",
+      "status": 200,
+      "ms": 236,
+      "bytes": 137,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/plain",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      },
+      "body": "User-Agent: *\nAllow: /\nDisallow: /admin\nDisallow: /settings\nDisallow: /api/\nDisallow: /*?*\n\nSitemap: https://hacker-tube.com/sitemap.xml\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "ms": 229,
+      "bytes": 271,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "application/xml; charset=utf-8",
+        "cache-control": "public, max-age=300",
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      },
+      "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  <sitemap><loc>https://hacker-tube.com/sitemap-pages.xml</loc></sitemap>\n  <sitemap><loc>https://hacker-tube.com/sitemap-videos.xml</loc></sitemap>\n</sitemapindex>\n"
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/api/config/public",
+      "status": 200,
+      "ms": 276,
+      "bytes": 3245,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store, no-cache, must-revalidate",
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      },
+      "config": {
+        "plausible_src": "https://stats.cadcraft.org/js/pa-qYDuj4rpQxmw6TDGnHyaB.js",
+        "password_reset_enabled": "false",
+        "email_verification_enabled": "false"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/api/admin/users",
+      "status": 401,
+      "ms": 247,
+      "bytes": 36,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": null
+      },
+      "api": {
+        "code": -1,
+        "message": "Unauthorized"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/api/admin/orders",
+      "status": 401,
+      "ms": 200,
+      "bytes": 36,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": null
+      },
+      "api": {
+        "code": -1,
+        "message": "Unauthorized"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/api/admin/config",
+      "status": 401,
+      "ms": 225,
+      "bytes": 36,
+      "h1": 0,
+      "noindex": false,
+      "headers": {
+        "content-type": "application/json",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": null
+      },
+      "api": {
+        "code": -1,
+        "message": "Unauthorized"
+      }
+    }
+  },
+  {
+    "status": "fulfilled",
+    "value": {
+      "path": "/api/user/get-user-info",
+      "status": 404,
+      "ms": 264,
+      "bytes": 9721,
+      "title": "HackerTube AI",
+      "h1": 1,
+      "noindex": false,
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": null,
+        "content-security-policy": null,
+        "x-frame-options": null,
+        "x-content-type-options": null,
+        "strict-transport-security": null,
+        "referrer-policy": null,
+        "content-encoding": "br"
+      }
+    }
+  }
+]

@@ -1,6 +1,8 @@
 import type { Video, VideoArea, VideoCategory } from '@/types/video-catalog';
+import { toast } from 'sonner';
 
 import { Link, useRouter } from '@/core/i18n/navigation';
+import { topicPageUrl } from '@/lib/topic-pagination';
 import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
@@ -13,11 +15,17 @@ export function HackerTubeTopic({
   category,
   videos,
   description,
+  total,
+  page,
+  pages,
 }: {
   area: VideoArea;
   category: VideoCategory;
   videos: Video[];
   description: string[];
+  total: number;
+  page: number;
+  pages: number;
 }) {
   const { savedIds, toggleSaved } = useVideoCollection();
   const router = useRouter();
@@ -41,7 +49,7 @@ export function HackerTubeTopic({
         </header>
         <section aria-label={`${category.name} videos`}>
           <p className="ht-results-count">
-            {m['hackertube.library.results']({ count: videos.length })}
+            {m['hackertube.library.results']({ count: total })}
           </p>
           <div className="ht-video-grid">
             {videos.map((video) => (
@@ -51,7 +59,11 @@ export function HackerTubeTopic({
                 saved={savedIds.includes(video.id)}
                 href={`/watch/${video.id}`}
                 playLabel={m['hackertube.brand.watch_now']()}
-                saveLabel={m['hackertube.card.save']()}
+                saveLabel={
+                  savedIds.includes(video.id)
+                    ? m['hackertube.card.saved']()
+                    : m['hackertube.card.save']()
+                }
                 recommendationLabel={
                   video.recommendations > 0
                     ? m['hackertube.card.recommendations']({
@@ -65,11 +77,51 @@ export function HackerTubeTopic({
                 imageUnavailableLabel={m['hackertube.card.image_unavailable']()}
                 onPlay={() => router.push(`/watch/${video.id}`)}
                 onSave={() => {
-                  toggleSaved(video.id);
+                  const result = toggleSaved(video.id);
+                  if (result === 'error')
+                    toast.error(m['hackertube.notice.storage']());
+                  else
+                    toast.success(
+                      result === 'saved'
+                        ? m['hackertube.notice.saved']()
+                        : m['hackertube.notice.removed']()
+                    );
                 }}
               />
             ))}
           </div>
+          {pages > 1 && (
+            <nav
+              aria-label={m['hackertube.pagination.label']()}
+              className="mt-8 flex flex-wrap items-center justify-between gap-4"
+            >
+              {page > 1 ? (
+                <Link
+                  rel="prev"
+                  className="rounded-lg border px-4 py-3"
+                  href={topicPageUrl(topicPath(area.id, category.id), page - 1)}
+                >
+                  {m['hackertube.pagination.previous']()}
+                </Link>
+              ) : (
+                <span />
+              )}
+              <span className="text-muted-foreground text-sm">
+                {m['hackertube.pagination.status']({ page, pages })}
+              </span>
+              {page < pages ? (
+                <Link
+                  rel="next"
+                  className="rounded-lg border px-4 py-3"
+                  href={topicPageUrl(topicPath(area.id, category.id), page + 1)}
+                >
+                  {m['hackertube.pagination.next']()}
+                </Link>
+              ) : (
+                <span />
+              )}
+            </nav>
+          )}
         </section>
         <section className="ht-related" aria-labelledby="related-topics">
           <h2 id="related-topics">{m['hackertube.seo.related_topics']()}</h2>

@@ -1,5 +1,6 @@
 import type { ComponentProps, ReactNode } from 'react';
 import {
+  defaultParseSearch,
   Link as RouterLink,
   useLocation,
   useRouter as useTanStackRouter,
@@ -27,7 +28,7 @@ export function Link({ href, locale, prefetch, ...rest }: LinkProps) {
     return <a href={href} {...rest} />;
   }
   const Comp = RouterLink as any;
-  return <Comp to={href} {...rest} />;
+  return <Comp {...toNavigateOptions(href)} {...rest} />;
 }
 
 export function usePathname(): string {
@@ -36,14 +37,18 @@ export function usePathname(): string {
   return useLocation().pathname;
 }
 
-function toNavigateOptions(href: string) {
-  const [pathPart, hash] = href.split('#');
-  const [pathname, searchStr] = pathPart.split('?');
+export function toNavigateOptions(href: string) {
+  const hashIndex = href.indexOf('#');
+  const pathPart = hashIndex < 0 ? href : href.slice(0, hashIndex);
+  const hash = hashIndex < 0 ? undefined : href.slice(hashIndex + 1);
+  const searchIndex = pathPart.indexOf('?');
+  const pathname = searchIndex < 0 ? pathPart : pathPart.slice(0, searchIndex);
   return {
     to: pathname || '/',
-    search: searchStr
-      ? Object.fromEntries(new URLSearchParams(searchStr))
-      : undefined,
+    // Match the router's incoming-URL parser. Re-wrapping numeric strings
+    // would serialize ?page=2 as ?page=%222%22 and lose repeated parameters.
+    search:
+      searchIndex < 0 ? {} : defaultParseSearch(pathPart.slice(searchIndex)),
     hash,
   };
 }

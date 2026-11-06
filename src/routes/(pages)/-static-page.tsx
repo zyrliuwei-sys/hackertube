@@ -2,6 +2,7 @@ import type { ComponentType } from 'react';
 import { notFound, useLoaderData } from '@tanstack/react-router';
 
 import { envConfigs } from '@/config';
+import { withSocialMetadata } from '@/lib/public-page-head';
 import { m } from '@/paraglide/messages.js';
 import { baseLocale, getLocale, localizeUrl } from '@/paraglide/runtime.js';
 
@@ -50,13 +51,13 @@ export function staticPageRouteOptions(slug: string) {
       const canonical = localizeUrl(`${envConfigs.app_url}/${slug}`, {
         locale: locale as ReturnType<typeof getLocale>,
       }).href;
-      return {
+      return withSocialMetadata({
         meta: [
           { title: meta.title },
           { name: 'description', content: meta.description },
         ],
         links: [{ rel: 'canonical', href: canonical }],
-      };
+      });
     },
     component: StaticPage,
   };

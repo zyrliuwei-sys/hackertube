@@ -20,6 +20,7 @@ import { affectedRows, db } from '@/core/db';
 import { envConfigs } from '@/config';
 import {
   aiTask,
+  analyticsEvent,
   operationsExperiment as experiment,
   order,
   permission,
@@ -40,6 +41,7 @@ import {
   type OperationsCounts,
   type OperationsReport,
 } from '@/lib/operations';
+import type { ProductEventKind, ProductReport } from '@/lib/product-events';
 
 const DAY = 86400000;
 const paidStatuses = ['paid', 'refunding', 'refunded'];
@@ -120,6 +122,11 @@ export async function recordVisitor(
     }
   }
   if (input.userId) await linkVisitor(input.id, input.userId);
+  if (input.excluded)
+    await db()
+      .update(visitor)
+      .set({ excluded: true })
+      .where(eq(visitor.id, input.id));
 }
 
 export async function linkVisitor(id: string, userId: string) {
@@ -360,6 +367,7 @@ export async function getOperationsReport({
       .filter((r) => statuses.includes(r.status))
       .reduce((sum, r) => sum + Number(r.n), 0);
   return {
+    product: await getProductReport(from, now, days),
     generatedAt: now.toISOString(),
     buildId: import.meta.env?.VITE_BUILD_ID || 'development',
     today,
@@ -445,4 +453,133 @@ export async function concludeExperiment(input: {
       and(eq(experiment.id, input.id), eq(experiment.status, 'observing'))
     );
   return affectedRows(changed) !== 0;
+}
+
+let nextProductCleanup = 0;
+export async function recordProductEvent(
+  visitorId: string,
+  kind: ProductEventKind,
+  value?: number
+) {
+  const now = new Date();
+  await db()
+    .insert(analyticsEvent)
+    .values({
+      id: getUuid(),
+      visitorId,
+      kind,
+      value: value ?? null,
+      createdAt: now,
+    });
+  if (Date.now() >= nextProductCleanup) {
+    // Cleanup is bounded by time indexes, at most once per hour per worker.
+    await db()
+      .delete(analyticsEvent)
+      .where(lt(analyticsEvent.createdAt, new Date(now.getTime() - 90 * DAY)));
+    await db()
+      .delete(visitor)
+      .where(lt(visitor.createdAt, new Date(now.getTime() - 365 * DAY)));
+    nextProductCleanup = Date.now() + 60 * 60 * 1000;
+  }
+}
+
+export async function getProductReport(
+  from: Date,
+  now: Date,
+  days: number
+): Promise<ProductReport> {
+  const empty: ProductReport = {
+    available: false,
+    trackingSince: null,
+    visitors: 0,
+    returning: 0,
+    active: 0,
+    counts: {},
+    zeroResultSearches: 0,
+    averagePathMs: null,
+    days: [],
+  };
+  try {
+    const eligible = and(
+      eq(visitor.excluded, false),
+      or(isNull(visitor.userId), human())
+    );
+    const where = and(eligible, within(analyticsEvent.createdAt, from, now));
+    const eventDay = dayBucket(analyticsEvent.createdAt);
+    const visitorDay = dayBucket(visitor.createdAt);
+    const active = sql<number>`count(distinct case when ${analyticsEvent.kind} not in ('page_view', 'video_open') then ${visitor.id} end)`;
+    const [totals, kinds, daily, first] = await Promise.all([
+      db()
+        .select({
+          visitors: sql<number>`count(distinct ${visitor.id})`,
+          returning: sql<number>`count(distinct case when ${lt(visitor.createdAt, from)} then ${visitor.id} end)`,
+          active,
+          zeroResultSearches: sql<number>`sum(case when ${analyticsEvent.kind} = 'search' and ${analyticsEvent.value} = 0 then 1 else 0 end)`,
+          averagePathMs: sql<number>`avg(case when ${analyticsEvent.kind} in ('path_success', 'path_fallback', 'path_unsupported', 'path_failed') then ${analyticsEvent.value} end)`,
+        })
+        .from(analyticsEvent)
+        .innerJoin(visitor, eq(visitor.id, analyticsEvent.visitorId))
+        .leftJoin(user, eq(user.id, visitor.userId))
+        .where(where),
+      db()
+        .select({ kind: analyticsEvent.kind, n: count() })
+        .from(analyticsEvent)
+        .innerJoin(visitor, eq(visitor.id, analyticsEvent.visitorId))
+        .leftJoin(user, eq(user.id, visitor.userId))
+        .where(where)
+        .groupBy(analyticsEvent.kind),
+      db()
+        .select({
+          day: eventDay,
+          visitors: sql<number>`count(distinct ${visitor.id})`,
+          returning: sql<number>`count(distinct case when ${visitorDay} < ${eventDay} then ${visitor.id} end)`,
+          active,
+        })
+        .from(analyticsEvent)
+        .innerJoin(visitor, eq(visitor.id, analyticsEvent.visitorId))
+        .leftJoin(user, eq(user.id, visitor.userId))
+        .where(where)
+        .groupBy(eventDay),
+      db()
+        .select({ at: analyticsEvent.createdAt })
+        .from(analyticsEvent)
+        .innerJoin(visitor, eq(visitor.id, analyticsEvent.visitorId))
+        .leftJoin(user, eq(user.id, visitor.userId))
+        .where(eligible)
+        .orderBy(analyticsEvent.createdAt)
+        .limit(1),
+    ]);
+    const total = totals[0];
+    return {
+      available: true,
+      trackingSince: first[0]?.at?.toISOString() ?? null,
+      visitors: Number(total?.visitors ?? 0),
+      returning: Number(total?.returning ?? 0),
+      active: Number(total?.active ?? 0),
+      zeroResultSearches: Number(total?.zeroResultSearches ?? 0),
+      averagePathMs:
+        total?.averagePathMs == null
+          ? null
+          : Math.round(Number(total.averagePathMs)),
+      counts: Object.fromEntries(
+        kinds.map((r: { kind: string; n: unknown }) => [r.kind, Number(r.n)])
+      ),
+      days: Array.from({ length: days }, (_, i) => {
+        const day = new Date(from.getTime() + i * DAY + 480 * 60000)
+          .toISOString()
+          .slice(0, 10);
+        const row = daily.find((r: { day: string }) => r.day === day);
+        return {
+          day,
+          visitors: Number(row?.visitors ?? 0),
+          returning: Number(row?.returning ?? 0),
+          active: Number(row?.active ?? 0),
+        };
+      }),
+    };
+  } catch {
+    // An older deployment without the additive migration must say unavailable,
+    // never present missing telemetry as zero real users.
+    return empty;
+  }
 }

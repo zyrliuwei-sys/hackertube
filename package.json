@@ -87,7 +87,6 @@
     "recharts": "3.8.0",
     "replicate": "^1.4.0",
     "resend": "^4.8.0",
-    "shadcn": "^4.23.0",
     "simple-flakeid": "^0.0.5",
     "sonner": "^2.0.8",
     "stripe": "^18.5.0",
@@ -122,21 +121,8 @@
     "tsx": "^4.23.15",
     "typescript": "^5.9.3",
     "vite": "^8.3.5",
-    "wrangler": "^4.154.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@parcel/watcher",
-      "@swc/core",
-      "esbuild",
-      "msw",
-      "sharp"
-    ],
-    "overrides": {
-      "seroval": "1.6.8",
-      "seroval-plugins": "1.6.8",
-      "next": "-"
-    }
+    "wrangler": "^4.154.0",
+    "shadcn": "^4.23.0"
   },
   "packageManager": "pnpm@11.15.1"
 }

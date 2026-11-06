@@ -1,0 +1,30 @@
+[
+  {
+    "mode": {
+      "cookie": "cookie_consent=rejected"
+    },
+    "status": 200,
+    "attributionCookies": []
+  },
+  {
+    "mode": {
+      "dnt": "1"
+    },
+    "status": 200,
+    "attributionCookies": []
+  },
+  {
+    "mode": {
+      "sec-gpc": "1"
+    },
+    "status": 200,
+    "attributionCookies": []
+  },
+  {
+    "mode": {
+      "cookie": "cookie_consent=accepted"
+    },
+    "status": 200,
+    "attributionCookies": ["utm_source", "first_referrer"]
+  }
+]

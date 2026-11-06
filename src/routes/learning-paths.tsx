@@ -2,31 +2,34 @@ import { createFileRoute } from '@tanstack/react-router';
 import { getExampleLearningPath } from '@/server/learning-paths';
 
 import { envConfigs } from '@/config';
+import { withSocialMetadata } from '@/lib/public-page-head';
+import { searchText } from '@/lib/search-text';
 import { m } from '@/paraglide/messages.js';
 import { HackerTubeLearningPaths } from '@/blocks/hackertube-learning-paths';
 
 export const Route = createFileRoute('/learning-paths')({
   validateSearch: (search: Record<string, unknown>) => ({
-    goal: typeof search.goal === 'string' ? search.goal.slice(0, 200) : '',
+    goal: searchText(search.goal) ?? '',
   }),
   loader: () => getExampleLearningPath(),
-  head: () => ({
-    meta: [
-      {
-        title: `${m['hackertube.paths.meta_title']()} | ${envConfigs.app_name}`,
-      },
-      {
-        name: 'description',
-        content: m['hackertube.paths.meta_description'](),
-      },
-    ],
-    links: [
-      {
-        rel: 'canonical',
-        href: `${envConfigs.app_url.replace(/\/$/, '')}/learning-paths`,
-      },
-    ],
-  }),
+  head: () =>
+    withSocialMetadata({
+      meta: [
+        {
+          title: `${m['hackertube.paths.meta_title']()} | ${envConfigs.app_name}`,
+        },
+        {
+          name: 'description',
+          content: m['hackertube.paths.meta_description'](),
+        },
+      ],
+      links: [
+        {
+          rel: 'canonical',
+          href: `${envConfigs.app_url.replace(/\/$/, '')}/learning-paths`,
+        },
+      ],
+    }),
   component: LearningPathsPage,
 });
 

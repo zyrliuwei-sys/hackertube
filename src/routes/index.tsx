@@ -2,6 +2,8 @@ import { createFileRoute, redirect } from '@tanstack/react-router';
 import { createServerFn } from '@tanstack/react-start';
 
 import { envConfigs } from '@/config';
+import { withSocialMetadata } from '@/lib/public-page-head';
+import { searchText } from '@/lib/search-text';
 import { jsonLdScripts, websiteSchema } from '@/lib/structured-data';
 import { legacyTopicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
@@ -41,7 +43,7 @@ export const Route = createFileRoute('/')({
     if (href) throw redirect({ href, statusCode: 301 });
   },
   validateSearch: (search: Record<string, unknown>) => ({
-    q: typeof search.q === 'string' ? search.q.slice(0, 200) : undefined,
+    q: searchText(search.q),
     area:
       typeof search.area === 'string' && /^[a-z0-9-]{1,100}$/.test(search.area)
         ? search.area
@@ -66,7 +68,7 @@ export const Route = createFileRoute('/')({
     const description = m['hackertube.metadata.description']({}, { locale });
     const urlFor = (loc: 'en') =>
       localizeUrl(`${envConfigs.app_url}/`, { locale: loc }).href;
-    return {
+    return withSocialMetadata({
       scripts: jsonLdScripts(websiteSchema()),
       meta: [
         { title },
@@ -82,7 +84,7 @@ export const Route = createFileRoute('/')({
         },
       ],
       links: [{ rel: 'canonical', href: urlFor(locale) }],
-    };
+    });
   },
   component: HomePage,
 });

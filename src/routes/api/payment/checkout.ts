@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router';
 import { resolveCharge } from '@/server/payment/charge';
 
 import { getAuth } from '@/core/auth';
-import { getPricingProduct } from '@/config/pricing';
+import { getPricingProduct, PUBLIC_PLANS_ENABLED } from '@/config/pricing';
 import { getAllConfigs } from '@/modules/config/service';
 import { createCheckout } from '@/modules/payment/service';
 import { localizedPath } from '@/lib/locale-path';
@@ -26,6 +26,8 @@ function safeSameOriginPath(
 }
 
 async function POST({ request }: { request: Request }) {
+  if (!PUBLIC_PLANS_ENABLED)
+    return respErr('Paid plans are not available.', { status: 404 });
   const limited = enforceMinIntervalRateLimit(request, {
     intervalMs: 1000,
     keyPrefix: 'checkout',

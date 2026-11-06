@@ -705,3 +705,21 @@ export const operationsExperiment = table(
 
 export type AnalyticsVisitor = typeof analyticsVisitor.$inferSelect;
 export type OperationsExperiment = typeof operationsExperiment.$inferSelect;
+
+// Product activity, independent of signup cohorts. No search terms or goals.
+export const analyticsEvent = table(
+  'analytics_event',
+  {
+    id: varchar191('id').primaryKey(),
+    visitorId: varchar191('visitor_id')
+      .notNull()
+      .references(() => analyticsVisitor.id, { onDelete: 'cascade' }),
+    kind: varchar191('kind').notNull(),
+    value: int('value'),
+    createdAt: timestamp('created_at', { fsp: 3 }).notNull(),
+  },
+  (t) => [
+    index('idx_analytics_event_created').on(t.createdAt),
+    index('idx_analytics_event_visitor_created').on(t.visitorId, t.createdAt),
+  ]
+);

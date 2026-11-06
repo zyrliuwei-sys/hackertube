@@ -27,6 +27,7 @@ import {
 } from '@/components/ui/table';
 
 import { OperationsExperiments } from './admin-operations-experiments';
+import { AdminProductActivity } from './admin-product-activity';
 
 const rate = (part: number, base: number) =>
   base ? `${((part / base) * 100).toFixed(1)}%` : '—';
@@ -210,6 +211,7 @@ export function AdminOperations() {
       ) : (
         report && (
           <>
+            <AdminProductActivity report={report.product} />
             <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
               <p className="text-muted-foreground">
                 {m['admin.operations.same_time']()} · {periodText} · UTC+08:00

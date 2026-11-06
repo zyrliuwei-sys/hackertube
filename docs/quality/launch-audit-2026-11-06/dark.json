@@ -1,0 +1,32 @@
+[
+  {
+    "path": "/",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/topics",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/guide",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/learning-paths",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/watch/fNk_zzaMoSs",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  }
+]

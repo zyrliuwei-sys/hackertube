@@ -1,20 +1,15 @@
 import { useEffect, useState } from 'react';
 
-const KEY = 'hackertube-ai:saved:v1';
+import { trackProductEvent } from '@/lib/product-events';
+import {
+  VIDEO_COLLECTION_KEY as KEY,
+  parseVideoCollection,
+} from '@/lib/video-collection';
+
 const EVENT = 'hackertube:collection';
 
 function readCollection(): string[] {
-  const value: unknown = JSON.parse(localStorage.getItem(KEY) || '[]');
-  return Array.isArray(value)
-    ? [
-        ...new Set(
-          value.filter(
-            (id): id is string =>
-              typeof id === 'string' && /^[\w-]{11}$/.test(id)
-          )
-        ),
-      ].slice(-200)
-    : [];
+  return parseVideoCollection(localStorage.getItem(KEY));
 }
 
 export function useVideoCollection() {
@@ -24,7 +19,7 @@ export function useVideoCollection() {
       try {
         setSavedIds(readCollection());
       } catch {
-        /* Storage may be unavailable. */
+        setSavedIds([]);
       }
     };
     refresh();
@@ -36,6 +31,7 @@ export function useVideoCollection() {
     };
   }, []);
   const toggleSaved = (id: string): 'saved' | 'removed' | 'error' => {
+    if (!/^[\w-]{11}$/.test(id)) return 'error';
     try {
       const current = readCollection();
       const exists = current.includes(id);
@@ -45,6 +41,7 @@ export function useVideoCollection() {
       localStorage.setItem(KEY, JSON.stringify(next));
       setSavedIds(next);
       window.dispatchEvent(new Event(EVENT));
+      trackProductEvent({ kind: exists ? 'remove_saved_video' : 'save_video' });
       return exists ? 'removed' : 'saved';
     } catch {
       return 'error';

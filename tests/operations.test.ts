@@ -41,6 +41,38 @@ after(async () => {
   await rm(directory, { recursive: true, force: true });
 });
 
+test('signup does not persist stale attribution cookies after analytics withdrawal', async () => {
+  const { getAuth } = await import('../src/core/auth');
+  const auth = getAuth();
+  for (const consent of ['accepted', 'rejected']) {
+    const response = await auth.handler(
+      new Request('http://localhost:3000/api/auth/sign-up/email', {
+        method: 'POST',
+        headers: {
+          origin: 'http://localhost:3000',
+          'content-type': 'application/json',
+          cookie: `cookie_consent=${consent}; utm_source=launch; first_referrer=https%3A%2F%2Fsource.example`,
+        },
+        body: JSON.stringify({
+          name: 'Privacy test',
+          email: `privacy-${consent}@example.test`,
+          password: 'isolated-test-password-only',
+        }),
+      })
+    );
+    assert.equal(response.status, 200, await response.text());
+    const [created] = await db()
+      .select()
+      .from(schema.user)
+      .where(eq(schema.user.email, `privacy-${consent}@example.test`));
+    assert.equal(created.utmSource, consent === 'accepted' ? 'launch' : '');
+    assert.equal(
+      created.referrer,
+      consent === 'accepted' ? 'https://source.example' : ''
+    );
+  }
+});
+
 test('comparison uses yesterday at the same local time, including midnight', () => {
   const w = sameTimeWindows(new Date('2026-11-02T04:30:00Z'));
   assert.equal(w.todayFrom.toISOString(), '2026-11-01T16:00:00.000Z');
@@ -401,4 +433,122 @@ test('visitor endpoint rejects cross-origin requests and forged user IDs; consen
     { origin: 'http://localhost:3000', dnt: '1', 'x-real-ip': '192.0.2.4' }
   );
   assert.equal(dnt.headers.get('set-cookie'), null);
+});
+
+test('product activity includes returning anonymous browsers and excludes staff, bots-as-accounts and tests', async () => {
+  const now = new Date('2026-11-02T04:30:00Z');
+  const from = new Date('2026-10-31T16:00:00Z');
+  await db()
+    .insert(schema.analyticsVisitor)
+    .values([
+      { id: 'product-new', createdAt: new Date('2026-11-02T00:00:00Z') },
+      { id: 'product-return', createdAt: new Date('2026-10-10T00:00:00Z') },
+    ]);
+  const rows = [
+    ['product-new', 'page_view', null, '2026-11-02T00:01:00Z'],
+    ['product-new', 'search', 0, '2026-11-02T00:02:00Z'],
+    ['product-return', 'page_view', null, '2026-11-01T01:00:00Z'],
+    ['product-return', 'page_view', null, '2026-11-02T01:00:00Z'],
+    ['product-return', 'path_fallback', 1400, '2026-11-02T01:01:00Z'],
+    ['product-return', 'path_success', 2600, '2026-11-02T01:02:00Z'],
+    ...['visitor-staff', 'visitor-api', 'visitor-tester'].map((id) => [
+      id,
+      'search',
+      0,
+      '2026-11-02T01:02:00Z',
+    ]),
+  ];
+  for (const [i, row] of rows.entries())
+    await db()
+      .insert(schema.analyticsEvent)
+      .values({
+        id: `product-${i}`,
+        visitorId: String(row[0]),
+        kind: String(row[1]),
+        value: row[2] as number | null,
+        createdAt: new Date(String(row[3])),
+      });
+  const report = await operations.getProductReport(from, now, 2);
+  assert.equal(report.available, true);
+  assert.equal(report.visitors, 2);
+  assert.equal(report.returning, 1);
+  assert.equal(report.active, 2);
+  assert.equal(report.counts.search, 1);
+  assert.equal(report.zeroResultSearches, 1);
+  assert.equal(report.averagePathMs, 2000);
+  assert.deepEqual(report.days, [
+    { day: '2026-11-01', visitors: 1, returning: 1, active: 0 },
+    { day: '2026-11-02', visitors: 2, returning: 1, active: 2 },
+  ]);
+});
+
+test('product event endpoint rejects forged outcomes, oversized bodies and cross-origin writes', async () => {
+  const { Route } = await import('../src/routes/api/operations/event');
+  const post = (
+    Route.options.server!.handlers as {
+      POST: (ctx: { request: Request }) => Promise<Response>;
+    }
+  ).POST;
+  for (const [i, [body, origin, status]] of [
+    [JSON.stringify({ kind: 'path_success' }), 'http://localhost:3000', 400],
+    [
+      JSON.stringify({ kind: 'search', value: 3, query: 'private' }),
+      'http://localhost:3000',
+      400,
+    ],
+    ['x'.repeat(513), 'http://localhost:3000', 413],
+    [JSON.stringify({ kind: 'play_attempt' }), 'https://elsewhere.test', 403],
+  ].entries()) {
+    const response = await post({
+      request: new Request('http://localhost:3000/api/operations/event', {
+        method: 'POST',
+        headers: {
+          origin: String(origin),
+          'content-type': 'application/json',
+          'x-real-ip': `192.0.2.${40 + i}`,
+        },
+        body: String(body),
+      }),
+    });
+    assert.equal(response.status, status);
+  }
+  const id = '22222222-2222-4222-8222-222222222222';
+  await db()
+    .insert(schema.analyticsVisitor)
+    .values({ id, createdAt: new Date() });
+  const send = (cookie: string, ip: string) =>
+    post({
+      request: new Request('http://localhost:3000/api/operations/event', {
+        method: 'POST',
+        headers: {
+          origin: 'http://localhost:3000',
+          'content-type': 'application/json',
+          cookie,
+          'x-real-ip': ip,
+        },
+        body: JSON.stringify({ kind: 'search', value: 0 }),
+      }),
+    });
+  await send(
+    `ops_visitor=${signVisitor(id)}; cookie_consent=rejected`,
+    '192.0.2.50'
+  );
+  assert.equal(
+    (
+      await db()
+        .select()
+        .from(schema.analyticsEvent)
+        .where(eq(schema.analyticsEvent.visitorId, id))
+    ).length,
+    0
+  );
+  const response = await send(`ops_visitor=${signVisitor(id)}`, '192.0.2.51');
+  assert.equal(response.status, 200);
+  const events = await db()
+    .select()
+    .from(schema.analyticsEvent)
+    .where(eq(schema.analyticsEvent.visitorId, id));
+  assert.equal(events.length, 1);
+  assert.equal(events[0].kind, 'search');
+  assert.equal(events[0].value, 0);
 });

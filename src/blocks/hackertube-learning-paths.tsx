@@ -13,11 +13,17 @@ import {
   Route as RouteIcon,
 } from 'lucide-react';
 
-import { Link } from '@/core/i18n/navigation';
+import { Link, useRouter } from '@/core/i18n/navigation';
 import { apiPost } from '@/lib/api-client';
 import { learningPathInput } from '@/lib/learning-path-input';
 import { takeLearningGoal } from '@/lib/learning-path-intent';
+import {
+  clearSavedLearningPaths,
+  readSavedLearningPaths,
+  saveLearningPath,
+} from '@/lib/learning-path-storage';
 import { m } from '@/paraglide/messages.js';
+import { useSavedLearningPaths } from '@/hooks/use-saved-learning-paths';
 import { HackerTubeShell } from '@/blocks/hackertube-shell';
 import { TextField } from '@/components/form-field';
 import { LearningPathView } from '@/components/hackertube/learning-path-view';
@@ -29,15 +35,32 @@ export function HackerTubeLearningPaths({
   example: LearningPath;
   initialGoal?: string;
 }) {
+  const router = useRouter();
   const [path, setPath] = useState<LearningPath | null>(
     initialGoal ? null : example
   );
   const resultRef = useRef<HTMLDivElement>(null);
   const autoStarted = useRef(false);
+  const restored = useRef(false);
+  const savedPaths = useSavedLearningPaths();
+  const [storageError, setStorageError] = useState(false);
   const mutation = useMutation({
     mutationFn: (input: LearningPathInput) =>
       apiPost<LearningPath>('/api/learning-paths', input),
-    onSuccess: (result) => setPath(result),
+    onSuccess: (result) => {
+      setPath(result);
+      if (result.stages.length) {
+        const saved = saveLearningPath(result);
+        setStorageError(!saved);
+        // Keep the URL's restore target in sync when the submitted goal changes.
+        // Only navigate after persistence succeeds: otherwise remounting would
+        // discard the result when browser storage is unavailable.
+        if (saved && initialGoal !== result.goal)
+          router.replace(
+            `/learning-paths?goal=${encodeURIComponent(result.goal)}`
+          );
+      }
+    },
   });
   const form = useForm({
     defaultValues: {
@@ -54,6 +77,17 @@ export function HackerTubeLearningPaths({
     },
   });
   useEffect(() => {
+    if (!restored.current) {
+      restored.current = true;
+      const saved = readSavedLearningPaths().find(
+        (p) => !initialGoal || p.goal === initialGoal
+      );
+      if (saved) {
+        setPath(saved);
+        form.setFieldValue('goal', saved.goal);
+        form.setFieldValue('level', saved.level);
+      }
+    }
     if (initialGoal && !autoStarted.current && takeLearningGoal(initialGoal)) {
       autoStarted.current = true;
       const input = learningPathInput.safeParse({
@@ -175,6 +209,45 @@ export function HackerTubeLearningPaths({
             <p className="ht-path-planner-note">
               {m['hackertube.paths.method']()}
             </p>
+            {storageError && (
+              <p role="alert" className="ht-path-error">
+                {m['hackertube.paths.storage_error']()}
+              </p>
+            )}
+            {savedPaths.length > 0 && (
+              <div className="ht-path-prompts">
+                <h2>{m['hackertube.paths.recent']()}</h2>
+                <p>{m['hackertube.paths.saved_local']()}</p>
+                {savedPaths.map((saved) => (
+                  <button
+                    key={`${saved.goal}:${saved.level}`}
+                    type="button"
+                    disabled={mutation.isPending}
+                    onClick={() => {
+                      setPath(saved);
+                      form.setFieldValue('goal', saved.goal);
+                      form.setFieldValue('level', saved.level);
+                      mutation.reset();
+                      const persisted = saveLearningPath(saved);
+                      setStorageError(!persisted);
+                      if (persisted && initialGoal !== saved.goal)
+                        router.replace(
+                          `/learning-paths?goal=${encodeURIComponent(saved.goal)}`
+                        );
+                    }}
+                  >
+                    {saved.title}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  disabled={mutation.isPending}
+                  onClick={() => setStorageError(!clearSavedLearningPaths())}
+                >
+                  {m['hackertube.paths.clear_saved']()}
+                </button>
+              </div>
+            )}
           </aside>
           <div
             className="ht-path-output"

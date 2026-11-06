@@ -1,0 +1,28 @@
+{
+  "date": "2026-11-06",
+  "site": "https://hacker-tube.com",
+  "commit": "1cda6ea1f594835f93603b9762df3c8914c8f79d",
+  "build": {
+    "command": "pnpm build",
+    "exitCode": 0
+  },
+  "typecheck": {
+    "command": "node node_modules/typescript/bin/tsc --noEmit",
+    "exitCode": 0
+  },
+  "tests": {
+    "command": "node --import tsx --test tests/video-catalog.test.ts tests/topic-pages.test.ts tests/meta-description.test.ts tests/structured-data.test.ts tests/video-metadata.test.ts tests/learning-paths.test.ts tests/operations.test.ts tests/admin-agent.test.ts tests/payment-idempotency.test.ts tests/payment-guards.test.ts tests/credits-guards.test.ts tests/refund.test.ts tests/user-events.test.ts",
+    "passed": 76,
+    "failed": 0,
+    "exitCode": 0
+  },
+  "securityScan": {
+    "changedFiles": 0,
+    "note": "No diff to scan; supplemented with tracked credential pattern scan and manual auth/input handling review."
+  },
+  "a11yRetest": {
+    "settingsLoadedViolations": 0,
+    "adminUnlabelledComboboxes": 8
+  },
+  "scope": "Read-only production audit plus one public AI generation and reversible browser-local collection/theme tests; no deployment, payment, email, new account or configuration write."
+}

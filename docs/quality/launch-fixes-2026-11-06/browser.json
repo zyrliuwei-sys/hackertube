@@ -1,0 +1,110 @@
+[
+  {
+    "route": "/admin/operations",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/admin",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/settings",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/learning-paths",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/topics/ai-data/llms-generative-ai?page=2",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  },
+  {
+    "route": "/privacy-policy",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440
+      }
+    ],
+    "violations": []
+  }
+]

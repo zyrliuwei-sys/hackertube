@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import type { ProductReport } from './product-events';
+
 export const experimentSchema = z
   .object({
     title: z.string().trim().min(1).max(191),
@@ -36,6 +38,7 @@ export interface OperationsCounts {
   revenue: { currency: string; amount: number }[];
 }
 export interface OperationsReport {
+  product: ProductReport;
   generatedAt: string;
   buildId: string;
   today: {

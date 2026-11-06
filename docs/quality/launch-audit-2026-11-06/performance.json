@@ -1,0 +1,218 @@
+[
+  {
+    "path": "/",
+    "viewport": 390,
+    "ttfb": 1152.5,
+    "lcp": 3712,
+    "lcpElement": "H1:",
+    "cls": 0,
+    "domContentLoaded": 3695.7000000001863,
+    "load": 5634.4000000003725,
+    "resourceCount": 88,
+    "totalTransfer": 503452,
+    "largest": [
+      {
+        "url": "https://hacker-tube.com/assets/index-v3jTSgKD.js",
+        "transfer": 137802,
+        "duration": 2741.2000000001863
+      },
+      {
+        "url": "https://hacker-tube.com/assets/index-Cb5X-8tv.css",
+        "transfer": 43750,
+        "duration": 2331.5999999996275
+      },
+      {
+        "url": "https://hacker-tube.com/assets/schemas-bFCerqc-.js",
+        "transfer": 25281,
+        "duration": 2162.2999999998137
+      },
+      {
+        "url": "https://hacker-tube.com/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "transfer": 25136,
+        "duration": 1688.9000000003725
+      },
+      {
+        "url": "https://hacker-tube.com/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "transfer": 25044,
+        "duration": 1815.699999999255
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useMatch-BWX8ozb4.js",
+        "transfer": 22624,
+        "duration": 2134.5
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useOpenInteractionType-CQQiJeFE.js",
+        "transfer": 16671,
+        "duration": 2019.7999999998137
+      },
+      {
+        "url": "https://hacker-tube.com/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "transfer": 15008,
+        "duration": 1920.3999999994412
+      }
+    ]
+  },
+  {
+    "path": "/",
+    "viewport": 390,
+    "ttfb": 1366.3999999994412,
+    "lcp": 2188,
+    "lcpElement": "H1:",
+    "cls": 0.000041546506305148995,
+    "domContentLoaded": 3038.0999999996275,
+    "load": 4526,
+    "resourceCount": 47,
+    "totalTransfer": 416907,
+    "largest": [
+      {
+        "url": "https://hacker-tube.com/assets/index-v3jTSgKD.js",
+        "transfer": 137802,
+        "duration": 1817.7000000001863
+      },
+      {
+        "url": "https://hacker-tube.com/assets/index-Cb5X-8tv.css",
+        "transfer": 43750,
+        "duration": 694.3999999994412
+      },
+      {
+        "url": "https://hacker-tube.com/assets/schemas-bFCerqc-.js",
+        "transfer": 25281,
+        "duration": 3122
+      },
+      {
+        "url": "https://hacker-tube.com/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "transfer": 25136,
+        "duration": 971.1999999992549
+      },
+      {
+        "url": "https://hacker-tube.com/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "transfer": 25044,
+        "duration": 941
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useMatch-BWX8ozb4.js",
+        "transfer": 22624,
+        "duration": 2209.100000000559
+      },
+      {
+        "url": "https://hacker-tube.com/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "transfer": 15008,
+        "duration": 708.5999999996275
+      },
+      {
+        "url": "https://hacker-tube.com/assets/manrope-cyrillic-wght-normal-Dvxsihut.woff2",
+        "transfer": 14800,
+        "duration": 754.7000000001863
+      }
+    ]
+  },
+  {
+    "path": "/topics",
+    "viewport": 390,
+    "ttfb": 464,
+    "lcp": 1908,
+    "lcpElement": "H1:",
+    "cls": 0,
+    "domContentLoaded": 1879.5999999996275,
+    "load": 3703.199999999255,
+    "resourceCount": 70,
+    "totalTransfer": 435511,
+    "largest": [
+      {
+        "url": "https://hacker-tube.com/assets/index-v3jTSgKD.js",
+        "transfer": 137596,
+        "duration": 3172.199999999255
+      },
+      {
+        "url": "https://hacker-tube.com/assets/index-Cb5X-8tv.css",
+        "transfer": 43750,
+        "duration": 1296.9000000003725
+      },
+      {
+        "url": "https://hacker-tube.com/assets/schemas-bFCerqc-.js",
+        "transfer": 25222,
+        "duration": 2848.4000000003725
+      },
+      {
+        "url": "https://hacker-tube.com/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "transfer": 25136,
+        "duration": 1538.2999999998137
+      },
+      {
+        "url": "https://hacker-tube.com/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "transfer": 25044,
+        "duration": 1546.800000000745
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useMatch-BWX8ozb4.js",
+        "transfer": 22624,
+        "duration": 1387.2999999998137
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useOpenInteractionType-CQQiJeFE.js",
+        "transfer": 16639,
+        "duration": 2685.7000000001863
+      },
+      {
+        "url": "https://hacker-tube.com/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "transfer": 15008,
+        "duration": 1344.6000000005588
+      }
+    ]
+  },
+  {
+    "path": "/watch/fNk_zzaMoSs",
+    "viewport": 390,
+    "ttfb": 2205.100000000559,
+    "lcp": 2896,
+    "lcpElement": "IMG:",
+    "cls": 0.003766328454765513,
+    "domContentLoaded": 4300.600000000559,
+    "load": 5155.800000000745,
+    "resourceCount": 77,
+    "totalTransfer": 458322,
+    "largest": [
+      {
+        "url": "https://hacker-tube.com/assets/index-v3jTSgKD.js",
+        "transfer": 137802,
+        "duration": 2909.5999999996275
+      },
+      {
+        "url": "https://hacker-tube.com/assets/index-Cb5X-8tv.css",
+        "transfer": 43750,
+        "duration": 539
+      },
+      {
+        "url": "https://hacker-tube.com/assets/schemas-bFCerqc-.js",
+        "transfer": 25287,
+        "duration": 2351.5999999996275
+      },
+      {
+        "url": "https://hacker-tube.com/assets/manrope-latin-wght-normal-DHIcAJRg.woff2",
+        "transfer": 25136,
+        "duration": 1784
+      },
+      {
+        "url": "https://hacker-tube.com/assets/dm-serif-display-latin-400-normal-C5_t9oOD.woff2",
+        "transfer": 25044,
+        "duration": 1777.2999999998137
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useMatch-BWX8ozb4.js",
+        "transfer": 22675,
+        "duration": 2374.899999999441
+      },
+      {
+        "url": "https://hacker-tube.com/assets/useOpenInteractionType-CQQiJeFE.js",
+        "transfer": 16639,
+        "duration": 2139.5999999996275
+      },
+      {
+        "url": "https://hacker-tube.com/assets/ibm-plex-mono-latin-400-normal-DMJ8VG8y.woff2",
+        "transfer": 15008,
+        "duration": 1581
+      }
+    ]
+  }
+]

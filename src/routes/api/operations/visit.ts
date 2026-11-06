@@ -4,7 +4,10 @@ import { z } from 'zod';
 
 import { getAuth } from '@/core/auth';
 import { getAllConfigs } from '@/modules/config/service';
-import { recordVisitor } from '@/modules/operations/service';
+import {
+  recordProductEvent,
+  recordVisitor,
+} from '@/modules/operations/service';
 import {
   getCookieFromHeader,
   sanitizeReferrer,
@@ -124,6 +127,13 @@ async function POST({ request }: { request: Request }) {
       buildId: import.meta.env?.VITE_BUILD_ID || 'development',
       excluded: parsed.data.test === true,
     });
+    try {
+      await recordProductEvent(id, 'page_view');
+      if (/^\/watch\/[\w-]{11}$/.test(parsed.data.path))
+        await recordProductEvent(id, 'video_open');
+    } catch {
+      /* Migration can precede or follow the application deployment. */
+    }
     const response = respOk();
     response.headers.set(
       'Set-Cookie',

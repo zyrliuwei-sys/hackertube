@@ -1,0 +1,28 @@
+{
+  "mainRegression": {
+    "passed": 104,
+    "failed": 0
+  },
+  "footerIntegration": {
+    "passed": 18,
+    "failed": 0
+  },
+  "finalAffectedRegression": {
+    "passed": 30,
+    "failed": 0
+  },
+  "typescript": "passed",
+  "nodeBuild": "passed",
+  "cloudflareBuild": "passed",
+  "diffCheck": "passed",
+  "productionChanges": false,
+  "responsiveCases": 12,
+  "darkCases": 4,
+  "axeViolations": 0,
+  "securityScan": {
+    "changedFiles": 105,
+    "findings": 0
+  },
+  "browserWorkspaceClosed": true,
+  "localTestServerStopped": true
+}

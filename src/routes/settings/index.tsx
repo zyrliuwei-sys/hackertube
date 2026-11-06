@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils';
 import { m } from '@/paraglide/messages.js';
 import { useGuestPostInfo } from '@/hooks/use-guest-posts';
 import { useUserFeatures } from '@/hooks/use-user-features';
+import { HackerTubeAccountLearning } from '@/blocks/hackertube-account-learning';
 import { buttonVariants } from '@/components/ui/button';
 import {
   Card,
@@ -322,6 +323,7 @@ function DashboardPage() {
         </p>
       </div>
 
+      <HackerTubeAccountLearning />
       {statCards > 0 && (
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {on.billing && (

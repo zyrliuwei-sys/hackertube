@@ -205,6 +205,7 @@ export function ConversionFunnel() {
               }
             >
               <SelectTrigger
+                aria-label={dimLabel(dim)}
                 className={cn(
                   'max-w-60',
                   current !== undefined && 'border-primary'
@@ -266,7 +267,7 @@ export function ConversionFunnel() {
             value={groupBy}
             onValueChange={(v) => v && setGroupBy(v as Dimension)}
           >
-            <SelectTrigger>
+            <SelectTrigger aria-label={m['admin.analytics.group_by']()}>
               <SelectValue />
             </SelectTrigger>
             <SelectContent>

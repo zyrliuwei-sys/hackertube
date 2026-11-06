@@ -2,13 +2,10 @@ import handler from '@tanstack/react-start/server-entry';
 
 import { envConfigs } from './config';
 import { runWithDbScope } from './core/db/request-scope';
-import {
-  getCookieFromHeader,
-  REFERRER_COOKIE,
-  sanitizeReferrer,
-  sanitizeUtm,
-} from './lib/cookie';
+import { attributionCookies } from './lib/attribution';
+import { withSecurityHeaders } from './lib/security-headers';
 import { legacyTopicPath } from './lib/topic-path';
+import { getAllConfigs } from './modules/config/service';
 import { paraglideMiddleware } from './paraglide/server.js';
 
 // On Cloudflare Workers, stash the binding env (D1, ASSETS, …) on globalThis
@@ -58,15 +55,6 @@ function ensureDefaultUserAgent() {
   }) as typeof fetch;
 }
 
-const UTM_COOKIE_KEYS = [
-  'utm_source',
-  'utm_medium',
-  'utm_campaign',
-  'utm_term',
-  'utm_content',
-];
-const ATTRIBUTION_COOKIE_ATTRS = 'Max-Age=2592000; Path=/; SameSite=Lax';
-
 // Behind a proxy req.url can carry an internal host, so also treat the public
 // app URL as "self" when filtering referrers.
 function appHost(): string {
@@ -111,12 +99,12 @@ export default {
         url.pathname = topic;
         url.searchParams.delete('area');
         url.searchParams.delete('category');
-        return Response.redirect(url, 301);
+        return withSecurityHeaders(Response.redirect(url, 301), url);
       }
     }
     if (url.pathname === '/zh' || url.pathname.startsWith('/zh/')) {
       url.pathname = url.pathname.slice(3) || '/';
-      return Response.redirect(url, 308);
+      return withSecurityHeaders(Response.redirect(url, 308), url);
     }
     await ensureCloudflareEnv();
     // Wrap the whole request so anything before/after the handler shares
@@ -129,40 +117,20 @@ async function handleRequest(req: Request): Promise<Response> {
   const response = withPoweredBy(
     await paraglideMiddleware(req, () => handler.fetch(req))
   );
-  // First-touch attribution: remember UTM params for 30 days so sign-up can
-  // stamp them onto the user row. Never overwrite an existing cookie.
-  const params = new URL(req.url).searchParams;
-  const cookieHeader = req.headers.get('cookie');
-  for (const key of UTM_COOKIE_KEYS) {
-    const value = params.get(key);
-    if (!value || getCookieFromHeader(cookieHeader, key)) continue;
-    const sanitized = sanitizeUtm(value);
-    if (sanitized) {
-      response.headers.append(
-        'Set-Cookie',
-        `${key}=${encodeURIComponent(sanitized)}; ${ATTRIBUTION_COOKIE_ATTRS}`
-      );
-    }
-  }
-  // First-touch referrer: only page navigations arriving from another site.
-  // Browsers usually trim cross-site referrers to the origin, which is fine.
-  const referer = req.headers.get('referer');
+  // Attribution is analytics too: honor withdrawal and the banner before
+  // setting first-touch cookies. Config failure must not block the page.
   if (
-    referer &&
     req.method === 'GET' &&
-    (req.headers.get('accept') || '').includes('text/html') &&
-    !getCookieFromHeader(cookieHeader, REFERRER_COOKIE)
+    req.headers.get('accept')?.includes('text/html')
   ) {
-    const sanitized = sanitizeReferrer(referer, [
-      new URL(req.url).host,
-      appHost(),
-    ]);
-    if (sanitized) {
-      response.headers.append(
-        'Set-Cookie',
-        `${REFERRER_COOKIE}=${encodeURIComponent(sanitized)}; ${ATTRIBUTION_COOKIE_ATTRS}`
-      );
-    }
+    const configs = await getAllConfigs().catch(() => null);
+    if (configs)
+      for (const cookie of attributionCookies(
+        req,
+        configs.cookie_consent_enabled === 'true',
+        appHost()
+      ))
+        response.headers.append('Set-Cookie', cookie);
   }
-  return response;
+  return withSecurityHeaders(response, new URL(req.url));
 }

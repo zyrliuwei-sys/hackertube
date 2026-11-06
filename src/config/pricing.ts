@@ -10,6 +10,9 @@
 
 import { PaymentInterval, PaymentType } from '@/core/payment/types';
 
+// Enable only after real HackerTube entitlements and prices are implemented.
+export const PUBLIC_PLANS_ENABLED = false;
+
 export type PricingPlanInfo = {
   name: string;
   interval: PaymentInterval;

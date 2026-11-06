@@ -5,6 +5,7 @@ import { ArrowUpRight, LoaderCircle, Search, X } from 'lucide-react';
 
 import { Link, useRouter } from '@/core/i18n/navigation';
 import { apiGet } from '@/lib/api-client';
+import { trackProductEvent } from '@/lib/product-events';
 import { m } from '@/paraglide/messages.js';
 import {
   Dialog,
@@ -57,6 +58,23 @@ export function HackerTubeSearch() {
     enabled: open,
     staleTime: 60_000,
   });
+
+  const lastSearch = useRef('');
+  useEffect(() => {
+    if (!debounced) {
+      lastSearch.current = '';
+      return;
+    }
+    if (
+      !open ||
+      results.isFetching ||
+      !results.data ||
+      lastSearch.current === debounced
+    )
+      return;
+    lastSearch.current = debounced;
+    trackProductEvent({ kind: 'search', value: results.data.total });
+  }, [debounced, open, results.data, results.isFetching]);
   const waiting = query.trim() !== debounced || results.isFetching;
   const close = () => setOpen(false);
   const showAll = () => {

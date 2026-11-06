@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-06",
+  "environment": "isolated local SQLite and local D1; no production writes or deployment",
+  "regressions": {
+    "passed": 94,
+    "failed": 0
+  },
+  "footerIntegration": {
+    "passed": 18,
+    "failed": 0
+  },
+  "finalFocusedRegressions": {
+    "passed": 26,
+    "failed": 0
+  },
+  "typecheck": {
+    "passed": true
+  },
+  "nodeBuild": {
+    "passed": true
+  },
+  "cloudflareBuild": {
+    "passed": true
+  },
+  "securityScan": {
+    "changedFiles": 91,
+    "findings": 0
+  },
+  "dependencyAudit": {
+    "critical": 0,
+    "high": 0,
+    "moderate": 0,
+    "low": 1,
+    "note": "deepmerge 4.3.1 remains version-flagged; committed patch and installed-package regression cover prototype poisoning."
+  },
+  "browser": {
+    "pathRestoredAfterReload": true,
+    "completionRestored": true,
+    "clearPaths": true,
+    "productionBundleRestore": true,
+    "topicPagesNoOverlap": true,
+    "topicCardsPerPage": 24,
+    "topicMobileHeight": 10699,
+    "savedCollectionNavigation": true,
+    "accountPaidLinksAbsent": true,
+    "privacyOptOut": true,
+    "searchAndPlaybackTelemetryHTTP": 200,
+    "darkAxeViolations": 0
+  },
+  "crawl": {
+    "nonVideoPages": 157,
+    "failures": 0,
+    "videoSamples": 3,
+    "sharingMetadataPresent": true
+  }
+}

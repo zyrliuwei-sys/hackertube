@@ -18,12 +18,12 @@ const input = {
   level: 'beginner' as const,
 };
 const candidates = selectLearningCandidates(input, catalog);
-function draft(ids = candidates.slice(0, 6).map((v) => v.id)) {
+function draft(ids = candidates.slice(0, 8).map((v) => v.id)) {
   return {
     title: 'Learn Machine Learning',
     summary:
       'Develop the foundations, then implement a small model. Some Python knowledge is useful.',
-    stages: [0, 1, 2].map((n) => ({
+    stages: [0, 1, 2, 3].map((n) => ({
       title: `Concept ${n + 1}`,
       objective: 'Understand this concept before moving to implementation.',
       exercise: 'Implement a small example and describe the outcome.',
@@ -84,7 +84,7 @@ test('AI output is reconstructed from trusted catalog records', async () => {
   };
   const result = await generateLearningPath(input, catalog, ai);
   assert.equal(result.mode, 'ai');
-  assert.equal(result.stages.length, 3);
+  assert.equal(result.stages.length, 4);
   assert.equal(result.stages[0].videos[0].video.title, candidates[0].title);
 });
 

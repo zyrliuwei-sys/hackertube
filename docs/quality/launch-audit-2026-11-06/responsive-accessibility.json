@@ -1,0 +1,284 @@
+[
+  {
+    "path": "/",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 11865,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 7883,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 5886,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/topics",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 9448,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 5868,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 3949,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/topics/ai-data/llms-generative-ai",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 40501,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 20617,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 10656,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/guide",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 2365,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 2205,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 2105,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/learning-paths",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 6760,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 4421,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 3551,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/watch/fNk_zzaMoSs",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 3232,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 2492,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 1904,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/privacy-policy",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 3143,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 2584,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 2247,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/pricing",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 2064,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 1693,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 1282,
+        "badImages": 0
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "path": "/settings",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 1040,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 928,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 900,
+        "badImages": 0
+      }
+    ],
+    "a11y": [
+      {
+        "id": "link-name",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [".block.after\\:absolute[href$=\"billing\"]"],
+            "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+          },
+          {
+            "target": [".block.after\\:absolute[href$=\"credits\"]"],
+            "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+          },
+          {
+            "target": [".block.after\\:absolute[href$=\"tickets\"]"],
+            "summary": "Fix all of the following:\n  Element is in tab order and does not have accessible text\n\nFix any of the following:\n  Element does not have text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "path": "/admin",
+    "widths": [
+      {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 1660,
+        "badImages": 0
+      },
+      {
+        "width": 768,
+        "scrollWidth": 768,
+        "height": 1148,
+        "badImages": 0
+      },
+      {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 900,
+        "badImages": 0
+      }
+    ],
+    "a11y": [
+      {
+        "id": "button-name",
+        "impact": "critical",
+        "nodes": [
+          {
+            "target": ["#base-ui-_r_p_"],
+            "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": ["#base-ui-_r_s_"],
+            "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": ["#base-ui-_r_v_"],
+            "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          },
+          {
+            "target": ["#base-ui-_r_12_"],
+            "summary": "Fix any of the following:\n  Element does not have inner text that is visible to screen readers\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  }
+]

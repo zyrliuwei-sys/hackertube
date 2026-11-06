@@ -3,7 +3,8 @@
 // The choice lives in a first-party cookie so the server can read it on SSR
 // and render already-consented scripts straight into the HTML.
 
-import { getCookie, setCookie } from '@/lib/cookie';
+import { ATTRIBUTION_COOKIES } from '@/lib/attribution';
+import { deleteCookie, getCookie, setCookie } from '@/lib/cookie';
 
 export const COOKIE_CONSENT_NAME = 'cookie_consent';
 export const COOKIE_CONSENT_DAYS = 365;
@@ -26,6 +27,13 @@ type Gtag = (...args: unknown[]) => void;
 
 export function saveCookieConsent(value: 'accepted' | 'rejected') {
   setCookie(COOKIE_CONSENT_NAME, value, COOKIE_CONSENT_DAYS);
+  if (value === 'rejected') ATTRIBUTION_COOKIES.forEach(deleteCookie);
+  try {
+    if (value === 'rejected') localStorage.setItem('plausible_ignore', 'true');
+    else localStorage.removeItem('plausible_ignore');
+  } catch {
+    /* Cookie still records the first-party choice. */
+  }
 
   // GA Consent Mode v2: flip the defaults set by the ga-init script.
   const gtag = (window as unknown as { gtag?: Gtag }).gtag;

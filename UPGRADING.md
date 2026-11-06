@@ -1,3 +1,81 @@
+## 2026-11-06 — Follow-up launch review
+
+- First-touch attribution now obeys analytics withdrawal, DNT/GPC and the
+  consent-required setting. Only HTML page navigations set attribution cookies;
+  opting out removes existing attribution cookies, and signup no longer copies
+  stale attribution into new accounts. Existing server records are not erased.
+- Homepage player opens and its YouTube link now emit the same event kinds as
+  the watch page. No new event kind or database migration is introduced here.
+- Saved paths accept the catalog's own thumbnail paths as well as HTTPS images.
+  Changing the learning goal updates the restore URL after a successful save;
+  reopening a saved path promotes it to the most recent position. Storage failure
+  keeps the current result visible with the existing download warning.
+- URL navigation uses the router's search parser, preserving numeric pagination,
+  repeated parameters and punctuation. The first topic page drops `page=1` from
+  generated links. Scalar search terms such as `1984` remain searchable.
+- Invalid local collection JSON can recover on the next save; the topic page
+  reports storage failures. The Chinese privacy source is translated again.
+
+No production configuration or database was changed by this review. The migration,
+mail configuration and deployment steps in the earlier launch entry remain pending.
+Evidence: `docs/quality/SECOND-REVIEW-2026-11-06.md`.
+
+## 2026-11-06 — HackerTube launch fixes
+
+- `/pricing` now permanently redirects to `/guide` and is omitted from the sitemap.
+  Generic template checkout is disabled by `PUBLIC_PLANS_ENABLED = false`.
+  Credits, billing and payment pages default to off; explicit previously saved
+  feature settings still win. Set those three switches off on existing installations
+  if they were explicitly enabled. Existing payment callbacks and guest-post flows
+  are unchanged. Do not enable public plans until real entitlements are implemented.
+- The planner stores the last five generated paths in browser storage, restores the
+  latest matching goal and preserves existing completion keys. A local-only learning
+  section now leads the account dashboard. No account sync or shared links are implied.
+  Python beginners use a fixed two-step introductory outline with the archive's gaps
+  and Python-version caveat; other beginner selections exclude unverified advanced
+  steps. Machine-learning outline order is validated on AI output.
+- **Production schema review required:** `drizzle/0001_far_pet_avengers.sql` adds only
+  `analytics_event` and two indexes, with a cascading FK to `analytics_visitor`.
+  It was generated with Drizzle and contains no alteration/drop of existing tables.
+  Review and approve this migration before applying it to the production D1 database.
+  For a deployment already baselined in D1 migrations, apply pending migrations using
+  the normal Wrangler workflow. For installations originally provisioned with push,
+  inspect migration history first: do not blindly replay `0000` against existing tables.
+  This change does not apply a production migration automatically.
+- Product activity is separate from first-touch signup/payment cohorts. It counts
+  browsers visiting during the selected period, returning browsers, core actions,
+  valid generation requests/outcomes and elapsed time. Playback attempts are not
+  watch time. Client events cannot submit server generation outcomes or user IDs.
+  Staff, API accounts and test browsers are excluded from the report. Historical
+  activity cannot be reconstructed; an unapplied migration displays unavailable.
+- Event rows older than 90 days and visitor rows older than 365 days are cleaned up
+  during subsequent recording (at most hourly per worker). Check this retention
+  policy against your own reporting needs before deploying. Goals and search terms
+  are never included in product-event rows. Privacy copy and an opt-out control now
+  describe these flows. An opt-out also suppresses first-party telemetry when the
+  general consent banner is disabled. Cloudflare edge-injected analytics is separate.
+- Locale-aware links now split pathname, query and hash before calling the router;
+  this fixes duplicated query strings on pagination and saved-collection links.
+- Topic pages return 24 cards per page, with crawlable next/previous links and
+  self-canonicals. Robots allows topic pagination. Public routes share OG/Twitter
+  defaults. Latin font faces and a heading-font preload reduce CSS/font discovery work.
+- Runtime responses add CSP framing/plugin/base restrictions, nosniff, same-origin
+  framing, referrer policy and HTTPS-only HSTS. This is not a strict script-src CSP.
+- pnpm 11 settings now live in `pnpm-workspace.yaml`. Seroval/plugins are 1.6.11;
+  affected esbuild/minimatch versions are overridden. `shadcn` is a dev dependency.
+  **deepmerge 4.3.1 has no published fixed version as of this check:** the committed
+  pnpm patch uses own-property definitions instead of invoking `__proto__` setters,
+  with a regression test against the installed package. Version-only audit still
+  reports its Low advisory; do not hide it with an audit ignore. Replace the patch
+  with an upstream release when available. Run install with the committed lockfile.
+- Password reset/email verification still requires a real configured mail provider
+  and delivery test. The production admin check found no Resend key or sender. No
+  fake credentials, verification bypass or untested enabling of mail is included.
+
+Validation: production build, TypeScript, learning/operations/payment/SEO regressions,
+footer integration, dependency audit, worktree security scan and local browser checks.
+Detailed results are in `docs/quality/LAUNCH-FIXES-2026-11-06.md`.
+
 ## 2026-11-05 — Automatic badge installation
 
 Deploy `POST /api/integrations/footer-badges`, set the server-only

@@ -12,6 +12,7 @@ import { toast } from 'sonner';
 
 import { Link, useRouter } from '@/core/i18n/navigation';
 import { saveCatalogIntent } from '@/lib/catalog-intent';
+import { trackProductEvent } from '@/lib/product-events';
 import { topicTagLink, videoTopicLinks } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
@@ -71,7 +72,10 @@ export function HackerTubeWatch({
                 />
               ) : (
                 <button
-                  onClick={() => setPlaying(true)}
+                  onClick={() => {
+                    setPlaying(true);
+                    trackProductEvent({ kind: 'play_attempt' });
+                  }}
                   aria-label={m['hackertube.brand.watch_now']()}
                 >
                   <img
@@ -183,6 +187,7 @@ export function HackerTubeWatch({
             <a
               className="ht-watch-youtube"
               href={`https://www.youtube.com/watch?v=${video.id}`}
+              onClick={() => trackProductEvent({ kind: 'youtube_open' })}
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -1,45 +1,7 @@
-import { createFileRoute } from '@tanstack/react-router';
-
-import { envConfigs } from '@/config';
-import { m } from '@/paraglide/messages.js';
-import { getLocale } from '@/paraglide/runtime.js';
-import { Footer } from '@/blocks/footer';
-import { Header } from '@/blocks/header';
-import { Pricing } from '@/blocks/pricing';
+import { createFileRoute, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/pricing')({
-  loader: () => {
-    const locale = getLocale();
-    return {
-      title: m['landing.pricing.title']({}, { locale }),
-      description: m['landing.pricing.description']({}, { locale }),
-    };
+  beforeLoad: () => {
+    throw redirect({ to: '/guide', statusCode: 301 });
   },
-  head: ({ loaderData }) => ({
-    links: [
-      {
-        rel: 'canonical',
-        href: `${envConfigs.app_url.replace(/\/$/, '')}/pricing`,
-      },
-    ],
-    meta: loaderData
-      ? [
-          { title: loaderData.title },
-          { name: 'description', content: loaderData.description },
-        ]
-      : [],
-  }),
-  component: PricingPage,
 });
-
-function PricingPage() {
-  return (
-    <div className="bg-background text-foreground flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <Pricing />
-      </main>
-      <Footer />
-    </div>
-  );
-}

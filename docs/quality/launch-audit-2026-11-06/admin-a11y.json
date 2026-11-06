@@ -1,0 +1,45 @@
+{
+  "adminComboboxes": [
+    {
+      "text": "utm_source: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "utm_medium: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "utm_campaign: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "utm_term: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "utm_content: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "Referrer: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "Country: All▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    },
+    {
+      "text": "Group by: utm_source▼",
+      "ariaLabel": null,
+      "labelledBy": null
+    }
+  ],
+  "settingsLoadedViolations": []
+}

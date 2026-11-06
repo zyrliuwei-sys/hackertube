@@ -1,6 +1,11 @@
 import { MAX_FOOTER_BADGES, type FooterBadge } from './types';
 
 const MAX_ALT_LENGTH = 120;
+const cleanLabel = (value: string) =>
+  value
+    .replace(/\\[nrt]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 
 /** Only inert metadata is spread onto rendered elements, never event/style/URL props. */
 export function badgeAttributes(
@@ -86,10 +91,10 @@ export function validateFooterBadges(value: unknown): FooterBadge[] {
     const src = badge.src
       ? safeHttpsUrl(badge.src, `Badge ${index + 1} image`)
       : undefined;
-    const alt = typeof badge.alt === 'string' ? badge.alt.trim() : '';
+    const alt = typeof badge.alt === 'string' ? cleanLabel(badge.alt) : '';
     // Older text-only badges stored their visible label in alt.
     const text =
-      typeof badge.text === 'string' ? badge.text.trim() : !src ? alt : '';
+      typeof badge.text === 'string' ? cleanLabel(badge.text) : !src ? alt : '';
 
     if (!alt || alt.length > MAX_ALT_LENGTH) {
       throw new Error(

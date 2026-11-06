@@ -1,29 +1,38 @@
 import { createServerFn } from '@tanstack/react-start';
 
+import { TOPIC_PAGE_SIZE, topicPageNumber } from '@/lib/topic-pagination';
+
 export const getTopicPage = createServerFn()
-  .validator((data: { area: string; category: string }) => {
+  .validator((data: { area: string; category: string; page?: number }) => {
     if (
       ![data.area, data.category].every((id) => /^[a-z0-9-]{1,100}$/.test(id))
     )
       throw new Error('Invalid topic');
-    return data;
+    return { ...data, page: topicPageNumber(data.page) };
   })
   .handler(async ({ data }) => {
-    const { listVideos } = await import('@/modules/video-catalog/service');
+    const { listVideos, getCatalogVideos } =
+      await import('@/modules/video-catalog/service');
     const { describeTopic } = await import('@/lib/topic-description');
-    const catalog = listVideos({ ...data, pageSize: 100 });
+    const catalog = listVideos({ ...data, pageSize: TOPIC_PAGE_SIZE });
     const area = catalog.areas.find((item) => item.id === data.area);
     const category = area?.categories.find((item) => item.id === data.category);
     if (!area || !category) return null;
-    const videos = [...catalog.items];
-    for (let page = 2; videos.length < catalog.total; page++) {
-      videos.push(...listVideos({ ...data, page, pageSize: 100 }).items);
-    }
+    if (data.page > Math.max(1, Math.ceil(catalog.total / TOPIC_PAGE_SIZE)))
+      return null;
+    const inventory = getCatalogVideos().filter(
+      (video) =>
+        video.areaIds.includes(area.id) &&
+        video.categoryIds.includes(category.id)
+    );
     return {
       area,
       category,
-      videos,
-      description: describeTopic(area, category, videos),
+      videos: catalog.items,
+      total: catalog.total,
+      page: data.page,
+      pages: Math.max(1, Math.ceil(catalog.total / TOPIC_PAGE_SIZE)),
+      description: describeTopic(area, category, inventory),
     };
   });
 

@@ -41,12 +41,12 @@ import { GoogleOneTap } from '@/components/google-one-tap';
 import { SandboxPreviewBridge } from '@/components/sandbox-preview-bridge';
 import { Toaster } from '@/components/ui/sonner';
 
-import '@fontsource-variable/inter';
-import '@fontsource-variable/manrope';
-import '@fontsource/dm-serif-display/400.css';
-import '@fontsource/ibm-plex-mono/400.css';
-import '@fontsource-variable/nunito';
-import '@fontsource-variable/source-serif-4';
+import '@fontsource/dm-serif-display/latin-400.css';
+
+import headingFont from '@fontsource/dm-serif-display/files/dm-serif-display-latin-400-normal.woff2?url';
+
+import '@fontsource/ibm-plex-mono/latin-400.css';
+import '@/styles/fonts.css';
 import '@/styles/globals.css';
 import '@/styles/hackertube.css';
 import '@/styles/hackertube-editorial.css';
@@ -107,9 +107,7 @@ const getAnalyticsConfigs = createServerFn().handler(async () => {
     userThemeEnabled,
     cookieConsentEnabled,
     // The visitor's saved choice, so SSR can render consented scripts.
-    cookieConsent: cookieConsentEnabled
-      ? parseCookieConsent(getCookie('cookie_consent'))
-      : null,
+    cookieConsent: parseCookieConsent(getCookie('cookie_consent')),
     gaId: configs.google_analytics_id?.trim() || '',
     plausibleDomain: plausibleOff ? '' : configs.plausible_domain?.trim() || '',
     plausibleSrc,
@@ -141,6 +139,13 @@ export const Route = createRootRoute({
         { name: 'generator', content: 'ShipAny' },
       ],
       links: [
+        {
+          rel: 'preload',
+          href: headingFont,
+          as: 'font',
+          type: 'font/woff2',
+          crossOrigin: 'anonymous',
+        },
         { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
         { rel: 'apple-touch-icon', href: '/brand/app-icon.png' },
       ],
@@ -157,7 +162,8 @@ function RootComponent() {
   const consentEnabled = !!analytics?.cookieConsentEnabled;
   const consent = useCookieConsent(analytics?.cookieConsent ?? null);
   // With the banner on, ad scripts wait for an explicit "accept".
-  const adsAllowed = !consentEnabled || consent === 'accepted';
+  const adsAllowed =
+    consent !== 'rejected' && (!consentEnabled || consent === 'accepted');
 
   return (
     <QueryClientProvider client={getQueryClient()}>
@@ -171,9 +177,7 @@ function RootComponent() {
         disableTransitionOnChange
       >
         <Outlet />
-        <OperationsTracker
-          allowed={!consentEnabled || consent === 'accepted'}
-        />
+        <OperationsTracker allowed={adsAllowed} />
         <SandboxPreviewBridge />
         {/* Appearance on: toasts follow the theme (globals.css). */}
         <Toaster
@@ -181,13 +185,14 @@ function RootComponent() {
           richColors={!analytics?.appearanceEnabled}
         />
         <GoogleOneTap />
-        {analytics?.gaId ? (
+        {adsAllowed && analytics?.gaId ? (
           <GoogleAnalytics
             measurementId={analytics.gaId}
             consentMode={consentEnabled}
           />
         ) : null}
-        {analytics?.plausibleDomain || analytics?.plausibleSrc ? (
+        {adsAllowed &&
+        (analytics?.plausibleDomain || analytics?.plausibleSrc) ? (
           <Plausible
             domain={analytics.plausibleDomain}
             src={analytics.plausibleSrc || undefined}

@@ -1,0 +1,136 @@
+Skip to content
+hackertubeai
+Explore videos
+Browse topics
+Learning paths
+How it works
+Search
+⌘ K
+Toggle theme
+A
+My collection
+0
+
+AI VIDEO LEARNING PATHS
+
+Curiosity, with a direction.
+
+Tell us what you want to learn. Get an ordered path through videos recommended by the Hacker News community.
+
+What will you learn next?
+Your learning goal
+Your starting point
+I’m starting from scratch
+I know the basics
+Build my learning path
+
+Or try a goal
+
+learn machine learning from scratch
+understand distributed systems
+learn web development from scratch
+
+AI uses your learning goal and public video metadata. Every video comes from the archive. Check prerequisites as you go; the archive may not cover a full curriculum.
+
+AI-GENERATED LEARNING PATH
+
+Introduction to Python Programming
+
+Learn the basics of Python programming from scratch, covering data types, operators, variables, and control structures.
+
+Download path
+4 learning stages
+4 community-recommended videos
+0/4 completed
+01
+Introduction to Computer Science and Python
+Mark complete
+
+Understand the basics of computer science and Python programming
+
+MIT OpenCourseWare
+
+Lec 1 | MIT 6.00 Introduction to Computer Science and Programming, Fall 2008
+
+Why this video: This video introduces the basics of computer science and Python programming, covering data types, operators, and variables.
+
+Read the HN context
+PUT IT INTO PRACTICE
+
+Write a simple Python program to print 'Hello, World!' using the concepts learned from the video
+
+02
+Basic Data Types and Operators
+Mark complete
+
+Learn about basic data types and operators in Python
+
+Google for Developers
+
+Google Python Class Day 1 Part 1
+
+Why this video: This video introduces the basics of Python programming, including data types and operators.
+
+Read the HN context
+PUT IT INTO PRACTICE
+
+Write a Python program to calculate the area and perimeter of a rectangle using the concepts learned from the video
+
+03
+Control Structures and Functions
+Mark complete
+
+Learn about control structures and functions in Python
+
+PyData
+
+James Powell: So you want to be a Python expert? | PyData Seattle 2017
+
+Why this video: This video builds up Python's data model, decorators, generators, and context managers, which are essential for control structures and functions.
+
+Read the HN context
+PUT IT INTO PRACTICE
+
+Write a Python program to simulate a simple calculator using the concepts learned from the video
+
+04
+Putting it all Together
+Mark complete
+
+Apply the concepts learned to real-world problems
+
+InfoQ
+
+How to Speed up a Python Program 114,000 times.
+
+Why this video: This video provides optimization lessons that can be applied to real-world problems.
+
+Read the HN context
+PUT IT INTO PRACTICE
+
+Write a Python program to solve a simple problem, such as calculating the sum of all numbers in a list
+
+Videos and HN context come from the public HackerTube catalog. The learning sequence and practice prompts are added by this site. HN discussion links let you review the original recommendations.
+Your completion progress is saved in this browser.
+
+A sequence, not just a search result.
+
+Searching for where to learn machine learning with videos can leave you with dozens of disconnected tabs. AI Video Learning Paths connects the HackerTube archive into a sequence: understand the prerequisites, build the core concepts, work through an example, then explore further. Each stage includes a learning objective, relevant videos, an explanation of the match and a small practice prompt. Review the original Hacker News discussions, open each video on its watch page, and track your progress at your own pace.
+
+How to use the video archive
+hackertubeai
+
+For the endlessly curious.
+
+An independent guide to the HackerTube collection. Videos belong to their creators.
+
+Data from HackerTube + open-index/hacker-news. ODC-By 1.0
+
+How it works
+Original HackerTube
+Privacy
+Terms
+Realistic AI
+\n \n
+Realistic AI
+\n \n

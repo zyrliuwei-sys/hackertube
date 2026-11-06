@@ -5,9 +5,9 @@
  * the setting has never been saved.
  */
 export const USER_FEATURES = {
-  credits_enabled: true,
-  billing_enabled: true,
-  payments_enabled: true,
+  credits_enabled: false,
+  billing_enabled: false,
+  payments_enabled: false,
   /** API Keys page. Off until the project actually offers an API. */
   apikeys_enabled: false,
   /** Support tickets: the page and the floating support button. */

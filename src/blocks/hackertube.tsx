@@ -27,6 +27,7 @@ import { envConfigs } from '@/config';
 import { apiGet } from '@/lib/api-client';
 import { consumeCatalogIntent } from '@/lib/catalog-intent';
 import { queueLearningGoal } from '@/lib/learning-path-intent';
+import { trackProductEvent } from '@/lib/product-events';
 import { topicPath } from '@/lib/topic-path';
 import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
@@ -158,6 +159,36 @@ export function HackerTube({
     placeholderData: keepPreviousData,
     staleTime: 60_000,
   });
+
+  const lastSearch = useRef('');
+  useEffect(() => {
+    if (!query.trim()) {
+      lastSearch.current = '';
+      return;
+    }
+    if (
+      view !== 'explore' ||
+      page !== 1 ||
+      catalog.isPlaceholderData ||
+      catalog.isFetching ||
+      !catalog.data
+    )
+      return;
+    const key = JSON.stringify([query, area, category, type]);
+    if (lastSearch.current === key) return;
+    lastSearch.current = key;
+    trackProductEvent({ kind: 'search', value: catalog.data.total });
+  }, [
+    query,
+    area,
+    category,
+    type,
+    view,
+    page,
+    catalog.data,
+    catalog.isPlaceholderData,
+    catalog.isFetching,
+  ]);
   const data = catalog.data ?? initialCatalog;
   const items =
     view === 'saved'
@@ -663,7 +694,10 @@ export function HackerTube({
                   imageUnavailableLabel={m[
                     'hackertube.card.image_unavailable'
                   ]()}
-                  onPlay={() => setVideo(item)}
+                  onPlay={() => {
+                    trackProductEvent({ kind: 'play_attempt' });
+                    setVideo(item);
+                  }}
                   onSave={() => toggleSaved(item.id)}
                 />
               ))}
@@ -779,6 +813,7 @@ export function HackerTube({
                     href={`https://www.youtube.com/watch?v=${video.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackProductEvent({ kind: 'youtube_open' })}
                   >
                     {m['hackertube.player.youtube']()}
                     <ArrowUpRight size={15} />

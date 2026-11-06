@@ -14,6 +14,7 @@ import { getAllConfigs } from '@/modules/config/service';
 import { grantForNewUser } from '@/modules/credits/service';
 import { linkVisitor } from '@/modules/operations/service';
 import { grantRoleForNewUser } from '@/modules/rbac/service';
+import { analyticsAllowed } from '@/lib/analytics-permission';
 import {
   getClientIpFromCtx,
   getCookieFromCtx,
@@ -314,7 +315,17 @@ export function getAuth(configs?: Record<string, string>) {
       user: {
         create: {
           before: async (userData: any, ctx: any) => {
+            const current = await getAllConfigs().catch(() => null);
+            const attribute =
+              !!current &&
+              analyticsAllowed({
+                consent: getCookieFromCtx(ctx, 'cookie_consent'),
+                consentRequired: current.cookie_consent_enabled === 'true',
+                dnt: getHeaderValue(ctx, 'dnt'),
+                gpc: getHeaderValue(ctx, 'sec-gpc'),
+              });
             const utm = (name: string) => {
+              if (!attribute) return '';
               let value = getCookieFromCtx(ctx, name) || '';
               try {
                 value = decodeURIComponent(value);
@@ -331,6 +342,7 @@ export function getAuth(configs?: Record<string, string>) {
                 utmMedium: utm('utm_medium'),
                 utmContent: utm('utm_content'),
                 referrer: (() => {
+                  if (!attribute) return '';
                   try {
                     return sanitizeReferrer(
                       decodeURIComponent(

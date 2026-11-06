@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { recordRequestProductEvent } from '@/server/product-events';
 import type { LearningPath } from '@/types/learning-path';
 
 import {
@@ -80,11 +81,25 @@ async function POST({ request }: { request: Request }) {
       parsed.error.issues[0]?.message || 'Check your learning goal.',
       { status: 400 }
     );
+  const started = Date.now();
+  await recordRequestProductEvent(request, 'path_started');
+  const outcome = (path: LearningPath) =>
+    recordRequestProductEvent(
+      request,
+      !path.stages.length
+        ? 'path_unsupported'
+        : path.mode === 'ai'
+          ? 'path_success'
+          : 'path_fallback',
+      Date.now() - started
+    );
   const input = parsed.data;
   const key = JSON.stringify(input);
   const stored = cache.get(key);
-  if (stored && stored.expires > Date.now())
+  if (stored && stored.expires > Date.now()) {
+    await outcome(stored.path);
     return respData(stored.path, { headers: { 'Cache-Control': 'no-store' } });
+  }
   let pending = inflight.get(key);
   if (!pending) {
     pending = generateLearningPath(input, getCatalogVideos(), env?.AI);
@@ -96,8 +111,14 @@ async function POST({ request }: { request: Request }) {
       if (cache.size >= 50) cache.delete(cache.keys().next().value!);
       cache.set(key, { path, expires: Date.now() + 60 * 60 * 1000 });
     }
+    await outcome(path);
     return respData(path, { headers: { 'Cache-Control': 'no-store' } });
   } catch {
+    await recordRequestProductEvent(
+      request,
+      'path_failed',
+      Date.now() - started
+    );
     return respErr('Could not build a learning path. Please try again.', {
       status: 503,
     });

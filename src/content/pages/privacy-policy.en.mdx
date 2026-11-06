@@ -1,13 +1,15 @@
+import { PrivacyAnalyticsControls } from '../../blocks/privacy-analytics-controls';
+
 export const meta = {
   title: 'Privacy Policy',
   description:
     'How HackerTube AI handles browsing, saved videos, and external video players.',
-  updated_at: '2026-11-03',
+  updated_at: '2026-11-06',
 };
 
 ## About this site
 
-[HackerTube AI](https://hacker-tube.com) is an independent directory for discovering videos from the public HackerTube collection. Public search and browsing do not require an account. This page describes the first edition of the directory.
+[HackerTube AI](https://hacker-tube.com) is an independent directory for discovering videos from the public HackerTube collection. Public search and browsing do not require an account. This page describes the services currently used by the directory.
 
 ## Browsing and search
 
@@ -27,8 +29,7 @@ public video metadata are sent to Cloudflare Workers AI to create the path.
 Avoid including private or sensitive information in your goal. The feature does
 not save your goal to an account or database. Up to 50 successful results can be
 cached in server memory for one hour. Ordinary hosting request logs may still
-apply. Completion progress is saved in this browser's `localStorage`; downloading
-a path saves a Markdown file on your own device.
+apply. The five most recently generated or reopened paths, including their goals and selected levels, and completion progress are saved in this browser’s `localStorage`. They are not synced to your account. Use “Clear saved paths” on the learning-path page to remove saved routes; clearing site storage also removes local progress and video collections. Downloading a path saves a Markdown file on your own device.
 
 ## Video players and images
 
@@ -42,9 +43,23 @@ Following a link to YouTube, Hacker News, the original HackerTube project, or an
 
 Catalog descriptions, classifications, and discussion links come from the public [HackerTube export](https://hackertube.org/about), based on the [open-index Hacker News archive](https://huggingface.co/datasets/open-index/hacker-news). The export is attributed under the [Open Data Commons Attribution License v1.0](https://opendatacommons.org/licenses/by/1-0/). Public discussion links can identify the original public commenter on Hacker News. They are source references, not private account information collected from visitors.
 
-## Optional platform features
+## Accounts
 
-The underlying platform supports optional accounts, analytics, and payments. These are not required to use public video search. If an operator enables them, the information you submit and requests made by those features are handled by the configured services. This page does not state that analytics, account registration, or paid features are enabled by default.
+Account registration is available but is not required for browsing, search, saved videos or learning paths. Accounts store your email address, name, password hash and session records. Authentication uses a session cookie. Account records can include first-touch attribution, country, IP and language collected when registering. Account information is kept while the account is in use; contact us to request access or deletion. We do not currently offer paid video plans.
+
+## Analytics and retention
+
+The site uses a self-hosted Plausible service at `stats.cadcraft.org` and Cloudflare Web Analytics to measure page traffic and performance. Their requests expose ordinary connection information to those services. The first-party operations system described below is separate from those aggregate reports.
+
+Our `ops_visitor` cookie contains a signed random browser identifier and expires after one year from its most recent renewal. First-touch records contain the source hostname or campaign source, country, entry page and deployment version. If you register or sign in, the browser record can be associated with your account. These are browser counts, not a count of distinct people. We do not fingerprint devices.
+
+Product events record page views, video-page opens, search result counts (including zero results), playback attempts, clicks to YouTube, saves/removals, and learning-path requests, outcomes and response times. Search terms, learning goals, video titles and IP addresses are not stored in these product-event rows. A playback attempt is not proof that a video was watched. Invalid or rate-limited learning-path requests are not counted as generation attempts.
+
+Raw product events older than 90 days and first-touch records older than 365 days are removed during subsequent event recording, with cleanup attempted at most once an hour per running server instance. This does not delete separate account records or the independently operated analytics providers’ logs. Local video collections and learning paths remain until you clear them. The server may store attribution cookies for 30 days and an analytics choice cookie for one year.
+
+Our first-party visitor, event and attribution collection honors Do Not Track, Global Privacy Control and the choice below. Turning off analytics also removes existing attribution cookies in this browser and prevents their values from being copied into a new account. Turning off tracking applies to future requests and does not erase earlier records. Browser settings can block or delete cookies; external services such as YouTube have their own controls. Cloudflare’s edge-injected analytics is controlled separately by the hosting provider, so this choice does not claim to disable every network request.
+
+<PrivacyAnalyticsControls />
 
 ## Contact
 

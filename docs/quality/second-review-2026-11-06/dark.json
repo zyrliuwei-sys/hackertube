@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/topics/ai-data/llms-generative-ai?page=2",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/privacy-policy",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  },
+  {
+    "path": "/learning-paths",
+    "theme": "dark",
+    "overflow": false,
+    "violations": []
+  }
+]

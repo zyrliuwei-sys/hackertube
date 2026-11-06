@@ -1,12 +1,15 @@
+import { PrivacyAnalyticsControls } from '../../blocks/privacy-analytics-controls';
+
 export const meta = {
   title: '隐私政策',
-  description: 'HackerTube AI 如何处理浏览请求、视频收藏与外部播放器。',
-  updated_at: '2026-11-03',
+  description:
+    'HackerTube AI 如何处理浏览、账号、学习路线、统计与外部播放器数据。',
+  updated_at: '2026-11-06',
 };
 
 ## 关于本站
 
-[HackerTube AI](https://hacker-tube.com) 是独立视频导航站，用于发现 HackerTube 公开合集中的视频。公开搜索和浏览无需注册账号。本页说明第一版导航站的数据处理方式。
+[HackerTube AI](https://hacker-tube.com) 是独立视频导航站，用于发现 HackerTube 公开合集中的视频。公开搜索和浏览无需注册账号。本页说明本站当前使用的服务。
 
 ## 浏览与搜索
 
@@ -14,34 +17,50 @@ export const meta = {
 
 ## 视频收藏与偏好
 
-收藏的视频 ID 保存在当前浏览器的 `localStorage` 中。收藏列表属于这个浏览器，不是账号收藏，也不会作为账号功能跨设备同步。你可以在本站取消单条收藏，或清除本站的浏览器存储以移除收藏列表。清除浏览器存储也会移除本地保存的偏好。
+收藏的视频 ID 保存在当前浏览器的 `localStorage` 中。收藏列表属于这个浏览器，不是账号收藏，也不会跨设备同步。你可以在本站取消单条收藏，或清除本站的浏览器存储以移除收藏列表。清除浏览器存储也会移除本地偏好。
 
-网站界面可能通过浏览器存储或 Cookie 保存语言和外观偏好。你可以在浏览器设置中查看或清除这些数据。禁用浏览器存储可能导致收藏和偏好功能无法使用。
+界面可能通过浏览器存储或 cookie 保存语言、外观等偏好。浏览器设置可以查看或清除这些数据。禁止浏览器存储可能导致收藏和偏好无法保存。
 
-## AI 视频学习路线
+## AI 学习路线
 
-主动生成学习路线时，你的学习目标和基础程度会发送到本站服务端。学习目标与一组公开视频信息会发送给 Cloudflare Workers AI，用于编排路线。请勿在目标中包含私密或敏感信息。本功能不会把学习目标保存到账号或数据库；服务端内存最多缓存 50 条成功结果，保留一小时。托管服务仍可能保留常规请求日志。完成进度保存在当前浏览器的 `localStorage` 中；下载路线会在你自己的设备上保存 Markdown 文件。
+生成学习路线时，学习目标和所选经验水平会发送到本站服务器。目标及候选公开视频的元数据可能发送到 Cloudflare Workers AI，用于生成路线。请勿在目标中填写私密或敏感信息。此功能不会把学习目标存入账号或数据库。服务器内存最多缓存 50 条成功结果，每条有效一小时；常规托管请求日志仍可能存在。
 
-## 视频播放器与图片
+最近生成或重新打开的五条路线（包括目标与难度），以及完成进度，保存在当前浏览器的 `localStorage` 中，不与账号同步。学习路线页面的“清除已保存路线”会删除保存的路线；清除本站浏览器存储也会删除本地进度和视频收藏。下载路线会在你的设备上保存 Markdown 文件。
 
-选择视频后，本站才会从 `youtube-nocookie.com` 加载 YouTube 播放器。加载和使用播放器会向 YouTube 及其服务提供方发送网络请求。使用这个域名不代表播放过程匿名。播放器由 YouTube 控制，其请求处理适用 [Google 隐私政策](https://policies.google.com/privacy)。
+## 播放器与图片
 
-部分视频缩略图由 YouTube 图片服务等外部服务提供。图片加载时，这些服务会收到常规网络请求，即使你没有打开播放器。由本站直接提供的图片则会向本站托管服务发出请求。
+选择播放视频后，本站从 `youtube-nocookie.com` 加载 YouTube 播放器。加载和使用播放器会向 YouTube 及其服务提供商发送请求。该域名不代表匿名播放。YouTube 控制播放器，并按照 [Google 隐私政策](https://policies.google.com/privacy) 处理请求。
 
-点击 YouTube、Hacker News、原版 HackerTube 或其他外部网站的链接后，你将离开本站，目标网站的数据处理方式由该网站决定。
+部分视频缩略图来自外部图片服务，包括 YouTube 图片服务。即使没有打开播放器，加载图片也会向这些服务发送常规网络请求。本站直接托管的图片由本站托管服务提供。
+
+点击 YouTube、Hacker News、原 HackerTube 项目或其他外部网站的链接会离开本站；目标网站适用其自身的隐私规则。
 
 ## 公开目录信息
 
-目录中的描述、分类与讨论链接来自 [HackerTube 公开导出](https://hackertube.org/about)，其基础来源为 [open-index Hacker News 归档](https://huggingface.co/datasets/open-index/hacker-news)。导出数据依据 [Open Data Commons Attribution License v1.0](https://opendatacommons.org/licenses/by/1-0/) 注明来源。公开讨论链接可能展示原评论者在 Hacker News 上的公开身份。这些链接是来源引用，不是从本站访客收集的私人账号资料。
+视频介绍、分类和讨论链接来自 [HackerTube 公开导出](https://hackertube.org/about)，其数据基于 [open-index Hacker News 档案](https://huggingface.co/datasets/open-index/hacker-news)。导出数据依照 [Open Data Commons Attribution License v1.0](https://opendatacommons.org/licenses/by/1-0/) 标注来源。公开讨论链接可能包含原 Hacker News 评论者的身份；它们是公开来源引用，不是本站收集的访客私人账号信息。
 
-## 可选平台功能
+## 账号
 
-底层平台支持可选的账号、分析和支付功能。公开搜索视频不需要使用这些功能。运营者启用相关功能后，你主动提交的信息以及功能产生的请求将由实际配置的服务处理。本页不表示分析、账号注册或付费功能默认已开启。
+本站允许注册账号，但浏览、搜索、视频收藏和学习路线不要求注册。账号保存邮箱、姓名、密码哈希和会话记录，使用会话 cookie 进行认证。注册记录可能包含首次来源归因、国家或地区、IP 和浏览器语言。账号使用期间保留账号信息；如需访问或删除，请联系本站。目前没有付费视频套餐。
 
-## 联系我们
+## 统计与保留期限
 
-如果你对隐私有疑问，或需要就本站的数据处理提出请求，请联系 [support@hacker-tube.com](mailto:support@hacker-tube.com)。
+本站使用 `stats.cadcraft.org` 上的自托管 Plausible 服务和 Cloudflare Web Analytics 统计流量与性能。相关请求会向这些服务暴露常规连接信息。下述第一方运营统计独立于这些汇总报表。
+
+`ops_visitor` cookie 保存经过签名的随机浏览器标识，每次续期后一年到期。首次访问记录包括来源域名或推广来源、国家或地区、入口页面和部署版本。注册或登录后，浏览器记录可能关联账号。这里统计的是浏览器数量，不是独立自然人数；本站不进行设备指纹识别。
+
+产品事件记录页面访问、视频页打开、搜索结果数量（包括零结果）、播放尝试、YouTube 跳转、收藏或取消收藏，以及学习路线请求、结果和响应耗时。事件记录不保存搜索词、学习目标、视频标题或 IP 地址。播放尝试不代表视频已经被观看。无效或受频率限制的路线请求不计为生成尝试。
+
+后续事件写入时会清理超过 90 天的原始事件，以及超过 365 天的首次访问记录；每个运行中的服务器实例最多每小时尝试一次清理。这不会删除独立账号记录，也不控制外部统计服务的日志。本地收藏和路线保留到你清除为止。来源归因 cookie 最多保留 30 天，统计选择 cookie 保留一年。
+
+第一方访问、事件和来源归因收集遵守 Do Not Track、Global Privacy Control 以及下方选择。关闭统计也会删除当前浏览器已有的来源归因 cookie，并阻止把它们复制到新账号。退出适用于后续收集，不会删除此前的服务器记录。浏览器设置可以阻止或删除 cookie；YouTube 等外部服务有自己的控制选项。Cloudflare 在边缘注入的统计由托管服务单独控制，本选择不承诺关闭所有网络请求。
+
+<PrivacyAnalyticsControls />
+
+## 联系方式
+
+如对本站隐私处理有疑问，或希望提交相关请求，请联系 [support@hacker-tube.com](mailto:support@hacker-tube.com)。
 
 ## 更新
 
-本页日期表示最近一次修订时间。网站功能变化时，这份说明也可能需要相应更新。
+页面日期表示最近修订时间。站点功能变化时，本说明可能相应更新。
