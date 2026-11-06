@@ -1,4 +1,4 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
 import { getExampleLearningPath } from '@/server/learning-paths';
 
 import { envConfigs } from '@/config';
@@ -11,6 +11,7 @@ export const Route = createFileRoute('/learning-paths')({
   validateSearch: (search: Record<string, unknown>) => ({
     goal: searchText(search.goal) ?? '',
   }),
+  search: { middlewares: [stripSearchParams({ goal: '' })] },
   loader: () => getExampleLearningPath(),
   head: () =>
     withSocialMetadata({

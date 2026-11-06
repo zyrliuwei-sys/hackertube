@@ -3,7 +3,7 @@ import { MAX_FOOTER_BADGES, type FooterBadge } from './types';
 const MAX_ALT_LENGTH = 120;
 const cleanLabel = (value: string) =>
   value
-    .replace(/\\[nrt]/g, ' ')
+    .replace(/\\+[nrt]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 

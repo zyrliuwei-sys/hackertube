@@ -3,6 +3,7 @@ import { test } from 'node:test';
 import { defaultStringifySearch } from '@tanstack/react-router';
 
 import { toNavigateOptions } from '../src/core/i18n/navigation';
+import { parseStoredFooterBadges } from '../src/features/footer-badges/validation';
 import { attributionCookies } from '../src/lib/attribution';
 import { searchText } from '../src/lib/search-text';
 import { parseVideoCollection } from '../src/lib/video-collection';
@@ -105,4 +106,21 @@ test('attribution honors rejection, browser signals and consent-required mode, p
     ),
     []
   );
+});
+
+test('badge labels normalize single/double escapes and actual whitespace', () => {
+  const slash = String.fromCharCode(92);
+  const labels = [1, 2, 3].map(
+    (n) =>
+      `${slash.repeat(n)}nExample${slash.repeat(n)}n Site${slash.repeat(n)}t`
+  );
+  labels.push(
+    String.fromCharCode(10) + 'Example  ' + String.fromCharCode(9) + 'Site  '
+  );
+  for (const text of labels) {
+    const badges = parseStoredFooterBadges(
+      JSON.stringify([{ href: 'https://example.test/', alt: 'Example', text }])
+    );
+    assert.equal(badges[0].text, 'Example Site');
+  }
 });

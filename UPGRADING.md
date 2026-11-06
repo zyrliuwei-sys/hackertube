@@ -12,9 +12,12 @@
   keeps the current result visible with the existing download warning.
 - URL navigation uses the router's search parser, preserving numeric pagination,
   repeated parameters and punctuation. The first topic page drops `page=1` from
-  generated links. Scalar search terms such as `1984` remain searchable.
+  generated links. Empty learning goals are omitted too, keeping the canonical
+  learning-path page free of an unnecessary redirect. Scalar search terms such
+  as `1984` remain searchable.
 - Invalid local collection JSON can recover on the next save; the topic page
-  reports storage failures. The Chinese privacy source is translated again.
+  reports storage failures. Footer labels normalize repeated literal escapes as
+  well as real whitespace. The Chinese privacy source is translated again.
 
 No production configuration or database was changed by this review. The migration,
 mail configuration and deployment steps in the earlier launch entry remain pending.
