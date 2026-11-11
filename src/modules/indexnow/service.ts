@@ -141,11 +141,16 @@ export async function submitUrls(
         method: 'POST',
         headers: { 'Content-Type': 'application/json; charset=utf-8' },
         body,
-        redirect: 'error',
+        // Workers does not implement redirect: 'error'. Return 3xx responses
+        // without forwarding the ownership key to a redirect destination.
+        redirect: 'manual',
         signal: AbortSignal.timeout(10_000),
       });
       status = response.status;
-      meaning = MEANINGS[status] ?? `Search engine returned HTTP ${status}`;
+      meaning =
+        status >= 300 && status < 400
+          ? 'Redirect refused — IndexNow endpoints must not redirect'
+          : (MEANINGS[status] ?? `Search engine returned HTTP ${status}`);
       await response.body?.cancel();
     } catch {
       // Never return a provider body or error that could echo the key.

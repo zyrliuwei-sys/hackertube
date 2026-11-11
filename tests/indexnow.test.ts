@@ -186,7 +186,7 @@ test('submission deduplicates URLs, removes fragments, and stops after HTTP 202'
       assert.equal(body.host, 'indexnow.example.com');
       assert.equal(body.keyLocation, `${origin}/${key}.txt`);
       assert.deepEqual(body.urlList, [`${origin}/page`]);
-      assert.equal(options?.redirect, 'error');
+      assert.equal(options?.redirect, 'manual');
       assert.ok(options?.signal);
       return new Response('', { status: 202 });
     }
@@ -214,6 +214,59 @@ test('provider retries are bounded and never expose its response body', async (t
   assert.equal(result.results[0].ok, true);
   assert.equal(fetchMock.mock.callCount(), 3);
   assert.ok(!JSON.stringify(result).includes(key));
+});
+
+test('provider redirects are refused without exposing their location or body', async (t) => {
+  const fetchMock = t.mock.method(
+    globalThis,
+    'fetch',
+    async (_url: RequestInfo | URL, options?: RequestInit) => {
+      assert.equal(options?.redirect, 'manual');
+      return new Response(key, {
+        status: 307,
+        headers: { Location: `https://other.example.com/collect?key=${key}` },
+      });
+    }
+  );
+  const result = await submitUrls(key, [origin]);
+  assert.equal(result.results[0].ok, false);
+  assert.equal(fetchMock.mock.callCount(), 3);
+  assert.deepEqual(
+    result.results[0].attempts.map(({ status }) => status),
+    [307, 307, 307]
+  );
+  assert.ok(
+    result.results[0].attempts.every(({ meaning }) =>
+      meaning.startsWith('Redirect refused')
+    )
+  );
+  assert.ok(!JSON.stringify(result).includes(key));
+  assert.ok(!JSON.stringify(result).includes('other.example.com'));
+});
+
+test('a redirect falls back only to the next configured IndexNow engine', async (t) => {
+  const statuses = [302, 202];
+  const fetchMock = t.mock.method(
+    globalThis,
+    'fetch',
+    async (_url: RequestInfo | URL, options?: RequestInit) => {
+      assert.equal(options?.redirect, 'manual');
+      return new Response('', {
+        status: statuses.shift()!,
+        headers: { Location: 'https://other.example.com/collect' },
+      });
+    }
+  );
+  const result = await submitUrls(key, [origin]);
+  assert.equal(result.results[0].ok, true);
+  assert.deepEqual(
+    fetchMock.mock.calls.map(({ arguments: [url] }) => url),
+    ['https://api.indexnow.org/indexnow', 'https://www.bing.com/indexnow']
+  );
+  assert.deepEqual(
+    result.results[0].attempts.map(({ status }) => status),
+    [302, 202]
+  );
 });
 
 test('invalid ownership is reported without retrying on other engines', async (t) => {

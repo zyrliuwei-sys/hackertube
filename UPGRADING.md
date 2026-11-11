@@ -1,3 +1,11 @@
+## 2026-11-12 — IndexNow submissions on Cloudflare Workers
+
+Redeploy to pick up the Workers-compatible manual redirect policy. IndexNow
+submissions no longer fail immediately because of the unsupported `error`
+redirect mode. Redirects are reported as failed attempts and may fall back only
+to the next configured search engine; ownership keys are never forwarded to a
+redirect destination. No database migration or key rotation is needed.
+
 ## 2026-11-06 — Follow-up launch review
 
 - First-touch attribution now obeys analytics withdrawal, DNT/GPC and the
