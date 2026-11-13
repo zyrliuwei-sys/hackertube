@@ -7,6 +7,60 @@ export type WatchEditorialView = Omit<WatchEditorial, 'prerequisite'> & {
   discussion: DiscussionContext | null;
 };
 
+export function WatchDiscussionContext({
+  discussion,
+}: {
+  discussion: DiscussionContext;
+}) {
+  return (
+    <div
+      data-watch-discussion
+      className="ht-watch-description text-muted-foreground [&_h2]:text-foreground text-[13px] leading-loose"
+    >
+      <section aria-labelledby="why-here">
+        <h2 id="why-here">Why it's here</h2>
+        <p>
+          This video is referenced in the Hacker News discussion{' '}
+          <a href={discussion.url} target="_blank" rel="noopener noreferrer">
+            {discussion.title}
+          </a>
+          .
+        </p>
+        <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          {discussion.month && (
+            <div>
+              <dt>Discussion reference month</dt>
+              <dd>
+                <time dateTime={discussion.month}>
+                  {new Date(
+                    `${discussion.month}-01T00:00:00Z`
+                  ).toLocaleDateString('en-US', {
+                    month: 'long',
+                    year: 'numeric',
+                    timeZone: 'UTC',
+                  })}
+                </time>
+              </dd>
+            </div>
+          )}
+          {typeof discussion.score === 'number' && (
+            <div>
+              <dt>HN score</dt>
+              <dd>{discussion.score}</dd>
+            </div>
+          )}
+          {typeof discussion.comments === 'number' && (
+            <div>
+              <dt>HN comments</dt>
+              <dd>{discussion.comments}</dd>
+            </div>
+          )}
+        </dl>
+      </section>
+    </div>
+  );
+}
+
 export function WatchEditorialContent({
   editorial,
   videoId,
@@ -14,54 +68,11 @@ export function WatchEditorialContent({
   editorial: WatchEditorialView;
   videoId: string;
 }) {
-  const discussion = editorial.discussion;
   return (
     <div
       data-watch-editorial
       className="ht-watch-description text-muted-foreground [&_h2]:text-foreground space-y-7 text-[13px] leading-loose"
     >
-      {discussion && (
-        <section aria-labelledby="why-here">
-          <h2 id="why-here">Why it's here</h2>
-          <p>
-            This video is referenced in the Hacker News discussion{' '}
-            <a href={discussion.url} target="_blank" rel="noopener noreferrer">
-              {discussion.title}
-            </a>
-            .
-          </p>
-          <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {discussion.month && (
-              <div>
-                <dt>Discussion reference month</dt>
-                <dd>
-                  <time dateTime={discussion.month}>
-                    {new Date(
-                      `${discussion.month}-01T00:00:00Z`
-                    ).toLocaleDateString('en-US', {
-                      month: 'long',
-                      year: 'numeric',
-                      timeZone: 'UTC',
-                    })}
-                  </time>
-                </dd>
-              </div>
-            )}
-            {typeof discussion.score === 'number' && (
-              <div>
-                <dt>HN score</dt>
-                <dd>{discussion.score}</dd>
-              </div>
-            )}
-            {typeof discussion.comments === 'number' && (
-              <div>
-                <dt>HN comments</dt>
-                <dd>{discussion.comments}</dd>
-              </div>
-            )}
-          </dl>
-        </section>
-      )}
       <section aria-labelledby="what-covers">
         <h2 id="what-covers">What it covers</h2>
         <ul className="list-disc space-y-2 pl-5">

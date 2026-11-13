@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
+import production from '../cloudflare/production.json';
 import profiles from '../src/data/hackertube/channels.json';
+import contexts from '../src/data/hackertube/discussion-context.json';
 import batch from '../src/data/hackertube/editorial-batch.json';
 import catalog from '../src/data/hackertube/videos.json';
 import records from '../src/data/hackertube/watch-editorials.json';
@@ -12,19 +14,28 @@ import {
   validEditorial,
   wordCount,
 } from '../src/lib/editorial-validation';
+import { selectEditorialVideos } from '../src/lib/video-ranking';
 import {
   getChannelProfiles,
   getCuratedPaths,
+  getWatchDiscussion,
   getWatchEditorial,
 } from '../src/server/editorial-catalog';
 import type { WatchEditorial } from '../src/types/editorial';
 
 const ids = new Set(catalog.map((video) => video.id));
 
-test('the first editorial batch is bounded, distinct and contains all featured videos', () => {
-  assert.equal(batch.limit, 300);
-  assert.equal(batch.videoIds.length, 300);
-  assert.equal(new Set(batch.videoIds).size, 300);
+test('the rollout exceeds 1000 pages, ranks by HN recommenders and includes every eight-plus video', () => {
+  assert.ok(batch.videoIds.length > 1000);
+  assert.equal(batch.limit, batch.videoIds.length);
+  assert.equal(new Set(batch.videoIds).size, batch.videoIds.length);
+  assert.deepEqual(
+    batch.videoIds,
+    selectEditorialVideos(catalog).map((video) => video.id)
+  );
+  for (const video of catalog.filter((video) => video.recommendations >= 8))
+    assert.ok(batch.videoIds.includes(video.id), video.id);
+  assert.ok(batch.videoIds.includes('aircAruvnKk'));
   for (const id of batch.videoIds) assert.ok(ids.has(id), id);
   for (const id of ['fNk_zzaMoSs', 'PUv66718DII', 'NGFhc8R_uO4', 'aMcJ1Jvtef0'])
     assert.ok(batch.videoIds.includes(id));
@@ -34,6 +45,23 @@ test('the first editorial batch is bounded, distinct and contains all featured v
       .flatMap((video) => video.areaIds)
   );
   assert.equal(represented.size, 16);
+});
+
+test('every rollout page has an independently available sourced HN discussion', () => {
+  assert.equal(Object.keys(contexts).length, batch.videoIds.length);
+  for (const id of batch.videoIds) {
+    const context = getWatchDiscussion(id);
+    assert.ok(context?.title, id);
+    assert.match(
+      context.url,
+      /^https:\/\/news\.ycombinator\.com\/item\?id=\d+$/
+    );
+    assert.equal(
+      context.sourceUrl,
+      'https://hackertube.org/download/mentions.jsonl'
+    );
+  }
+  assert.equal(getWatchDiscussion('nonexistent'), null);
 });
 
 test('published watch notes have sources, complete prose and existing same-topic prerequisites', () => {
@@ -168,6 +196,16 @@ test('ads.txt and the loader share a strict publisher identifier and reject plac
   assert.equal(
     adsenseClient('pub-1234567890123456'),
     'ca-pub-1234567890123456'
+  );
+});
+
+test('automatic Cloudflare builds retain the owner publisher and nonempty ads.txt', () => {
+  const client = adsenseClient(production.vars.VITE_ADSENSE_CLIENT);
+  assert.ok(client);
+  assert.equal(production.vars.VITE_ADSENSE_ENABLED, 'true');
+  assert.match(
+    adsTxt(client),
+    /^google\.com, pub-\d{16}, DIRECT, f08c47fec0942fa0\n$/
   );
 });
 

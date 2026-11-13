@@ -18,6 +18,12 @@ const videos = getCatalogVideos();
 const ids = new Set(videos.map((video) => video.id));
 const selected = new Set(batch.videoIds);
 
+export function getWatchDiscussion(id: string) {
+  return selected.has(id)
+    ? ((contexts as Record<string, DiscussionContext>)[id] ?? null)
+    : null;
+}
+
 export function getWatchEditorial(id: string) {
   const record = (records as Record<string, WatchEditorial>)[id];
   if (!selected.has(id) || !record || !validEditorial(record, id, ids))
@@ -41,7 +47,7 @@ export function getWatchEditorial(id: string) {
       prerequisite && record.prerequisite
         ? { ...record.prerequisite, title: prerequisite.title }
         : null,
-    discussion: (contexts as Record<string, DiscussionContext>)[id] ?? null,
+    discussion: getWatchDiscussion(id),
   };
 }
 

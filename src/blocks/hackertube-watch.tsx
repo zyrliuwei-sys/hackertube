@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { DiscussionContext } from '@/types/editorial';
 import type { Video } from '@/types/video-catalog';
 import {
   ArrowLeft,
@@ -19,6 +20,7 @@ import { useVideoCollection } from '@/hooks/use-video-collection';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
 import { HackerTubeShell } from '@/blocks/hackertube-shell';
 import {
+  WatchDiscussionContext,
   WatchEditorialContent,
   type WatchEditorialView,
 } from '@/components/hackertube/watch-editorial';
@@ -27,10 +29,12 @@ export function HackerTubeWatch({
   video,
   related,
   editorial,
+  discussion,
 }: {
   video: Video;
   related: Video[];
   editorial?: WatchEditorialView | null;
+  discussion?: DiscussionContext | null;
 }) {
   const [playing, setPlaying] = useState(false);
   const router = useRouter();
@@ -151,6 +155,7 @@ export function HackerTubeWatch({
                 })}
               </div>
             </section>
+            {discussion && <WatchDiscussionContext discussion={discussion} />}
             {editorial && (
               <WatchEditorialContent editorial={editorial} videoId={video.id} />
             )}

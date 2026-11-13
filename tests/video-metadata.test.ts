@@ -46,6 +46,15 @@ test('all sitemap video records have stable content dates and keep 6454 URLs', (
   assert.equal((xml.match(/<loc>/g) || []).length, 6454);
   assert.equal((xml.match(/<lastmod>/g) || []).length, 6454);
   assert.equal(sitemapUrls(['/topics']).includes('<lastmod>'), false);
+  const byId = new Map(videos.map((video) => [video.id, video]));
+  const counts = entries.map(
+    (entry) => byId.get(entry.path.split('/').pop()!)!.recommendations
+  );
+  for (let i = 1; i < counts.length; i++)
+    assert.ok(counts[i - 1] >= counts[i], `sitemap rank ${i}`);
+  assert.ok(
+    entries.slice(0, 1001).some((entry) => entry.path === '/watch/aircAruvnKk')
+  );
 });
 
 test('recognized topic tags link to existing categories, unmatched tags stay actions', () => {

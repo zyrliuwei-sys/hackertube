@@ -2,13 +2,18 @@ import { readFileSync } from 'node:fs';
 
 import batch from '../src/data/hackertube/editorial-batch.json';
 import { getCatalogVideos } from '../src/modules/video-catalog/service';
-import { getWatchEditorial } from '../src/server/editorial-catalog';
+import {
+  getWatchDiscussion,
+  getWatchEditorial,
+} from '../src/server/editorial-catalog';
 
 // Report the fixed, approved batch. This command never generates or publishes copy.
 const catalog = new Map(getCatalogVideos().map((video) => [video.id, video]));
 const rows = batch.videoIds.map((id) => ({
   id,
   title: catalog.get(id)?.title ?? null,
+  recommendations: catalog.get(id)?.recommendations ?? 0,
+  hasDiscussion: Boolean(getWatchDiscussion(id)),
   status: getWatchEditorial(id) ? 'reviewed' : 'awaiting-source-review',
 }));
 
@@ -23,10 +28,10 @@ if (process.argv.includes('--json')) {
 } else {
   const published = rows.filter((row) => row.status === 'reviewed').length;
   console.log(
-    `Batch: ${batch.id}; selected: ${rows.length}; reviewed: ${published}; pending: ${rows.length - published}`
+    `Batch: ${batch.id}; selected: ${rows.length}; sourced discussions: ${rows.filter((row) => row.hasDiscussion).length}; reviewed: ${published}; pending: ${rows.length - published}`
   );
   console.log(
-    'Pending pages retain their original content. No publication is performed by this report.'
+    'Pages awaiting editorial review display catalog content and sourced discussion context. No publication is performed by this report.'
   );
 }
 

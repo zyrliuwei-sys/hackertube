@@ -1,5 +1,6 @@
 import areaData from '@/data/hackertube/areas.json';
 import catalogState from '@/data/hackertube/catalog-state.json';
+import editorialBatch from '@/data/hackertube/editorial-batch.json';
 import sourceData from '@/data/hackertube/source.json';
 import videoData from '@/data/hackertube/videos.json';
 import youtubeMetadata from '@/data/hackertube/youtube-metadata.json';
@@ -16,11 +17,14 @@ import {
   validTimestamp,
   type YouTubeMetadata,
 } from '@/lib/video-metadata';
+import { compareByRecommendations } from '@/lib/video-ranking';
 
 const metadata = youtubeMetadata as Record<string, YouTubeMetadata>;
 const videos = (videoData as Video[]).map((video) =>
   enrichVideo(video, metadata[video.id])
 );
+const popularVideos = [...videos].sort(compareByRecommendations);
+const discussionVideoIds = new Set(editorialBatch.videoIds);
 const areas = areaData as VideoArea[];
 const categoryNames = new Map(
   areas.flatMap((area) =>
@@ -54,7 +58,7 @@ export const VIDEO_CONTENT_TYPES = [
 
 /** Public watch pages in this snapshot; used for crawler discovery. */
 export function listVideoIds(): string[] {
-  return videos.map((video) => video.id);
+  return popularVideos.map((video) => video.id);
 }
 
 /** Server-only snapshot for features that need to rank the whole archive. */
@@ -63,15 +67,19 @@ export function getCatalogVideos(): readonly Video[] {
 }
 
 export function listVideoSitemapEntries() {
-  return videos.map((video) => ({
-    path: `/watch/${video.id}`,
-    lastModified:
-      validTimestamp(video.metadataUpdatedAt) &&
-      Date.parse(video.metadataUpdatedAt) >
-        Date.parse(catalogState.watchPagesUpdatedAt)
-        ? video.metadataUpdatedAt
-        : catalogState.watchPagesUpdatedAt,
-  }));
+  return popularVideos.map((video) => {
+    const contentUpdatedAt = discussionVideoIds.has(video.id)
+      ? editorialBatch.selectedAt
+      : catalogState.watchPagesUpdatedAt;
+    return {
+      path: `/watch/${video.id}`,
+      lastModified:
+        validTimestamp(video.metadataUpdatedAt) &&
+        Date.parse(video.metadataUpdatedAt) > Date.parse(contentUpdatedAt)
+          ? video.metadataUpdatedAt
+          : contentUpdatedAt,
+    };
+  });
 }
 
 let discoveryCache: DiscoveryAtlas | undefined;
@@ -165,8 +173,7 @@ export function listVideos(query: VideoCatalogQuery = {}): VideoCatalogResult {
     return terms.every((term) => searchIndex.get(video.id)!.includes(term));
   });
   filtered.sort((a, b) => {
-    if (query.sort === 'popular')
-      return b.recommendations - a.recommendations || b.score - a.score;
+    if (query.sort === 'popular') return compareByRecommendations(a, b);
     if (query.sort === 'newest')
       return b.lastRecommendedYear - a.lastRecommendedYear || b.score - a.score;
     return b.score - a.score || b.recommendations - a.recommendations;

@@ -1,3 +1,22 @@
+## 2026-11-13 — Rank the watch rollout by distinct HN recommenders
+
+The editorial batch now includes all 1,320 videos with at least four distinct
+HN recommenders, in descending recommendation order (archive score and video ID
+break ties). All 326 videos with eight or more recommenders are included, including
+`aircAruvnKk`. These pages now display discussion titles, links and reference
+months from the original public mentions export independently of reviewed prose.
+The five reviewed articles remain reviewed; expanding the batch does not mark
+other videos as reviewed. All 6,454 existing watch URLs remain accessible and in
+the video sitemap, now ordered by recommenders. Sitemap dates reflect the new
+context on selected pages without changing video upload dates.
+
+To regenerate the batch and its sources, run
+`node --import tsx scripts/select-editorial-batch.ts --mentions <public-mentions.jsonl>`;
+verify provenance with `scripts/editorial-status.ts --mentions`.
+The public publisher ID and AdSense enable flag now also live in
+`cloudflare/production.json`, so automatic builds retain ads.txt and the existing
+consent-aware loader. No database or secret changes are required.
+
 ## 2026-11-13 — AdSense preparation and sourced editorial pages
 
 - Set `VITE_ADSENSE_CLIENT` to the verified publisher ID (`ca-pub-` or `pub-`
