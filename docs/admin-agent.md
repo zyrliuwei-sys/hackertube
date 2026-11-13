@@ -92,14 +92,9 @@ For stdio, launch from this checkout:
 ```json
 {
   "mcpServers": {
-    "shipany-admin": {
+    "site-admin": {
       "command": "pnpm",
-      "args": [
-        "--dir",
-        "/absolute/path/to/shipany-tanstack",
-        "--silent",
-        "admin:mcp"
-      ]
+      "args": ["--dir", "/absolute/path/to/hackertube", "--silent", "admin:mcp"]
     }
   }
 }
@@ -120,27 +115,27 @@ Read tools require only `input` (use `{}` when no filters are needed). Failures 
 
 ## Skill and standalone CLI
 
-The repository skill is `.claude/skills/shipany-admin/SKILL.md`, available through the existing cross-agent skill symlinks. Copy the entire `shipany-admin` folder into another agent's skill library to use it independently. A deployed site also serves both files publicly (no secrets in them) at `/api/admin/agent/skill?file=SKILL.md` and `/api/admin/agent/skill?file=admin-client.mjs` (query, not path: the Vite dev server would treat a path ending in `.md`/`.mjs` as a static file); the Skill tab on `/admin/agent` gives a ready-to-paste prompt that has the agent download them and read its key from `SHIPANY_ADMIN_TOKEN`. Files under `.claude/` are excluded from MDX compilation (`vite.config.ts`) so they're served verbatim. Its `scripts/admin-client.mjs` needs Node 20+ and no dependencies:
+The Admin → Agent API → Skill tab provides a ready-to-paste setup prompt.
+The portable `site-admin` skill and dependency-free Node 20+ client are served at:
 
-```sh
-node .claude/skills/shipany-admin/scripts/admin-client.mjs list
-node .claude/skills/shipany-admin/scripts/admin-client.mjs openapi
-node .claude/skills/shipany-admin/scripts/admin-client.mjs call users_list /tmp/input.json
+- `/api/admin/agent/skill?file=SKILL.md`
+- `/api/admin/agent/skill?file=admin-client.mjs`
+
+Install them into a `site-admin` skill directory. Downloaded clients use
+`SITE_ADMIN_URL`, `SITE_ADMIN_TOKEN`, `SITE_ADMIN_CONFIG` and `SITE_ADMIN_PROJECT`.
+Their default private credentials file is `~/.site-admin/admin-projects.json`.
+Read the provided skill before connecting a project. Keys are accepted through
+stdin, verified against the selected site and never printed in full.
+
+```bash
+node <skill-dir>/scripts/admin-client.mjs add hackertube https://hacker-tube.com
+node <skill-dir>/scripts/admin-client.mjs --project hackertube list
+node <skill-dir>/scripts/admin-client.mjs --project hackertube call analytics_report /tmp/input.json
 ```
 
-**Several sites.** The client keeps named projects (URL + admin key) in `~/.shipany/admin-projects.json` (mode 0600; `SHIPANY_ADMIN_CONFIG` overrides the path). Keys are read from stdin and verified against the site before saving, and are never printed (`projects` masks them):
-
-```sh
-printf '%s' "$KEY" | node .claude/skills/shipany-admin/scripts/admin-client.mjs add myshop https://myshop.example
-node .claude/skills/shipany-admin/scripts/admin-client.mjs projects
-node .claude/skills/shipany-admin/scripts/admin-client.mjs --project myshop call analytics_report /tmp/input.json
-node .claude/skills/shipany-admin/scripts/admin-client.mjs use myshop      # default project
-node .claude/skills/shipany-admin/scripts/admin-client.mjs remove myshop
-```
-
-Resolution order: `--project`, `SHIPANY_ADMIN_PROJECT`, the `SHIPANY_ADMIN_URL`/`SHIPANY_ADMIN_TOKEN` pair, then the default (or only) project. The Skill prompt on each site's `/admin/agent` page names the project after the site, so pasting it on several sites builds up the list; MCP snippets likewise use a per-site server name.
-
-Use JSON files or stdin (`-`) for inputs; do not put secrets in command arguments. The client refuses credential-bearing redirects and non-HTTPS remote URLs (localhost HTTP is allowed).
+The repository's existing local CLI and credential paths remain compatible for
+current operators. The portable download uses neutral naming; do not overwrite
+an installed client or silently move credentials between stores.
 
 ## Execution journal and retry semantics
 

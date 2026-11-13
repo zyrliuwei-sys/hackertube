@@ -44,7 +44,7 @@ function ensureDefaultUserAgent() {
   if (fetchPatched) return;
   fetchPatched = true;
   const nativeFetch = globalThis.fetch;
-  const userAgent = `${envConfigs.app_name || 'ShipAny'} (+${envConfigs.app_url})`;
+  const userAgent = `${envConfigs.app_name || 'HackerTube AI'} (+${envConfigs.app_url})`;
   globalThis.fetch = ((input: RequestInfo | URL, init?: RequestInit) => {
     const headers = new Headers(
       init?.headers ?? (input instanceof Request ? input.headers : undefined)
@@ -62,25 +62,6 @@ function appHost(): string {
     return new URL(envConfigs.app_url).host;
   } catch {
     return '';
-  }
-}
-
-// Identifies the stack, like WordPress's generator tag (see also the
-// generator <meta> in __root.tsx). Not a link; adds no SEO value.
-// Response.redirect() and fetched responses have immutable headers: copy
-// those, which also lets the cookie writes below succeed.
-function withPoweredBy(response: Response): Response {
-  try {
-    if (!response.headers.has('X-Powered-By')) {
-      response.headers.set('X-Powered-By', 'ShipAny');
-    }
-    return response;
-  } catch {
-    const copy = new Response(response.body, response);
-    if (!copy.headers.has('X-Powered-By')) {
-      copy.headers.set('X-Powered-By', 'ShipAny');
-    }
-    return copy;
   }
 }
 
@@ -114,9 +95,9 @@ export default {
 };
 
 async function handleRequest(req: Request): Promise<Response> {
-  const response = withPoweredBy(
-    await paraglideMiddleware(req, () => handler.fetch(req))
-  );
+  const handled = await paraglideMiddleware(req, () => handler.fetch(req));
+  // Cookie attribution below needs writable headers, including for redirects.
+  const response = new Response(handled.body, handled);
   // Attribution is analytics too: honor withdrawal and the banner before
   // setting first-touch cookies. Config failure must not block the page.
   if (

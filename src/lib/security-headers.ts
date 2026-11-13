@@ -1,6 +1,7 @@
 export function withSecurityHeaders(response: Response, url: URL): Response {
   const copy = new Response(response.body, response);
   const headers = copy.headers;
+  headers.delete('X-Powered-By');
   headers.set('X-Content-Type-Options', 'nosniff');
   headers.set('X-Frame-Options', 'SAMEORIGIN');
   headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');

@@ -1,6 +1,8 @@
-# ShipAny TanStack — Agent Instructions
+# HackerTube AI — Agent Instructions
 
-This is a **headless SaaS engine** — pre-wired business logic (payments, credits, subscriptions, auth, RBAC) with minimal UI. Users build their product pages on top of it.
+Product copy must describe HackerTube AI and its video discovery and learning features. Do not add template vendor names, badges, promotional links, demo articles, generator tags or response-header attribution.
+
+The application includes a **headless SaaS engine** — pre-wired business logic (payments, credits, subscriptions, auth, RBAC) with minimal UI. Users build their product pages on top of it.
 
 ## Tech Stack
 
@@ -735,7 +737,7 @@ Keep `.env.example` minimal; don't add provider keys to it.
 10. **Multi-statement writes use `atomic()`, never `db().transaction()`.** The latter is not atomic on D1. See "Atomic writes".
 11. **Upgrading a project from newer template code?** Follow `UPGRADING.md`. **Changing the template in a way existing projects must act on?** Add an entry there.
 
-## Cloud Sandbox Notes (ShipAny Code / e2b)
+## Cloud Sandbox Notes (e2b)
 
 When this project runs inside a cloud sandbox (working dir like
 `/home/user/sessions/<id>`), the dev server is proxied through a per-sandbox
@@ -750,11 +752,7 @@ domain: `https://<port>-<sandboxId>.e2b.app`.
   external domain; changing it breaks auth redirects.
 - OAuth providers (Google/GitHub) cannot complete their redirect flow on a
   sandbox preview domain; test with email+password instead.
-- The database ships pre-initialized (RBAC + a default admin account:
-  **admin@shipany.site / admin1234**). After starting the dev server, always
-  tell the user they can open the admin console at `<preview-url>/admin`
-  (sign in at `<preview-url>/sign-in` with those credentials) to configure
-  payments, login providers, email, storage, and AI in Settings.
+- Use the project’s configured administrator account at `/admin`. Never assume or publish template administrator credentials.
 - Browser automation is preinstalled: Playwright with Chromium
   (`playwright` CLI on PATH, browsers at `$PLAYWRIGHT_BROWSERS_PATH`). The
   clone-website skill's extraction phase should use it via Node scripts or

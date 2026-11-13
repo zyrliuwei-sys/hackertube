@@ -5,6 +5,7 @@ import { createServer } from 'node:http';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { after, before, test } from 'node:test';
+import { pathToFileURL } from 'node:url';
 import {
   Client,
   StreamableHTTPClientTransport,
@@ -913,6 +914,42 @@ test('stdio MCP and standalone skill client use the published API contract', asy
     token: readToken,
   });
   assert.equal(result.result.data.length, 4);
+});
+test('portable admin downloads use neutral naming without breaking the API client', async () => {
+  const { siteAdminResource } =
+    await import('../src/server/admin/site-admin-resource');
+  const skill = siteAdminResource(
+    await readFile('.claude/skills/shipany-admin/SKILL.md', 'utf8')
+  );
+  const source = siteAdminResource(
+    await readFile(
+      '.claude/skills/shipany-admin/scripts/admin-client.mjs',
+      'utf8'
+    )
+  );
+  assert.doesNotMatch(skill, /shipany/iu);
+  assert.doesNotMatch(source, /shipany/iu);
+  assert.match(skill, /name: site-admin/u);
+  assert.match(source, /SITE_ADMIN_TOKEN/u);
+  const file = join(directory, 'site-admin-client.mjs');
+  await (await import('node:fs/promises')).writeFile(file, source);
+  const client = await import(pathToFileURL(file).href);
+  assert.equal(
+    client.storePath({ SITE_ADMIN_CONFIG: '/isolated/site-admin.json' }),
+    '/isolated/site-admin.json'
+  );
+  assert.match(client.storePath({}), /\.site-admin\/admin-projects\.json$/u);
+  const connection = client.adminConnection({
+    SITE_ADMIN_URL: baseUrl,
+    SITE_ADMIN_TOKEN: readToken,
+  });
+  const response = await client.adminRequest(
+    '/api/admin/agent/operations',
+    undefined,
+    connection
+  );
+  assert.equal(response.status, 200);
+  assert.equal(response.result.data.length, 4);
 });
 test('skill client manages several projects in a private store and never prints keys', async () => {
   const client =

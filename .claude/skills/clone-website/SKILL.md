@@ -512,7 +512,7 @@ DO change:
 - Footer copyright and links
 - Meta descriptions and page titles
 
-**Footer attribution (required):** Whatever footer you build — whether you reuse `SiteFooter` from `@/components/site-footer` or write a custom one to match the original site — it MUST render `<BuiltWithShipAny />` from `@/components/built-with-shipany`. The badge links to `https://shipany.ai/?utm_source=<app_hostname>` (hostname only, e.g. `yourdomain.com`) and is part of the template attribution. Place it in the bottom bar of the footer. Never strip it, even when matching the original site's footer exactly — drop it next to the cloned copyright line instead.
+**Product branding:** Use the website’s own name, links and copyright. Do not add template-vendor attribution or badges to this project.
 
 ### 6.3 Theme Color (if specified)
 

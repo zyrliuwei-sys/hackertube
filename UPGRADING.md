@@ -1,3 +1,15 @@
+## 2026-11-13 — Product copy cleanup
+
+Removed template marketing sections, their unused translations, the optional
+vendor footer badge, generator metadata and the identifying response header.
+Public and administrator copy now describes HackerTube AI. Storage test files
+use neutral names and the configured product name. Portable admin downloads use
+`site-admin`, `SITE_ADMIN_*` and a private `.site-admin` credentials directory;
+the existing local CLI contract stays compatible. Do not overwrite an installed
+client or move existing credentials as part of this update. Source-code license
+notices remain in LICENSE. No schema, secret rotation or permission changes are
+required.
+
 ## 2026-11-12 — IndexNow submissions on Cloudflare Workers
 
 Redeploy to pick up the Workers-compatible manual redirect policy. IndexNow
@@ -224,7 +236,7 @@ environment variable, payment or authorization change is required.
 The site now supports only English. Language switches are removed, saved locale
 cookies no longer change the interface, and legacy `/zh` URLs redirect to the
 equivalent English URL. Rebuild to regenerate Paraglide and the English-only
-sitemap. The public footer no longer renders its copyright/ShipAny bottom bar.
+sitemap. The public footer no longer renders its template attribution bottom bar.
 No database migration is required.
 
 ## 2026-11-02 - HackerTube AI brand and public pages
@@ -401,7 +413,7 @@ No badges appear until one is added in the admin page.
 
 ## 2026-10-31: Hide the footer attribution by default
 
-`SiteFooter` no longer displays the "Built with ShipAny" badge by default.
+`SiteFooter` no longer displays the template attribution badge by default.
 No action is required to hide it. Projects that want to display it can pass
 `builtWith="pill"` or `builtWith="text"` explicitly.
 
@@ -571,25 +583,6 @@ now comes from `AUTH_COOKIE_PREFIX`, or else a slug of `VITE_APP_NAME` (e.g.
 
 Local dev sessions sign out once after the upgrade. No schema, permission or
 production changes.
-
----
-
-## 2026-10-17: ShipAny attribution markers
-
-- Every response now carries `X-Powered-By: ShipAny`, and every page has
-  `<meta name="generator" content="ShipAny">`. Both identify the stack, much
-  like WordPress's generator tag.
-- The footer's "Built with ShipAny" badge inherits the surrounding text
-  color, and `SiteFooter` takes `builtWith="pill" | "text"`.
-- `LICENSE` clarifies that the "Built with ShipAny" link is optional: keep,
-  restyle, move or remove it. Only copyright notices in the source code must
-  stay.
-
-### Action required
-
-- [ ] **Customized `src/server.ts` / `__root.tsx` / `site-footer.tsx`**:
-      merge the template changes (`withPoweredBy` in the server entry, the
-      generator meta, the `builtWith` prop).
 
 ---
 

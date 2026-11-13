@@ -1,153 +1,87 @@
-# ShipAny TanStack
+# HackerTube AI
 
-A headless SaaS engine for building AI-powered products with Claude Code, on
-TanStack Start. Pre-wired business logic (payments, credits, subscriptions,
-auth, RBAC, i18n, CMS) with minimal UI — you build your product pages on top.
+A video discovery and learning website at [hacker-tube.com](https://hacker-tube.com).
+Explore 6,454 videos from the public HackerTube catalog, with Hacker News
+recommendation context, topic browsing and AI-assisted learning paths.
 
-## Quick Start
+## Product
+
+- Search the video archive and browse 150 categories across 16 subject areas.
+- Open a video’s watch page, read its recommendation context and visit the
+  original Hacker News discussion.
+- Build an ordered video learning path from a goal, with reasons for each
+  selection and practice prompts. AI results use validated catalog video IDs.
+- Explore relationships between subject areas in the Curiosity Atlas.
+- Keep a local video collection, sign in to an account and access the
+  administration console with the required permissions.
+- Use the site on mobile or desktop, in light or dark mode.
+
+The public interface is English. Translation source files are maintained in
+`messages/en.json` and `messages/zh.json`; legacy Chinese URLs redirect to English.
+
+## Local development
+
+Use Node 24 and pnpm 11 (versions are pinned in the repository).
 
 ```bash
 pnpm install
-cp .env.example .env.development   # then fill in the values (AUTH_SECRET etc.)
+cp .env.example .env.development
+# Configure the local URL, SQLite database path and an authentication secret.
+pnpm db:setup
 pnpm db:push
-pnpm rbac:init --admin-email=admin@example.com --admin-password=your-password
 pnpm dev
 ```
 
-Open `http://localhost:3000`, sign in with the admin account, and configure
-payments, login providers, email, storage and AI at `/admin/settings`.
+Open `http://localhost:3000`. Local configuration and credentials are gitignored.
+Use a separate local database for development. Existing administrator accounts
+sign in at `/sign-in`; the management console is at `/admin`.
 
-> Local env lives in `.env.development` (gitignored). It is loaded by both Vite
-> and the `db:*` scripts. Only `VITE_APP_URL`, `VITE_APP_NAME`,
-> `DATABASE_PROVIDER`, `DATABASE_URL`, and `AUTH_SECRET` are required to boot.
+## Routes
 
-## Features
+| Route                       | Purpose                                   |
+| --------------------------- | ----------------------------------------- |
+| `/`                         | Video search and discovery                |
+| `/topics`                   | Topic directory and atlas                 |
+| `/topics/<area>/<category>` | Category videos                           |
+| `/watch/<videoId>`          | Video playback and recommendation context |
+| `/learning-paths`           | AI video learning paths                   |
+| `/guide`                    | How to use the video archive              |
+| `/settings`                 | Signed-in account                         |
+| `/admin`                    | Administration console                    |
 
-- **Auth** — Email/password, Google/GitHub OAuth and Google One Tap via better-auth
-- **Payment** — Stripe, Creem, PayPal, Alipay, WeChat Pay: checkout, subscriptions, webhooks, refunds, coupons. Every grant is atomic and idempotent
-- **Credits** — FIFO consumption, expiration, auto-grant on signup, refunds
-- **Guest posts** — Paid articles: authors pay to submit, admins approve, request changes or reject with a refund; published with sponsored links
-- **Support tickets** — User tickets with a floating support button and an admin inbox
-- **AI** — Replicate, Gemini, Fal, Kie providers with task tracking and credit deduction
-- **RBAC** — Roles, permissions, wildcard matching, admin management
-- **Agent API** — Scoped admin tokens, an MCP server and an audit log, so agents can run the back office
-- **API keys & invite codes** — Key CRUD + validation; trial invite codes with batch generation
-- **CMS & blog** — Categories and posts, Markdown blog, MDX static pages
-- **Bot notifications** — Telegram / Feishu / WeCom messages for payments, tickets and guest posts
-- **i18n** — English + Chinese via Paraglide JS, locale-aware routing (`/zh` prefix)
-- **Appearance** — Optional admin-controlled color themes, font, size, sidebar layout and light/dark
-- **Database** — SQLite, PostgreSQL, MySQL, Turso and Cloudflare D1 via Drizzle ORM
-- **Deploy anywhere** — Node server, or Cloudflare Workers with D1 or Postgres via Hyperdrive
-- **All code self-contained** — no external packages for business logic
+## Architecture
 
-## Tech Stack
+TanStack Start, React 19, TypeScript, Vite and Nitro power the application.
+The UI uses Tailwind CSS and shared components; TanStack Query and Form handle
+data and forms. Authentication uses better-auth, and Drizzle provides database
+access. Production runs on Cloudflare Workers with D1 and Workers AI.
 
-- TanStack Start (Vite 8 + nitro, React 19, TypeScript)
-- TanStack Query, Form, and Table for data, forms, and tables
-- shadcn/ui v4 (Base Nova style, Tailwind CSS 4)
-- better-auth + Drizzle ORM
-- Paraglide JS for i18n
+- `src/blocks/`: product page sections and translated content.
+- `src/components/`: reusable interface components.
+- `src/routes/`: public pages, account/admin routes and API handlers.
+- `src/modules/`: server-side business services.
+- `src/data/hackertube/`: video catalog and source metadata.
+- `src/content/`: information pages and article infrastructure.
 
-## Project Structure
+## Checks and deployment
 
-```
-src/
-├── core/           # Infrastructure (db, auth, payment, email, storage, ai, notify, i18n)
-├── modules/        # Business logic (payment, credits, subscriptions, guest-posts, apikeys, rbac, ...)
-├── config/         # Env, DB schema templates, pricing catalog, feature defaults
-├── routes/         # File-based routes (locale-free paths; /zh prefix via router rewrite)
-│   ├── settings/   # User center
-│   ├── admin/      # Admin panel
-│   └── api/        # Server routes (REST endpoints)
-├── server/         # Server-only helpers shared by routes (admin ops, payment, ...)
-├── blocks/         # Page sections that read i18n (disposable demo content)
-├── components/     # Reusable UI, content via props (durable)
-├── content/        # MDX static pages and blog posts
-├── hooks/          # Shared react-query hooks
-└── lib/            # Utilities (api-client, query-client, hash, resp, rate-limit, ...)
-
-messages/{en,zh}.json    # Translation source (flat dot-keyed)
-project.inlang/          # Inlang project config
-src/paraglide/           # Compiled messages + runtime (gitignored, generated)
+```bash
+pnpm build
+pnpm test:learning-paths
+node --import tsx --test tests/video-catalog.test.ts
 ```
 
-## User Center & Admin Panel
+Pushes to `main` trigger the connected Cloudflare production build. Public
+runtime configuration is versioned in `cloudflare/production.json`; secrets
+remain in Workers. See [deployment notes](docs/deployment/CLOUDFLARE.md),
+[upgrade notes](UPGRADING.md) and [agent instructions](AGENTS.md).
 
-The user center (`/settings`) has profile, credits, billing, payments, API
-keys, support tickets and guest posts. Optional pages can be switched off at
-Settings → Users.
+## Data and licensing
 
-The admin panel (`/admin`):
+Video metadata comes from the public [HackerTube export](https://hackertube.org/)
+and the [open-index Hacker News archive](https://huggingface.co/datasets/open-index/hacker-news).
+The data is attributed under the [Open Data Commons Attribution License](https://opendatacommons.org/licenses/by/1-0/).
+Videos remain their creators’ work. This website is an independent guide.
 
-| Section  | Pages                                                                                       |
-| -------- | ------------------------------------------------------------------------------------------- |
-| Overview | Stats and conversion funnel                                                                 |
-| Users    | Users (with activity timeline), Invite Codes, Roles, Permissions                            |
-| Billing  | Payments, Subscriptions, Credits                                                            |
-| Content  | Categories, Posts, Guest Posts, Tickets                                                     |
-| Agent    | Agent accounts, tokens and audit log                                                        |
-| Settings | General, Users, Auth, Payment, Email, Storage, AI, Analytics, Ads, Customer Service, Notify |
-
-Provider credentials live in admin Settings (encrypted at rest when
-`CONFIG_ENCRYPTION_KEY` is set), not in env files.
-
-## Commands
-
-| Command            | Description                                            |
-| ------------------ | ------------------------------------------------------ |
-| `pnpm dev`         | Start Vite dev server (port 3000)                      |
-| `pnpm build`       | Production build                                       |
-| `pnpm start`       | Run the production server                              |
-| `pnpm db:setup`    | Copy schema template for chosen database               |
-| `pnpm db:push`     | Push schema to database (dev)                          |
-| `pnpm db:generate` | Generate migration SQL (production)                    |
-| `pnpm db:migrate`  | Run migrations (production)                            |
-| `pnpm db:studio`   | Drizzle Studio GUI                                     |
-| `pnpm rbac:init`   | Create roles + permissions + optional admin user       |
-| `pnpm rbac:assign` | Assign role to user                                    |
-| `pnpm admin:token` | Manage agent tokens; `sync-permissions` after upgrades |
-| `pnpm cf:deploy`   | Build and deploy to Cloudflare Workers                 |
-
-## Claude Code Skills
-
-| Skill                | What it does                                                   |
-| -------------------- | -------------------------------------------------------------- |
-| `/quick-start`       | Build a complete SaaS from a brief or reference URL            |
-| `/clone-website`     | Rebuild an existing website on this template                   |
-| `/new-module`        | Create a backend module (service + API)                        |
-| `/new-page`          | Create a dashboard page with API wiring + nav entry            |
-| `/new-static-page`   | Create an MDX content page (legal, about, FAQ)                 |
-| `/design-theme`      | Restyle the palette and fonts                                  |
-| `/generate-image`    | AI-generate a decorative image for a page                      |
-| `/security-scan`     | Check the diff for secrets and vulnerabilities before a commit |
-| `/launch-audit`      | Responsive, theme, SEO, performance and security sweep         |
-| `/deploy-cloudflare` | Deploy to Cloudflare Workers (D1 or Postgres + Hyperdrive)     |
-| `/sync-upstream`     | Pull in the latest template changes                            |
-
-Agent guidance lives in [AGENTS.md](./AGENTS.md); upgrade steps for existing
-projects in [UPGRADING.md](./UPGRADING.md).
-
-## Environment Variables
-
-```env
-# Required (public vars use the VITE_ prefix; secrets stay server-only)
-VITE_APP_URL=http://localhost:3000
-VITE_APP_NAME=My App
-DATABASE_PROVIDER=sqlite        # sqlite | postgres | mysql | turso | d1
-DATABASE_URL=file:data/local.db
-AUTH_SECRET=generate-with-openssl-rand-base64-32
-
-# Optional
-VITE_APP_DESCRIPTION=
-VITE_APP_LOGO=/logo.svg
-VITE_DEFAULT_LOCALE=en
-CONFIG_ENCRYPTION_KEY=          # encrypts secrets saved in admin Settings
-```
-
-See [.env.example](./.env.example) for the full list.
-
-## License
-
-This is proprietary software. See [LICENSE](./LICENSE) for the full license agreement.
-
-**ShipAny** — [shipany.ai](https://shipany.ai)
+Source-code licensing is documented in [LICENSE](LICENSE). Asset and font licenses
+are included with the relevant files under `public/brand/`.

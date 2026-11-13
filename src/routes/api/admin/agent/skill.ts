@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { siteAdminResource } from '@/server/admin/site-admin-resource';
 
 // Bundled at build time (no fs on Workers). Public on purpose: the skill is
 // generic instructions + a dependency-free client; credentials come from the
@@ -7,8 +8,14 @@ import client from '../../../../../.claude/skills/shipany-admin/scripts/admin-cl
 import skill from '../../../../../.claude/skills/shipany-admin/SKILL.md?raw';
 
 const FILES: Record<string, { body: string; type: string }> = {
-  'SKILL.md': { body: skill, type: 'text/markdown; charset=utf-8' },
-  'admin-client.mjs': { body: client, type: 'text/javascript; charset=utf-8' },
+  'SKILL.md': {
+    body: siteAdminResource(skill),
+    type: 'text/markdown; charset=utf-8',
+  },
+  'admin-client.mjs': {
+    body: siteAdminResource(client),
+    type: 'text/javascript; charset=utf-8',
+  },
 };
 
 // The file name rides in the query (?file=SKILL.md), not the path: the Vite

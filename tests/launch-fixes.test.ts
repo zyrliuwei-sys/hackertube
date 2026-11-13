@@ -238,10 +238,16 @@ test('security headers preserve redirects and cookies; social metadata inherits 
   assert.equal(redirect.headers.get('x-content-type-options'), 'nosniff');
   assert.ok(redirect.headers.has('strict-transport-security'));
   const local = withSecurityHeaders(
-    new Response('ok', { headers: { 'set-cookie': 'session=x; HttpOnly' } }),
+    new Response('ok', {
+      headers: {
+        'set-cookie': 'session=x; HttpOnly',
+        'X-Powered-By': 'ShipAny',
+      },
+    }),
     new URL('http://localhost:3000')
   );
   assert.equal(local.headers.get('set-cookie'), 'session=x; HttpOnly');
+  assert.equal(local.headers.has('x-powered-by'), false);
   assert.equal(local.headers.has('strict-transport-security'), false);
   const head = withSocialMetadata({
     meta: [
