@@ -58,7 +58,7 @@ test('published watch notes have sources, complete prose and existing same-topic
         (video) => video.id === visible.prerequisite!.videoId
       )!;
       assert.ok(
-        current.categoryIds.some((category) =>
+        current.categoryIds.some((category: string) =>
           prerequisite.categoryIds.includes(category)
         )
       );

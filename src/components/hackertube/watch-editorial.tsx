@@ -16,7 +16,10 @@ export function WatchEditorialContent({
 }) {
   const discussion = editorial.discussion;
   return (
-    <div data-watch-editorial className="ht-watch-description space-y-7">
+    <div
+      data-watch-editorial
+      className="ht-watch-description text-muted-foreground [&_h2]:text-foreground space-y-7 text-[13px] leading-loose"
+    >
       {discussion && (
         <section aria-labelledby="why-here">
           <h2 id="why-here">Why it's here</h2>
@@ -67,7 +70,9 @@ export function WatchEditorialContent({
           ))}
         </ul>
         {editorial.notes.map((note) => (
-          <p key={note}>{note}</p>
+          <p key={note} className="mt-4">
+            {note}
+          </p>
         ))}
       </section>
       {!!editorial.moments?.length && (

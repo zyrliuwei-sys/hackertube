@@ -92,8 +92,8 @@
       "Light-based patterning illustrates how semiconductor production depends on controlling physical constraints rather than simply drawing smaller circuit diagrams."
     ],
     "notes": [
-      "This is a manufacturing overview, so its value lies in connecting a device on a diagram with the process required to make it. The archive describes a historical discussion of transistors, clean fabrication facilities and optical patterning. Treat the named process scale as context for that explanation, not as a statement about the smallest features or commercial capabilities available today. A historical talk can explain a mechanism without being a reliable guide to current product specifications.",
-      "For a study exercise, divide a page into three columns: the intended electrical function, the physical structure, and the manufacturing difficulty. Place each concrete example from the talk in those columns as you encounter it. When a process sounds like a simple instruction, ask what must be controlled for that instruction to work repeatedly. Then identify which parts of your explanation concern one device and which concern an entire production facility. This separates circuit knowledge from process knowledge and gives you precise questions to pursue in a later lithography or fabrication lesson."
+      "This is a manufacturing overview, so its value lies in connecting a device on a diagram with the process required to make it. The original upload describes transistors, clean fabrication facilities and optical patterning. Treat the named process scale as context for that explanation, not as a statement about the smallest features or commercial capabilities available today. A historical talk can explain a mechanism without being a reliable guide to current product specifications.",
+      "For a study exercise, divide a page into three columns: the intended electrical function, the physical structure, and the manufacturing difficulty. Place each concrete example from the talk in those columns as you encounter it. When a process sounds like a simple instruction, ask what must be controlled for that instruction to work repeatedly. Separate examples concerning one device from those concerning an entire production facility. This separates circuit knowledge from process knowledge and gives you precise questions to pursue in a later lithography or fabrication lesson."
     ],
     "audience": "This is a broad introduction for technically curious viewers. A basic understanding of current and switching devices helps, but it is not a fabrication-process training course.",
     "prerequisite": {
@@ -102,14 +102,27 @@
     },
     "sources": [
       {
-        "title": "HackerTube export: video description and catalog provenance",
-        "url": "https://hackertube.org/download/videos.jsonl",
-        "checkedAt": "2026-11-13"
+        "title": "Original YouTube upload: description and automatic chapter markers",
+        "url": "https://www.youtube.com/watch?v=NGFhc8R_uO4",
+        "checkedAt": "2026-11-13",
+        "kind": "chapters"
+      }
+    ],
+    "moments": [
+      {
+        "seconds": 190,
+        "description": "The chapter introduces the basic shape of a transistor.",
+        "sourceUrl": "https://www.youtube.com/watch?v=NGFhc8R_uO4"
       },
       {
-        "title": "UNICAMP: course reading list identifying the manufacturing lecture",
-        "url": "https://www.ifch.unicamp.br/pf-ifch/ementa/69946/so185a.pdf",
-        "checkedAt": "2026-11-13"
+        "seconds": 823,
+        "description": "Lithography technique improvements become the focus of the manufacturing explanation.",
+        "sourceUrl": "https://www.youtube.com/watch?v=NGFhc8R_uO4"
+      },
+      {
+        "seconds": 1326,
+        "description": "Atomic layer deposition appears among the processes used in fabrication.",
+        "sourceUrl": "https://www.youtube.com/watch?v=NGFhc8R_uO4"
       }
     ]
   },
