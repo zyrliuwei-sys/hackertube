@@ -1,3 +1,13 @@
+## 2026-11-13 — Enable the owner-supplied AdSense snippet
+
+The owner supplied the official loader, account meta tag and ads.txt entry for
+`ca-pub-2841223102464177`. The local development and production environment files
+now set `VITE_ADSENSE_ENABLED=true` with that publisher ID. The existing shared
+`Ads` component outputs one async Google loader and one account meta tag in the
+head; `/ads.txt` uses the same ID. Cookie-consent restrictions still apply.
+Rebuild and deploy to change the live site. No AdSense application or account-level
+Auto ads setting is changed by this configuration update.
+
 ## 2026-11-13 — Rank the watch rollout by distinct HN recommenders
 
 The editorial batch now includes all 1,320 videos with at least four distinct
