@@ -1,4 +1,4 @@
-import { safeEmbedSetting } from '@/lib/embed-ids';
+import { adsenseClient } from '@/lib/adsense';
 
 // Google AdSense — the account <meta> tag plus the adsbygoogle loader,
 // rendered as native head elements (not next/script). React 19 hoists the
@@ -15,7 +15,7 @@ export function Ads({
   code: string;
   loadScript?: boolean;
 }) {
-  const code = safeEmbedSetting('adsense_code', raw);
+  const code = adsenseClient(raw);
   if (!code) return null;
   return (
     <>

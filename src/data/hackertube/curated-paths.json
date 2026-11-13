@@ -1,0 +1,448 @@
+[
+  {
+    "slug": "machine-learning-from-scratch",
+    "title": "Machine Learning from Scratch",
+    "description": "Build geometric intuition, understand neural network training, and connect backpropagation to a small Python implementation.",
+    "goal": "Start with the mathematical objects used to represent data, then follow a neural network from its structure to the process that adjusts its parameters. The goal is to explain what a prediction, loss and gradient mean, and to trace a small training computation rather than treating learning as a black box. Basic algebra is enough for the opening stages; the implementation stage assumes Python and some familiarity with derivatives. Work through examples on paper before attempting the code.",
+    "studyHours": [
+      8,
+      12
+    ],
+    "stages": [
+      {
+        "title": "Represent data with vectors",
+        "objective": "Draw a two-dimensional observation and distinguish its coordinates from the geometric object.",
+        "videos": [
+          {
+            "videoId": "fNk_zzaMoSs",
+            "reason": "Grant Sanderson connects vectors to geometry, giving the later discussion of inputs and weights a concrete foundation."
+          }
+        ]
+      },
+      {
+        "title": "Read a neural network",
+        "objective": "Sketch the flow from image inputs through hidden layers to output activations.",
+        "videos": [
+          {
+            "videoId": "aircAruvnKk",
+            "reason": "The handwritten-digit example makes neurons, layers and weighted connections visible before introducing training."
+          }
+        ]
+      },
+      {
+        "title": "Understand an optimization step",
+        "objective": "Explain how a loss guides a parameter update, then contrast a gradient with the loss value itself.",
+        "videos": [
+          {
+            "videoId": "IHZwWFHWa-w",
+            "reason": "This chapter concentrates on cost functions and gradient descent instead of introducing a new architecture."
+          }
+        ]
+      },
+      {
+        "title": "Trace credit through the network",
+        "objective": "Follow how a change near the output affects earlier weights.",
+        "videos": [
+          {
+            "videoId": "Ilg3gGewQ5U",
+            "reason": "The visual explanation connects the training objective to the backward computation needed to adjust parameters."
+          }
+        ]
+      },
+      {
+        "title": "Implement a small learning system",
+        "objective": "Rebuild a small part of the example in Python and check one derivative numerically.",
+        "videos": [
+          {
+            "videoId": "VMj-3S1tku0",
+            "reason": "Karpathy builds micrograd step by step, providing a concrete bridge from intuition to an automatic differentiation engine."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "compiler-foundations",
+    "title": "Compiler Foundations",
+    "description": "Follow lexical scanning, interpretation, generated code and compiler architecture through four concrete programming talks.",
+    "goal": "Learn to distinguish the jobs usually grouped under the word compiler: recognizing tokens, evaluating a language, producing lower-level code and arranging an implementation around another toolchain. By the end, you should be able to outline a tiny expression language and explain which stage handles each part of a program. This is an orientation through implementation examples, not a complete compiler course. Familiarity with functions, recursion and at least one programming language will help; the final stage is an optional deeper investigation.",
+    "studyHours": [
+      7,
+      11
+    ],
+    "stages": [
+      {
+        "title": "Turn characters into tokens",
+        "objective": "Write down a few token types for an arithmetic expression and identify the scanner states.",
+        "videos": [
+          {
+            "videoId": "HxaD_trXwRE",
+            "reason": "Rob Pike uses the Go template lexer to make scanning a concrete program with state transitions."
+          }
+        ]
+      },
+      {
+        "title": "Define what a program means",
+        "objective": "Trace a simple expression through an evaluator, keeping syntax separate from evaluation.",
+        "videos": [
+          {
+            "videoId": "OyfBQmvr2Hc",
+            "reason": "William Byrd walks through a Lisp interpreter, exposing the small semantic core behind a language implementation."
+          }
+        ]
+      },
+      {
+        "title": "Inspect the generated program",
+        "objective": "Compare a high-level expression with its lower-level representation before assuming an abstraction is expensive.",
+        "videos": [
+          {
+            "videoId": "zBkNBP00wJE",
+            "reason": "Jason Turner examines C++17 and 6502 assembly while building a Commodore 64 game."
+          }
+        ]
+      },
+      {
+        "title": "Connect a language to a toolchain",
+        "objective": "Draw the boundaries between a language, its compiler backend and foreign code.",
+        "videos": [
+          {
+            "videoId": "8X69_42Mj-g",
+            "reason": "Clasp provides a real example of Common Lisp using LLVM and interoperating with C++, with a specific scientific application."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "systems-programming",
+    "title": "Systems Programming",
+    "description": "Study Unix composition, memory allocation, concurrency and measurement through concrete systems examples.",
+    "goal": "Build a working vocabulary for reasoning about programs as parts of a machine and a larger operating environment. You will compare process composition, memory allocation, concurrent communication and performance measurement, then describe the tradeoffs in a small service or command-line tool. This route assumes you can already read code and use a terminal. It does not replace a course on operating-system implementation. Keep a notebook of which resource each example manages and what evidence would demonstrate that a proposed optimization actually helps.",
+    "studyHours": [
+      7,
+      10
+    ],
+    "stages": [
+      {
+        "title": "Compose small programs",
+        "objective": "Construct a shell pipeline and explain what passes between each process.",
+        "videos": [
+          {
+            "videoId": "tc4ROCJYbm0",
+            "reason": "The Bell Labs Unix film demonstrates pipes and filters in the environment that made this style of composition familiar."
+          }
+        ]
+      },
+      {
+        "title": "Reason about allocation",
+        "objective": "Identify allocation boundaries and propose which objects could share an allocation strategy.",
+        "videos": [
+          {
+            "videoId": "LIb3L4vKZ7U",
+            "reason": "Andrei Alexandrescu examines allocator design through composable pieces rather than treating memory allocation as a single opaque call."
+          }
+        ]
+      },
+      {
+        "title": "Coordinate concurrent work",
+        "objective": "Sketch a producer and consumer, including how either side stops.",
+        "videos": [
+          {
+            "videoId": "f6kdp27TYZs",
+            "reason": "Rob Pike demonstrates goroutines and channels through small examples of concurrent coordination."
+          }
+        ]
+      },
+      {
+        "title": "Measure before optimizing",
+        "objective": "Design a benchmark with repeatable inputs and describe what might distort the result.",
+        "videos": [
+          {
+            "videoId": "r-TLSBdHe1A",
+            "reason": "Emery Berger explains how modern hardware and code layout complicate performance measurement."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "computer-graphics-foundations",
+    "title": "Computer Graphics Foundations",
+    "description": "Connect vectors, curves, continuity, procedural shapes and palette animation through visual explanations and demonstrations.",
+    "goal": "Develop the mathematical vocabulary needed to describe shapes and motion, then connect it to two very different ways of constructing images. After the route, aim to sketch a Bezier curve from control points, explain why joined curves can look smooth or abrupt, and distinguish procedural drawing from palette-based animation. Basic algebra and coordinates are sufficient to start; the spline and shader stages benefit from derivatives and some programming. The suggested exercises are small visual experiments, not a requirement to build an entire rendering engine.",
+    "studyHours": [
+      8,
+      12
+    ],
+    "stages": [
+      {
+        "title": "Place points and directions",
+        "objective": "Represent a displacement with coordinates and draw the effect of scaling it.",
+        "videos": [
+          {
+            "videoId": "fNk_zzaMoSs",
+            "reason": "The geometric view of vectors supplies a shared language for the curve and shader examples."
+          }
+        ]
+      },
+      {
+        "title": "Construct a curve",
+        "objective": "Draw the intermediate line segments used to construct a quadratic Bezier curve.",
+        "videos": [
+          {
+            "videoId": "aVwxzDHniEw",
+            "reason": "Freya Holmer develops Bezier curves from their geometric construction and connects them to practical visual uses."
+          }
+        ]
+      },
+      {
+        "title": "Join curves deliberately",
+        "objective": "Compare positional continuity with matching tangent directions at a join.",
+        "videos": [
+          {
+            "videoId": "jvPPXbo87ds",
+            "reason": "The spline explanation introduces different continuity conditions and makes their visual consequences explicit."
+          }
+        ]
+      },
+      {
+        "title": "Draw with functions",
+        "objective": "Describe how several simple shapes could be combined into a larger picture.",
+        "videos": [
+          {
+            "videoId": "8--5LwHRhjk",
+            "reason": "Inigo Quilez builds a character with signed distance fields in a shader, showing a procedural approach to an image."
+          }
+        ]
+      },
+      {
+        "title": "Animate a limited palette",
+        "objective": "Sketch how changing a palette could make a static arrangement of pixels appear to move.",
+        "videos": [
+          {
+            "videoId": "aMcJ1Jvtef0",
+            "reason": "Mark Ferrari presents color cycling and palette shifting as alternatives to storing a separate image for every frame."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "cryptography-foundations",
+    "title": "Cryptography Foundations",
+    "description": "Separate key exchange, signatures, authentication and system trust using four accessible security examples.",
+    "goal": "Learn to ask what a cryptographic mechanism guarantees, which parties must be trusted and where the guarantee ends. The route moves from agreeing on a secret to authenticating records and evaluating the surrounding infrastructure. By the end, you should be able to label the roles of encryption, signatures and certificates in a simple diagram, while recognizing that a secure primitive does not automatically make an entire system secure. Basic arithmetic and comfort with technical explanations are useful; no implementation of production cryptography is expected.",
+    "studyHours": [
+      5,
+      8
+    ],
+    "stages": [
+      {
+        "title": "Agree on a shared secret",
+        "objective": "Draw the public messages and private values in a key exchange.",
+        "videos": [
+          {
+            "videoId": "YEBfamv-_do",
+            "reason": "The Diffie-Hellman explanation introduces the shared-secret problem through a concrete analogy before formal detail."
+          }
+        ]
+      },
+      {
+        "title": "Separate signatures from consensus",
+        "objective": "List the distinct problems solved by signatures, a shared ledger and proof of work.",
+        "videos": [
+          {
+            "videoId": "bBC-nXj3Ng4",
+            "reason": "The Bitcoin explanation gives these mechanisms separate roles in building a decentralized payment system."
+          }
+        ]
+      },
+      {
+        "title": "Question the trust infrastructure",
+        "objective": "Draw a browser, a server and a certificate authority, then mark where authentication depends on outside trust.",
+        "videos": [
+          {
+            "videoId": "Z7Wl2FW2TcA",
+            "reason": "Moxie Marlinspike examines the certificate authority system and an alternative notary model in a specific historical proposal."
+          }
+        ]
+      },
+      {
+        "title": "Place primitives inside a system",
+        "objective": "Identify which keys and devices are trusted in one of the presented system designs.",
+        "videos": [
+          {
+            "videoId": "BLGFriOKz6U",
+            "reason": "Ivan Krstic discusses concrete iOS security systems, connecting key hierarchies to engineering constraints."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "distributed-systems",
+    "title": "Distributed Systems Foundations",
+    "description": "Explore concurrent communication, supervision, immutable logs and deterministic fault testing.",
+    "goal": "Learn to reason about a service whose components can progress independently and fail separately. Start with communication patterns, then examine how processes recover, how a log can coordinate derived data and how simulation exposes rare failures. The intended outcome is a diagram of a small distributed service with explicit message paths, recovery responsibilities and testable failure cases. You should already be comfortable reading code and basic client-server diagrams. This route develops architectural questions rather than promising a production-ready distributed database implementation.",
+    "studyHours": [
+      7,
+      11
+    ],
+    "stages": [
+      {
+        "title": "Make communication explicit",
+        "objective": "Describe message ownership and termination in a concurrent search example.",
+        "videos": [
+          {
+            "videoId": "f6kdp27TYZs",
+            "reason": "Go concurrency patterns provide small, readable examples before the route moves to larger systems."
+          }
+        ]
+      },
+      {
+        "title": "Design for component failure",
+        "objective": "Draw a supervision tree and decide which state must survive a worker restart.",
+        "videos": [
+          {
+            "videoId": "JvBT4XBdoUE",
+            "reason": "Sasa Juric presents BEAM processes, supervision and fault tolerance as the core of Erlang and Elixir server design."
+          }
+        ]
+      },
+      {
+        "title": "Derive views from a log",
+        "objective": "Sketch how a cache and a search index could be rebuilt from the same stream of facts.",
+        "videos": [
+          {
+            "videoId": "fU9hR3kiOK0",
+            "reason": "Martin Kleppmann connects immutable logs and stream processing to the internals of familiar data systems."
+          }
+        ]
+      },
+      {
+        "title": "Reproduce rare failures",
+        "objective": "Write a fault scenario and list the choices a simulator would need to control to replay it.",
+        "videos": [
+          {
+            "videoId": "4fFDFbi3toc",
+            "reason": "Will Wilson explains FoundationDB testing through deterministic simulation, injected faults and reproducible runs."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "database-internals",
+    "title": "Database Internals and Guarantees",
+    "description": "Connect the relational model to immutable data, transaction guarantees and the testing of distributed databases.",
+    "goal": "Develop an architectural picture of what a database promises and which mechanisms help deliver those promises. Begin with relations, follow the role of values and logs, then examine transactions and failure testing. By the end, aim to describe the difference between a logical data model, a maintained view and a consistency guarantee, and to propose a test for one failure case. Familiarity with basic SQL or tabular data is helpful. This selection is a conceptual introduction; it does not cover every storage-engine algorithm or teach a complete database implementation.",
+    "studyHours": [
+      8,
+      12
+    ],
+    "stages": [
+      {
+        "title": "Describe data relationally",
+        "objective": "Model a small library using relations and distinguish its logical structure from its storage.",
+        "videos": [
+          {
+            "videoId": "oeYBdghaIjc",
+            "reason": "Andy Pavlo introduces the relational model in the opening lecture of the CMU database course."
+          }
+        ]
+      },
+      {
+        "title": "Separate values from changing locations",
+        "objective": "Explain why keeping a past fact is different from retaining access to a mutable object.",
+        "videos": [
+          {
+            "videoId": "-6BsiVyC1kM",
+            "reason": "Rich Hickey develops the distinction between values and places, a useful foundation for reasoning about stored information."
+          }
+        ]
+      },
+      {
+        "title": "Build derived data",
+        "objective": "Draw a log, an index and a cache, and show how each could be reconstructed.",
+        "videos": [
+          {
+            "videoId": "fU9hR3kiOK0",
+            "reason": "The Apache Samza talk connects database behavior with an append-only log and independently computed views."
+          }
+        ]
+      },
+      {
+        "title": "Specify transaction guarantees",
+        "objective": "Write a concurrent execution that would violate an application invariant.",
+        "videos": [
+          {
+            "videoId": "5ZjhNTM8XU8",
+            "reason": "Martin Kleppmann examines the meanings, tradeoffs and implementation opportunities behind transaction guarantees."
+          }
+        ]
+      },
+      {
+        "title": "Test the failure model",
+        "objective": "Identify which machine, network and scheduling failures a database test should exercise.",
+        "videos": [
+          {
+            "videoId": "4fFDFbi3toc",
+            "reason": "FoundationDB provides a concrete example of simulation used to find failures that ordinary tests rarely reproduce."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "how-computer-chips-are-made",
+    "title": "How Computer Chips Are Made",
+    "description": "Move from transistor behavior to fabrication, lithography and the limits of continued scaling.",
+    "goal": "Build a layered explanation of a computer chip: a device that controls current, a manufactured pattern of many such devices and a product of a complex fabrication process. The goal is to describe why shrinking a design is not merely a drawing exercise and why lithography becomes an engineering system of its own. Basic electricity and school-level physics are useful starting points. Historical talks should be read as explanations of mechanisms and constraints, not as a source for current manufacturing specifications or commercial process comparisons.",
+    "studyHours": [
+      6,
+      9
+    ],
+    "stages": [
+      {
+        "title": "Understand a switching device",
+        "objective": "Explain what a transistor controls and distinguish the device from an entire logic circuit.",
+        "videos": [
+          {
+            "videoId": "DXvAlwMAxiA",
+            "reason": "Ben Eater gives a focused explanation of an NPN transistor before the route moves to chip-scale manufacturing."
+          }
+        ]
+      },
+      {
+        "title": "Connect design to fabrication",
+        "objective": "Sketch the difference between a circuit design, a patterned layer and a finished chip.",
+        "videos": [
+          {
+            "videoId": "NGFhc8R_uO4",
+            "reason": "The manufacturing talk introduces the physical processes and clean environments behind integrated circuits."
+          }
+        ]
+      },
+      {
+        "title": "Examine the patterning machine",
+        "objective": "Draw a high-level path from light generation to the pattern transferred onto a wafer.",
+        "videos": [
+          {
+            "videoId": "B2482h_TNwg",
+            "reason": "Branch Education organizes an explanation around ASML EUV photolithography and the system components required to print small features."
+          }
+        ]
+      },
+      {
+        "title": "Ask what can still improve",
+        "objective": "Separate device scaling, architecture and other ways of improving useful computation.",
+        "videos": [
+          {
+            "videoId": "oIG9ztQw2Gc",
+            "reason": "Jim Keller presents an argument about several innovation paths, giving context for evaluating claims about the end of scaling."
+          }
+        ]
+      }
+    ]
+  }
+]

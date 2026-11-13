@@ -1,4 +1,5 @@
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
+import { getCuratedPathDirectory } from '@/server/editorial-pages';
 import { getExampleLearningPath } from '@/server/learning-paths';
 
 import { envConfigs } from '@/config';
@@ -12,7 +13,13 @@ export const Route = createFileRoute('/learning-paths')({
     goal: searchText(search.goal) ?? '',
   }),
   search: { middlewares: [stripSearchParams({ goal: '' })] },
-  loader: () => getExampleLearningPath(),
+  loader: async () => {
+    const [example, curatedPaths] = await Promise.all([
+      getExampleLearningPath(),
+      getCuratedPathDirectory(),
+    ]);
+    return { example, curatedPaths };
+  },
   head: () =>
     withSocialMetadata({
       meta: [
@@ -35,9 +42,14 @@ export const Route = createFileRoute('/learning-paths')({
 });
 
 function LearningPathsPage() {
-  const example = Route.useLoaderData();
+  const { example, curatedPaths } = Route.useLoaderData();
   const { goal } = Route.useSearch();
   return (
-    <HackerTubeLearningPaths key={goal} example={example} initialGoal={goal} />
+    <HackerTubeLearningPaths
+      key={goal}
+      example={example}
+      initialGoal={goal}
+      curatedPaths={curatedPaths}
+    />
   );
 }

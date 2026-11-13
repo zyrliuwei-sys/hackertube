@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useForm } from '@tanstack/react-form';
 import { useMutation } from '@tanstack/react-query';
+import type { CuratedPath } from '@/types/editorial';
 import type {
   LearningLevel,
   LearningPath,
@@ -26,14 +27,17 @@ import { m } from '@/paraglide/messages.js';
 import { useSavedLearningPaths } from '@/hooks/use-saved-learning-paths';
 import { HackerTubeShell } from '@/blocks/hackertube-shell';
 import { TextField } from '@/components/form-field';
+import { CuratedPathDirectory } from '@/components/hackertube/curated-paths';
 import { LearningPathView } from '@/components/hackertube/learning-path-view';
 
 export function HackerTubeLearningPaths({
   example,
   initialGoal = '',
+  curatedPaths = [],
 }: {
   example: LearningPath;
   initialGoal?: string;
+  curatedPaths?: Omit<CuratedPath, 'stages'>[];
 }) {
   const router = useRouter();
   const [path, setPath] = useState<LearningPath | null>(
@@ -300,6 +304,7 @@ export function HackerTubeLearningPaths({
             )}
           </div>
         </div>
+        <CuratedPathDirectory paths={curatedPaths} />
         <section className="ht-path-about">
           <h2>{m['hackertube.paths.about_title']()}</h2>
           <p>{m['hackertube.paths.about_text']()}</p>

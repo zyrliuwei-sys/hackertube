@@ -13,6 +13,11 @@ export function Footer() {
     !!getRouteApi('__root__').useLoaderData()?.cookieConsentEnabled;
   return (
     <HackerFooter
+      informationLinks={[
+        { href: '/about', label: 'About' },
+        { href: '/contact', label: 'Contact' },
+        { href: '/channels', label: 'Channels' },
+      ]}
       cookieLabel={m['landing.footer.cookie_settings']()}
       onCookieSettings={cookieEnabled ? openCookieSettings : undefined}
       badges={<FooterBadgeList className="pb-5" />}

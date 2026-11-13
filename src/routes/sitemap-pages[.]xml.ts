@@ -1,5 +1,9 @@
 import { createFileRoute } from '@tanstack/react-router';
 import areas from '@/data/hackertube/areas.json';
+import {
+  getChannelProfiles,
+  getCuratedPaths,
+} from '@/server/editorial-catalog';
 import { sitemapUrls, xmlResponse } from '@/server/sitemap';
 
 import { topicPath } from '@/lib/topic-path';
@@ -21,6 +25,11 @@ export const Route = createFileRoute('/sitemap-pages.xml')({
           '/privacy-policy',
           '/terms-of-service',
           '/usage-guide',
+          '/about',
+          '/contact',
+          '/channels',
+          ...getChannelProfiles().map((channel) => `/channels/${channel.slug}`),
+          ...getCuratedPaths().map((path) => `/learning-paths/${path.slug}`),
           ...areas.flatMap((area) =>
             area.categories.map((category) => topicPath(area.id, category.id))
           ),

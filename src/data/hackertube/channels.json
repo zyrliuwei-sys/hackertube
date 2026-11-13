@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "ted",
+    "name": "TED",
+    "summary": "Talks introducing ideas across technology, science, design and public life.",
+    "bio": "TED is a nonprofit organization that shares ideas through conferences, talks and other media. Its work brings together speakers from different disciplines rather than following a single technical curriculum. The videos represented here reflect that breadth: the catalog includes Lawrence Lessig discussing government, Drew Berry explaining biological visualization and talks about environmental questions. Use this profile to locate a speaker or subject, then follow the original talk and its supporting material when assessing a claim. A short presentation is an introduction to an argument, not a substitute for its evidence. This archive lists only TED videos found in the imported Hacker News collection, and is not operated by TED.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "TED: About",
+        "url": "https://www.ted.com/about",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "veritasium",
+    "name": "Veritasium",
+    "summary": "Science and engineering explanations built around experiments, demonstrations and interviews.",
+    "bio": "Veritasium is the science channel created by Derek Muller. Its official description emphasizes experiments, expert interviews, demonstrations and discussions with members of the public. That combination makes the channel useful for comparing an intuitive prediction with an explanation supported by a physical example. Videos in this archive include treatments of quantum entanglement and the reliability of published research, illustrating the range from scientific mechanisms to questions about how knowledge is established. For study, write down the question a video is answering before following its demonstration, then separate the observation from the proposed explanation. This collection indexes selected uploads discussed on Hacker News; it is neither the channel's complete catalog nor an endorsement by its creators.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "Veritasium: About",
+        "url": "https://www.veritasium.com/about",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "tedx-talks",
+    "name": "TEDx Talks",
+    "summary": "Talks from independently organized local events licensed under the TEDx program.",
+    "bio": "TEDx is a program of independently organized events held under a license from TED. Local organizers select speakers and prepare events using the program's format and guidelines; TEDx events are not the same as conferences directly organized by TED. The resulting talks cover many disciplines and local perspectives rather than forming a single coordinated course. When browsing this collection, identify the speaker's specific claim and seek the underlying research or original work where appropriate. A presentation's presence in the Hacker News archive records discussion, not collective agreement or verification. The list below contains the uploads labeled TEDx Talks in this catalog and links onward to their individual video pages and source discussions.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "TEDx Program",
+        "url": "https://www.ted.com/tedx",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "cppcon",
+    "name": "CppCon",
+    "summary": "C++ language, library and performance talks from the C++ community conference.",
+    "bio": "CppCon is a conference organized by the C++ community, with presentations covering language features, libraries, tools and practical applications. Its program addresses developers with different levels of experience and includes both invited speakers and community presentations. The archive's selection includes allocator design, cache-friendly hash tables and the use of modern C++ for a Commodore 64 game. These examples are useful starting points for examining how abstractions interact with generated code and machine behavior. Check a talk's language version and assumptions before applying an example to a current project, then test it with the compiler and workload you actually use. This profile collects catalog entries attributed to CppCon rather than reproducing the complete conference program.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "CppCon: About",
+        "url": "https://cppcon.org/about/",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "strange-loop",
+    "name": "Strange Loop Conference",
+    "summary": "Programming-language and systems talks connecting research ideas with implementation.",
+    "bio": "Strange Loop brought together programmers working across languages, databases, concurrency, distributed systems, security and the web. The conference's own description stresses technical substance and connections between areas that are often studied separately. Its recorded talks remain useful for following an implementation idea back to the assumptions that motivated it. In this archive, examples include Rich Hickey on simplicity, Will Wilson on deterministic simulation and Emery Berger on performance measurement. Read those presentations as specific arguments and engineering accounts, then compare their methods with your own problem. The channel list is a collection of talks mentioned on Hacker News, not a complete conference archive or a claim that every recommendation remains current.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "Strange Loop: About",
+        "url": "https://www.thestrangeloop.com/about.html",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "3blue1brown",
+    "name": "3Blue1Brown",
+    "summary": "Visual mathematics explanations connecting geometric intuition with symbolic reasoning.",
+    "bio": "3Blue1Brown is the mathematics project created by Grant Sanderson. Its lessons use animation to explain mathematical ideas visually, including foundational subjects and explorations of puzzles. The accompanying website offers written and interactive versions of many videos, which can help when an animation moves faster than a reader wants to study. This archive includes introductions to vectors, the Fourier transform and neural networks. They provide useful ways to connect equations with pictures, but understanding still benefits from working through examples independently. Start with the prerequisite concepts linked from an individual video page, and pause to reproduce a diagram or calculation. The collection here represents videos discussed on Hacker News, not every lesson published by the channel.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "3Blue1Brown: About",
+        "url": "https://www.3blue1brown.com/about/",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "gdc",
+    "name": "GDC Festival of Gaming",
+    "summary": "Game-development talks about design decisions, graphics, production and engineering.",
+    "bio": "The GDC channel presents material associated with the Game Developers Conference, while GDC Vault provides access to recorded conference sessions and related resources. Its subject is the practice of making games, spanning artistic choices and technical systems. The catalog here includes Mark Ferrari on limited-palette graphics, an account of Overwatch's gameplay architecture and networking, and discussions of independent game development. These talks are useful for studying decisions made under real production constraints, rather than treating a technique as universally appropriate. Identify the problem, platform and tradeoff behind each example before reusing it. This independent profile groups the videos labeled GDC Festival of Gaming in the source catalog; the original presenters retain responsibility for their work.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "GDC Vault: About and help",
+        "url": "https://gdcvault.com/help.php",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  {
+    "slug": "numberphile",
+    "name": "Numberphile",
+    "summary": "Mathematics conversations and demonstrations with mathematicians and other guests.",
+    "bio": "Numberphile is produced by video journalist Brady Haran and features mathematicians and other guests discussing numbers and mathematical ideas. Its official description includes both historical discoveries and more recent developments, with longer conversations also appearing in a separate podcast. The archive contains examples involving Klein bottles, large numbers and other subjects that invite visual or conversational explanations. This format is useful for finding an interesting problem before moving to a textbook treatment or proof. As a study exercise, restate the exact question being asked and identify which step of the explanation you could justify yourself. The videos below are the Numberphile entries represented in this Hacker News snapshot, not a complete list of the project's productions.",
+    "status": "reviewed",
+    "sources": [
+      {
+        "title": "Numberphile: About",
+        "url": "https://www.numberphile.com/about",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  }
+]

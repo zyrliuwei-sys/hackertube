@@ -1,3 +1,26 @@
+## 2026-11-13 — AdSense preparation and sourced editorial pages
+
+- Set `VITE_ADSENSE_CLIENT` to the verified publisher ID (`ca-pub-` or `pub-`
+  followed by 16 digits). Both the verification meta tag and `/ads.txt` now use
+  this deployment setting instead of the administrator's `adsense_code` setting.
+  An invalid or missing value produces no advertising elements and an empty
+  ads.txt response. Never put placeholder publisher IDs on a live site.
+- `VITE_ADSENSE_ENABLED=false` keeps the official Google loader disabled while
+  preserving verification metadata and ads.txt. Set it to `true` only when ads
+  should run; the existing advertising-consent gate still applies. Rebuild after
+  changing these public environment variables. No new analytics service is added.
+- Added About, Contact, reviewed channel profiles and eight fixed learning paths.
+  Sitemap entries are derived from the same published records used by the routes.
+  Existing URLs, titles and the site's no-trailing-slash convention are retained.
+- Watch-page additions are limited to the 300 IDs in `editorial-batch.json`.
+  Only complete `reviewed` records with sources pass publication validation.
+  Missing records keep the old page. A timestamp must reference a source marked
+  `transcript` or `chapters`; archive ranking scores are never used as HN scores.
+  The first delivery contains five reviewed records, not 300 completed summaries.
+  Run `node --import tsx scripts/editorial-status.ts` for current coverage and
+  `node --import tsx --test tests/editorial-catalog.test.ts` before publishing edits.
+- No database migration, permission change or new browser dependency is required.
+
 ## 2026-11-13 — Product copy cleanup
 
 Removed template marketing sections, their unused translations, the optional

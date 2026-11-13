@@ -124,6 +124,7 @@ export interface HackerFooterProps {
   dataCredit: string;
   licenseLabel: string;
   cookieLabel?: string;
+  informationLinks?: { href: string; label: string }[];
   onCookieSettings?: () => void;
   badges?: ReactNode;
 }
@@ -139,6 +140,7 @@ export function HackerFooter({
   dataCredit,
   licenseLabel,
   cookieLabel,
+  informationLinks = [],
   onCookieSettings,
   badges,
   onGuide,
@@ -191,6 +193,11 @@ export function HackerFooter({
             {originalLabel}
             <ArrowUpRight size={14} aria-hidden="true" />
           </a>
+          {informationLinks.map((link) => (
+            <Link key={link.href} href={link.href}>
+              {link.label}
+            </Link>
+          ))}
           <Link href="/privacy-policy">{privacyLabel}</Link>
           <Link href="/terms-of-service">{termsLabel}</Link>
           {onCookieSettings && (

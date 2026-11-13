@@ -21,6 +21,8 @@ export const envConfigs: Record<string, string> = {
     publicEnv('VITE_APP_DESCRIPTION') ??
     'Discover videos worth your curiosity, curated from Hacker News.',
   app_logo: publicEnv('VITE_APP_LOGO') ?? '/logo.svg',
+  adsense_client: publicEnv('VITE_ADSENSE_CLIENT') ?? '',
+  adsense_enabled: publicEnv('VITE_ADSENSE_ENABLED') ?? 'false',
 
   // Database
   database_url: procEnv.DATABASE_URL ?? '',

@@ -1,0 +1,1802 @@
+{
+  "fNk_zzaMoSs": {
+    "title": "Introduction to Applied Linear Algebra: Vectors, Matrices, and Least Squares",
+    "url": "https://news.ycombinator.com/item?id=18679785",
+    "month": "2018-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "PUv66718DII": {
+    "title": "Introducing Swift",
+    "url": "https://news.ycombinator.com/item?id=7835383",
+    "month": "2014-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "NGFhc8R_uO4": {
+    "title": "Ask HN: How modern chips are made?",
+    "url": "https://news.ycombinator.com/item?id=17386821",
+    "month": "2018-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "aMcJ1Jvtef0": {
+    "title": "How video games use lookup tables",
+    "url": "https://news.ycombinator.com/item?id=39546903",
+    "month": "2024-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "FITJMJjASUs": {
+    "title": "Writing code doesn't mix well with oration",
+    "url": "https://news.ycombinator.com/item?id=10562564",
+    "month": "2015-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JvBT4XBdoUE": {
+    "title": "An Elixir adoption success story",
+    "url": "https://news.ycombinator.com/item?id=27684911",
+    "month": "2021-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "VMj-3S1tku0": {
+    "title": "GPT4 is 8 x 220B params = 1.7T params",
+    "url": "https://news.ycombinator.com/item?id=36428875",
+    "month": "2023-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "spUNpyF58BY": {
+    "title": "Discrete Cosine Transform in Video Compression – Explain Like I'm Five",
+    "url": "https://news.ycombinator.com/item?id=24286802",
+    "month": "2020-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "DovunOxlY1k": {
+    "title": "Ask HN: Your favourite tutorial for total beginners?",
+    "url": "https://news.ycombinator.com/item?id=20585356",
+    "month": "2019-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "XXBxV6-zamM": {
+    "title": "Codecademy vs. the BBC Micro",
+    "url": "https://news.ycombinator.com/item?id=19604157",
+    "month": "2019-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "aVwxzDHniEw": {
+    "title": "An interactive guide to SVG paths",
+    "url": "https://news.ycombinator.com/item?id=44980800",
+    "month": "2025-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "PHe0bXAIuk0": {
+    "title": "Global Wave of Debt Is Largest, Fastest in 50 Years",
+    "url": "https://news.ycombinator.com/item?id=21902621",
+    "month": "2019-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JTfhYyTuT44": {
+    "title": "There’s no such thing as a tree, phylogenetically",
+    "url": "https://news.ycombinator.com/item?id=27096954",
+    "month": "2021-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "dEaecUuEqfc": {
+    "title": "A wave function does not collapse upon detection?",
+    "url": "https://news.ycombinator.com/item?id=30577780",
+    "month": "2022-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "NNnIGh9g6fA": {
+    "title": "Ask HN: Best books you read in 2017?",
+    "url": "https://news.ycombinator.com/item?id=15813123",
+    "month": "2017-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7J52mDjZzto": {
+    "title": "The Ancient Persian way to keep cool",
+    "url": "https://news.ycombinator.com/item?id=28140866",
+    "month": "2021-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "yYAw79386WI": {
+    "title": "Five Hundred and Seven Mechanical Movements (1908)",
+    "url": "https://news.ycombinator.com/item?id=19980625",
+    "month": "2019-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kpk2tdsPh0A": {
+    "title": "'Super Mario Bros.' speedrunner hits nearly inhuman 4:55 world record",
+    "url": "https://news.ycombinator.com/item?id=18074928",
+    "month": "2018-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "vtIzMaLkCaM": {
+    "title": "To write a great essay, think and care deeply (2015)",
+    "url": "https://news.ycombinator.com/item?id=39688146",
+    "month": "2024-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Unzc731iCUY": {
+    "title": "Ask HN: What is the best money you have spent on professional development?",
+    "url": "https://news.ycombinator.com/item?id=25137612",
+    "month": "2020-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "qCGofLIzX6g": {
+    "title": "Writing Python Extensions in Assembly",
+    "url": "https://news.ycombinator.com/item?id=28706370",
+    "month": "2021-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "o_AIw9bGogo": {
+    "title": "Systemd, 10 years later: a historical and technical retrospective (2020)",
+    "url": "https://news.ycombinator.com/item?id=41175576",
+    "month": "2024-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "aircAruvnKk": {
+    "title": "What was the best CS, SE or Math video you watched in 2017?",
+    "url": "https://news.ycombinator.com/item?id=16040048",
+    "month": "2017-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "cIQ9IXSUzuM": {
+    "title": "Ask HN: Favorite teachers on YouTube?",
+    "url": "https://news.ycombinator.com/item?id=18002373",
+    "month": "2018-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "HyznrdDSSGM": {
+    "title": "Ask HN: How to begin learning assembler for university course?",
+    "url": "https://news.ycombinator.com/item?id=30057092",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "QNznD9hMEh0": {
+    "title": "Renaissance Technologies",
+    "url": "https://news.ycombinator.com/item?id=21506006",
+    "month": "2019-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "jvPPXbo87ds": {
+    "title": "Look, ma, no matrices",
+    "url": "https://news.ycombinator.com/item?id=39544412",
+    "month": "2024-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "rStL7niR7gs": {
+    "title": "Former Columnist Jailed for Facebook Criticism of Myanmar’s Aung San Suu Kyi",
+    "url": "https://news.ycombinator.com/item?id=18032058",
+    "month": "2018-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "eJ3RzGoQC4s": {
+    "title": "Ask HN: What are some of the best documentaries you've seen?",
+    "url": "https://news.ycombinator.com/item?id=32800759",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "B1J2RMorJXM": {
+    "title": "Two hundred years ago, Jean-François Champollion deciphers the Rosetta Stone",
+    "url": "https://news.ycombinator.com/item?id=33022811",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "SCAGc-rkIfo": {
+    "title": "Night owls have more grey matter in their brains than early birds",
+    "url": "https://news.ycombinator.com/item?id=23522394",
+    "month": "2020-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LQRAfJyEsko": {
+    "title": "World's first no-kill eggs go on sale in Berlin (2018)",
+    "url": "https://news.ycombinator.com/item?id=25210464",
+    "month": "2020-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "040ejWnFkj0": {
+    "title": "Waymo One is now open to all in Los Angeles",
+    "url": "https://news.ycombinator.com/item?id=42118425",
+    "month": "2024-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ar9WRwCiSr0": {
+    "title": "Harder Drive: Hard drives we didn't want or need [video]",
+    "url": "https://news.ycombinator.com/item?id=30974434",
+    "month": "2022-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5SaFTm2bcac": {
+    "title": "The Economics Of Girl Talk",
+    "url": "https://news.ycombinator.com/item?id=5534739",
+    "month": "2013-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5f9R9MtkpqM": {
+    "title": "Framing 101",
+    "url": "https://news.ycombinator.com/item?id=26361333",
+    "month": "2021-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8bZh5LMaSmE": {
+    "title": "Talks that changed the way I think about programming",
+    "url": "https://news.ycombinator.com/item?id=13129780",
+    "month": "2016-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "4fFDFbi3toc": {
+    "title": "FoundationDB Document Layer",
+    "url": "https://news.ycombinator.com/item?id=18563988",
+    "month": "2018-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "xAoljeRJ3lU": {
+    "title": "New Map Scale Is More Readable by People Who Are Color Blind",
+    "url": "https://news.ycombinator.com/item?id=17734362",
+    "month": "2018-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "F_Riqjdh2oM": {
+    "title": "AlphaQubit: AI to identify errors in Quantum Computers",
+    "url": "https://news.ycombinator.com/item?id=42198969",
+    "month": "2024-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "_rBO8neWw04": {
+    "title": "My dishwasher won’t start until I let it update its firmware over the WiFi",
+    "url": "https://news.ycombinator.com/item?id=30149364",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "D1R-jKKp3NA": {
+    "title": "'You've got to find what you love'",
+    "url": "https://news.ycombinator.com/item?id=595537",
+    "month": "2009-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "jB0vBmiTr6o": {
+    "title": "Finland adds the demoscene as a UNESCO intangible world cultural heritage",
+    "url": "https://news.ycombinator.com/item?id=22882595",
+    "month": "2020-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "otbnC2zE2rw": {
+    "title": "My experience releasing failed SaaS products",
+    "url": "https://news.ycombinator.com/item?id=26688695",
+    "month": "2021-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "s1i-dnAH9Y4": {
+    "title": "When mechanical analog computers ruled the waves (2014)",
+    "url": "https://news.ycombinator.com/item?id=18533594",
+    "month": "2018-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "uD4izuDMUQA": {
+    "title": "How Will the Universe End?",
+    "url": "https://news.ycombinator.com/item?id=34912106",
+    "month": "2023-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "NOAgplgTxfc": {
+    "title": "What to Do When a Loved One Is Severely Depressed",
+    "url": "https://news.ycombinator.com/item?id=17269440",
+    "month": "2018-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "L0KuAx1COEk": {
+    "title": "Major breakthrough on nuclear fusion energy",
+    "url": "https://news.ycombinator.com/item?id=30274429",
+    "month": "2022-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5ESJH1NLMLs": {
+    "title": "Marine pilot loses command after ejecting from F-35B that kept flying",
+    "url": "https://news.ycombinator.com/item?id=42113322",
+    "month": "2024-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Fy0aCDmgnxg": {
+    "title": "It’s cheaper to build multiple native applications than one responsive web app",
+    "url": "https://news.ycombinator.com/item?id=11872780",
+    "month": "2016-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "XetplHcM7aQ": {
+    "title": "Ask HN: What are some of the best documentaries you've seen?",
+    "url": "https://news.ycombinator.com/item?id=32802873",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kBdfcR-8hEY": {
+    "title": "What Would You Recommend to a Bright 14 Year Old?",
+    "url": "https://news.ycombinator.com/item?id=9273474",
+    "month": "2015-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "SxdOUGdseq4": {
+    "title": "Most(LY Dead) Influential Programming Languages (2020)",
+    "url": "https://news.ycombinator.com/item?id=34050492",
+    "month": "2022-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "BLGFriOKz6U": {
+    "title": "Apple, in Sign of Health Ambitions, Adds Medical Records Feature for iPhone",
+    "url": "https://news.ycombinator.com/item?id=16228942",
+    "month": "2018-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7Pq-S557XQU": {
+    "title": "Amazon Flex",
+    "url": "https://news.ycombinator.com/item?id=10296165",
+    "month": "2015-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZK3O402wf1c": {
+    "title": "Surprises from numerical linear algebra (2010)",
+    "url": "https://news.ycombinator.com/item?id=2992134",
+    "month": "2011-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LnzuMJLZRdU": {
+    "title": "Clocking a 6502 simulator to 15GHz",
+    "url": "https://news.ycombinator.com/item?id=22860619",
+    "month": "2020-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "PmTUW-owa2w": {
+    "title": "Naomi Wu video demonetized on YouTube",
+    "url": "https://news.ycombinator.com/item?id=30099400",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "k2h2lvhzMDc": {
+    "title": "Ask HN: What are some 'must watch' talks?",
+    "url": "https://news.ycombinator.com/item?id=13575700",
+    "month": "2017-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "jbkSRLYSojo": {
+    "title": "Are You a Late Bloomer in Work or Love? Maybe You’re Right on Time",
+    "url": "https://news.ycombinator.com/item?id=36398576",
+    "month": "2023-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "d-7o9xYp7eE": {
+    "title": "Tips for Interviewing over Zoom",
+    "url": "https://news.ycombinator.com/item?id=27412734",
+    "month": "2021-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "bKGhvKyjgLY": {
+    "title": "With 'The Machine,' HP May Have Invented a New Kind of Computer",
+    "url": "https://news.ycombinator.com/item?id=7879233",
+    "month": "2014-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "dBnniua6-oM": {
+    "title": "The Men Who Live Forever",
+    "url": "https://news.ycombinator.com/item?id=1056898",
+    "month": "2010-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "uUmIdq0D6-A": {
+    "title": "Organic and regenerative agriculture are revitalizing rural Montana economies",
+    "url": "https://news.ycombinator.com/item?id=27815555",
+    "month": "2021-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "1OfxlSG6q5Y": {
+    "title": "The hidden cost of AI coding",
+    "url": "https://news.ycombinator.com/item?id=43792716",
+    "month": "2025-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "W3aieHjyNvw": {
+    "title": "Data-oriented design or why you might shoot yourself in the foot with OOP (2009)",
+    "url": "https://news.ycombinator.com/item?id=27664002",
+    "month": "2021-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Kr3quGh7pJA": {
+    "title": "Tritone Substitutions",
+    "url": "https://news.ycombinator.com/item?id=41092863",
+    "month": "2024-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "cZYNADOHhVY": {
+    "title": "Scientists identify pathways that extend nematode worm lifespan fivefold",
+    "url": "https://news.ycombinator.com/item?id=22002471",
+    "month": "2020-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8aGhZQkoFbQ": {
+    "title": "Ask HN: What are some of the best technical talks you've heard?",
+    "url": "https://news.ycombinator.com/item?id=18218222",
+    "month": "2018-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "bBC-nXj3Ng4": {
+    "title": "Demystifying Blockchains",
+    "url": "https://news.ycombinator.com/item?id=15791063",
+    "month": "2017-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wjZofJX0v4M": {
+    "title": "The Illustrated Transformer (2018)",
+    "url": "https://news.ycombinator.com/item?id=40873442",
+    "month": "2024-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "a9xAKttWgP4": {
+    "title": "Loopless Programming",
+    "url": "https://news.ycombinator.com/item?id=21302127",
+    "month": "2019-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ySuUZEjARPY": {
+    "title": "Unveiling secrets of the ESP32: creating an open-source MAC layer",
+    "url": "https://news.ycombinator.com/item?id=38552033",
+    "month": "2023-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "4Q7FTjhvZ7Y": {
+    "title": "Contributing to the Mozilla code base",
+    "url": "https://news.ycombinator.com/item?id=20596499",
+    "month": "2019-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8--5LwHRhjk": {
+    "title": "Signed distance functions in 46 lines of Python",
+    "url": "https://news.ycombinator.com/item?id=34075707",
+    "month": "2022-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "xguam0TKMw8": {
+    "title": "Ask HN: Why Is Everything Declining?",
+    "url": "https://news.ycombinator.com/item?id=34560953",
+    "month": "2023-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LkH2r-sNjQs": {
+    "title": "Let's put e-voting where it belongs: on the trash-heap of bad ideas (2016)",
+    "url": "https://news.ycombinator.com/item?id=24993684",
+    "month": "2020-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "NQFqDKRAROI": {
+    "title": "A solar gravitational lens will be humanity's most powerful telescope (2022)",
+    "url": "https://news.ycombinator.com/item?id=41865173",
+    "month": "2024-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "RjD1aLm4Thg": {
+    "title": "Persuading the Body to Regenerate Its Limbs",
+    "url": "https://news.ycombinator.com/item?id=27064434",
+    "month": "2021-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "F-QA2rkpBSY": {
+    "title": "You are the nth person alive on earth",
+    "url": "https://news.ycombinator.com/item?id=3165176",
+    "month": "2011-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ORzNZUeUHAM": {
+    "title": "How do you fix a stroad?",
+    "url": "https://news.ycombinator.com/item?id=29505394",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "AJdEqssNZ-U": {
+    "title": "How do you make an addictive video game?",
+    "url": "https://news.ycombinator.com/item?id=39642436",
+    "month": "2024-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "WXuK6gekU1Y": {
+    "title": "In Two Moves, AlphaGo and Lee Sedol Redefined the Future (2016)",
+    "url": "https://news.ycombinator.com/item?id=43714245",
+    "month": "2025-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ji5_MqicxSo": {
+    "title": "YouTube’s top creators are burning out",
+    "url": "https://news.ycombinator.com/item?id=17213004",
+    "month": "2018-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "AdNJ3fydeao": {
+    "title": "Svelte is the most beautiful web framework I've seen",
+    "url": "https://news.ycombinator.com/item?id=20336598",
+    "month": "2019-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "-6BsiVyC1kM": {
+    "title": "Ask HN: What made you change your mind about a programming language/paradigm?",
+    "url": "https://news.ycombinator.com/item?id=19296780",
+    "month": "2019-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "FACK2knC08E": {
+    "title": "India's Indira canteen: The best meal you can buy for 13 cents",
+    "url": "https://news.ycombinator.com/item?id=15745430",
+    "month": "2017-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ncHmEUmJZf4": {
+    "title": "Golang Maps: how Swiss Tables replaced the old bucket design",
+    "url": "https://news.ycombinator.com/item?id=49082650",
+    "month": "2026-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kZRE7HIO3vk": {
+    "title": "Docker is a dangerous gamble",
+    "url": "https://news.ycombinator.com/item?id=17062666",
+    "month": "2018-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8pTEmbeENF4": {
+    "title": "Ask HN: What is the future of programming?",
+    "url": "https://news.ycombinator.com/item?id=17709135",
+    "month": "2018-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "RIctzAQOe44": {
+    "title": "Wayland is not ready as a 1:1 compatible Xorg replacement just yet",
+    "url": "https://news.ycombinator.com/item?id=26001017",
+    "month": "2021-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "PGLYEDpNu60": {
+    "title": "Bedford and the Normalization of Deviance",
+    "url": "https://news.ycombinator.com/item?id=17361625",
+    "month": "2018-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "1Jwo5qc78QU": {
+    "title": "A Modest Proposal in the New Age of DMCA Takedown Aggression",
+    "url": "https://news.ycombinator.com/item?id=25090236",
+    "month": "2020-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8X69_42Mj-g": {
+    "title": "The Lisp Curse (2011)",
+    "url": "https://news.ycombinator.com/item?id=11175151",
+    "month": "2016-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wSF82AwSDiU": {
+    "title": "Pornography and the Butterfly Effect",
+    "url": "https://news.ycombinator.com/item?id=17167113",
+    "month": "2018-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "KkpqA8yG9T4": {
+    "title": "After years of doubts, hopes grow that nuclear fusion is near",
+    "url": "https://news.ycombinator.com/item?id=29687202",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "gwf5mAlI7Ug": {
+    "title": "Basic Mechanisms In Fire Control Computers (1953) [video]",
+    "url": "https://news.ycombinator.com/item?id=41304187",
+    "month": "2024-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZSRHeXYDLko": {
+    "title": "Tell HN: AWS appears to be down again",
+    "url": "https://news.ycombinator.com/item?id=29568085",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ajGX7odA87k": {
+    "title": "James Mickens’ Tenure Announcement",
+    "url": "https://news.ycombinator.com/item?id=21198451",
+    "month": "2019-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "-J_xL4IGhJA": {
+    "title": "Not Lisp again (2009)",
+    "url": "https://news.ycombinator.com/item?id=26298412",
+    "month": "2021-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "IcgmSRJHu_8": {
+    "title": "Make invalid states unrepresentable (2023)",
+    "url": "https://news.ycombinator.com/item?id=40164027",
+    "month": "2024-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "30jNsCVLpAE": {
+    "title": "Ask HN: What is the best postmortem you've seen?",
+    "url": "https://news.ycombinator.com/item?id=35036065",
+    "month": "2023-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "UzxYlbK2c7E": {
+    "title": "Free eBooks On Machine Learning",
+    "url": "https://news.ycombinator.com/item?id=7120893",
+    "month": "2014-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZhuHCtR3xq8": {
+    "title": "Frege: A Haskell-Like Language for the JVM",
+    "url": "https://news.ycombinator.com/item?id=10058830",
+    "month": "2015-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "HyzD8pNlpwI": {
+    "title": "Nintendo has reportedly suffered a significant legacy console leak",
+    "url": "https://news.ycombinator.com/item?id=23080027",
+    "month": "2020-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "_ahvzDzKdB0": {
+    "title": "Lies we tell ourselves to keep using Golang",
+    "url": "https://news.ycombinator.com/item?id=31210903",
+    "month": "2022-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "hUhisi2FBuw": {
+    "title": "What are these bumps on the top of a pull-tab can?",
+    "url": "https://news.ycombinator.com/item?id=42789273",
+    "month": "2025-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "d_zt3kGW1NM": {
+    "title": "Is Philanthropy Anti-Democratic?",
+    "url": "https://news.ycombinator.com/item?id=19221081",
+    "month": "2019-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LrObZ_HZZUc": {
+    "title": "The City of London which is not part of London (2016)",
+    "url": "https://news.ycombinator.com/item?id=40765912",
+    "month": "2024-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZuvK-od647c": {
+    "title": "The quantum source of space-time",
+    "url": "https://news.ycombinator.com/item?id=10586532",
+    "month": "2015-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "t1MqJPHxy6g": {
+    "title": "A philosophy-quoting homeless man in China has fled internet fame",
+    "url": "https://news.ycombinator.com/item?id=19562700",
+    "month": "2019-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "gkj_91IJVBk": {
+    "title": "‘Green growth’ doesn’t exist – less of everything only way to avert catastrophe",
+    "url": "https://news.ycombinator.com/item?id=28733072",
+    "month": "2021-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "uxykI30fS54": {
+    "title": "Construction is life",
+    "url": "https://news.ycombinator.com/item?id=31799513",
+    "month": "2022-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "izxXGuVL21o": {
+    "title": "Playstation Architecture: A Practical Analysis",
+    "url": "https://news.ycombinator.com/item?id=22932418",
+    "month": "2020-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "x1bX3F7uTrg": {
+    "title": "Can't Get You Out of My Head",
+    "url": "https://news.ycombinator.com/item?id=29107561",
+    "month": "2021-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "QmOF0crdyRU": {
+    "title": "Ask HN: How did you find joy in life?",
+    "url": "https://news.ycombinator.com/item?id=33398498",
+    "month": "2022-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LIb3L4vKZ7U": {
+    "title": "Comptime as Configuration",
+    "url": "https://news.ycombinator.com/item?id=42690180",
+    "month": "2025-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "eG0KrT6pBPk": {
+    "title": "Surveillance as a Business Model",
+    "url": "https://news.ycombinator.com/item?id=6795569",
+    "month": "2013-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "qv6UVOQ0F44": {
+    "title": "Hacking Super Mario World to Warp to the Credits [video]",
+    "url": "https://news.ycombinator.com/item?id=9792946",
+    "month": "2015-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "WUvTyaaNkzM": {
+    "title": "What I Learned from Two Years of Teaching High School CS",
+    "url": "https://news.ycombinator.com/item?id=36358316",
+    "month": "2023-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JcJSW7Rprio": {
+    "title": "Vramfs: Vram Based Filesystem for Linux",
+    "url": "https://news.ycombinator.com/item?id=43518243",
+    "month": "2025-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "bmSAYlu0NcY": {
+    "title": "A brief interview with Tcl creator John Ousterhout (2023)",
+    "url": "https://news.ycombinator.com/item?id=41019916",
+    "month": "2024-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "eviSykqSUUw": {
+    "title": "The Matrix Awakens: Unreal Engine 5 Techdemo [video]",
+    "url": "https://news.ycombinator.com/item?id=29511277",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "d0nERTFo-Sk": {
+    "title": "Internet start-ups: Another bubble?",
+    "url": "https://news.ycombinator.com/item?id=2012785",
+    "month": "2010-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Ik1AK56FtVc": {
+    "title": "The new Comcast Xbox Xfinity app is the first nail in net neutrality’s coffin",
+    "url": "https://news.ycombinator.com/item?id=3766701",
+    "month": "2012-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "N1pIYI5JQLE": {
+    "title": "The truth about cold water",
+    "url": "https://news.ycombinator.com/item?id=1500839",
+    "month": "2010-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "YSfCdBBqNXY": {
+    "title": "Developers spend most of their time figuring the system out",
+    "url": "https://news.ycombinator.com/item?id=30867547",
+    "month": "2022-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "yiw6_JakZFc": {
+    "title": "Carbon-neutrality is a tale: the race for renewables is burning Europe's forests",
+    "url": "https://news.ycombinator.com/item?id=28929903",
+    "month": "2021-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7IsMeKl-Sv0": {
+    "title": "Too many Americans live in places built for cars – not for human connection",
+    "url": "https://news.ycombinator.com/item?id=32597751",
+    "month": "2022-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "aKLntZcp27M": {
+    "title": "I learned to love testing game code",
+    "url": "https://news.ycombinator.com/item?id=32807113",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "DnPmg0R1M04": {
+    "title": "Breakfast is a relatively modern invention",
+    "url": "https://news.ycombinator.com/item?id=19957671",
+    "month": "2019-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "2Op3QLzMgSY": {
+    "title": "Calculus Made Easy (1914) [pdf]",
+    "url": "https://news.ycombinator.com/item?id=14168188",
+    "month": "2017-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "HxaD_trXwRE": {
+    "title": "Templating in Go",
+    "url": "https://news.ycombinator.com/item?id=7822010",
+    "month": "2014-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "HaEPXoXVf2k": {
+    "title": "DynamoDB 10 years later",
+    "url": "https://news.ycombinator.com/item?id=30009915",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7xTGNNLPyMI": {
+    "title": "Ask HN: What would you recommend a vibe coder learn about how all this works?",
+    "url": "https://news.ycombinator.com/item?id=47002572",
+    "month": "2026-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "s7tWHJfhiyo": {
+    "title": "The New Mind Control – The internet has spawned subtle forms of influence",
+    "url": "https://news.ycombinator.com/item?id=11257266",
+    "month": "2016-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "36myc8wQhLo": {
+    "title": "Tales of the M1 GPU",
+    "url": "https://news.ycombinator.com/item?id=33791375",
+    "month": "2022-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "FvmTSpJU-Xc": {
+    "title": "Why is there so much useless and unreliable software?",
+    "url": "https://news.ycombinator.com/item?id=34737744",
+    "month": "2023-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "jVkLVRt6c1U": {
+    "title": "I didn't get paid, so I open-sourced my client’s project",
+    "url": "https://news.ycombinator.com/item?id=20134911",
+    "month": "2019-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "u6XAPnuFjJc": {
+    "title": "Ask HN: What's the big deal with startups anyways...",
+    "url": "https://news.ycombinator.com/item?id=1709767",
+    "month": "2010-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Ggz_gd--UO0": {
+    "title": "Supreme Court Overturns Roe vs. Wade",
+    "url": "https://news.ycombinator.com/item?id=31865322",
+    "month": "2022-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "6bqBsHSwPgw": {
+    "title": "Ask HN: Why are there so few artificial sunlight or artificial window products?",
+    "url": "https://news.ycombinator.com/item?id=32220738",
+    "month": "2022-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "mPqWstVnRjQ": {
+    "title": "The largest living thing on Earth is a fungus (2014)",
+    "url": "https://news.ycombinator.com/item?id=15888731",
+    "month": "2017-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "MFEHFsO-XSI": {
+    "title": "US companies are producing heat pumps that work below -20F(-28C)",
+    "url": "https://news.ycombinator.com/item?id=34166583",
+    "month": "2022-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ShEez0JkOFw": {
+    "title": "Ask HN: What are some of the best technical talks you've heard?",
+    "url": "https://news.ycombinator.com/item?id=18218165",
+    "month": "2018-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JjDsP5n2kSM": {
+    "title": "Ask HN: What's your favorite tech talk?",
+    "url": "https://news.ycombinator.com/item?id=12639113",
+    "month": "2016-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "iYJKd0rkKss": {
+    "title": "Photos of Cabins",
+    "url": "https://news.ycombinator.com/item?id=4771229",
+    "month": "2012-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "f84n5oFoZBc": {
+    "title": "Rich Hickey Fanclub",
+    "url": "https://news.ycombinator.com/item?id=11183901",
+    "month": "2016-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "OyfBQmvr2Hc": {
+    "title": "A Lisp interpreter written in Lisp (2017)",
+    "url": "https://news.ycombinator.com/item?id=28116076",
+    "month": "2021-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "EY6q5dv_B-o": {
+    "title": "A Mystery of Unix History",
+    "url": "https://news.ycombinator.com/item?id=21589163",
+    "month": "2019-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "xOCurBYI_gY": {
+    "title": "Medical chatbot using OpenAI’s GPT-3 told a fake patient to kill themselves",
+    "url": "https://news.ycombinator.com/item?id=26282511",
+    "month": "2021-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "3LopI4YeC4I": {
+    "title": "I accidentally loaned all my money to the US government",
+    "url": "https://news.ycombinator.com/item?id=31287982",
+    "month": "2022-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "SGJ5cZnoodY": {
+    "title": "A 24-year-old made $345K in 2 months by beating Kickstarters to market",
+    "url": "https://news.ycombinator.com/item?id=13534113",
+    "month": "2017-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ecIWPzGEbFc": {
+    "title": "Say it's 1962, you're lucky enough to be a programmer working with an IBM 7090",
+    "url": "https://news.ycombinator.com/item?id=21703519",
+    "month": "2019-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "tX4H_ctggYo": {
+    "title": "Let's remove quaternions from every 3D engine (2018)",
+    "url": "https://news.ycombinator.com/item?id=22213627",
+    "month": "2020-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "akVL7QY0S8A": {
+    "title": "TED and inequality: The real story",
+    "url": "https://news.ycombinator.com/item?id=3991885",
+    "month": "2012-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "4Z2uzEM0ugY": {
+    "title": "The Inevitable Coronavirus Censorship Crisis",
+    "url": "https://news.ycombinator.com/item?id=23039298",
+    "month": "2020-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "xx7Lfh5SKUQ": {
+    "title": "Apollo 11 Had a Hidden Hero: Software",
+    "url": "https://news.ycombinator.com/item?id=20442808",
+    "month": "2019-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7rNY7xKyGCQ": {
+    "title": "Rise in cancers 'caused by weight'",
+    "url": "https://news.ycombinator.com/item?id=16659241",
+    "month": "2018-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "vpTHi7O66pI": {
+    "title": "Can Dirt Save the Earth?",
+    "url": "https://news.ycombinator.com/item?id=18644738",
+    "month": "2018-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "bglWCuCMSWc": {
+    "title": "America’s roads and highways have a big, fat style guide",
+    "url": "https://news.ycombinator.com/item?id=34345350",
+    "month": "2023-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "O5BJVO3PDeQ": {
+    "title": "Star Citizen Alpha 3.10",
+    "url": "https://news.ycombinator.com/item?id=24128299",
+    "month": "2020-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "dKx1wnXClcI": {
+    "title": "MuseScore 4: Moving from notation software to composition software",
+    "url": "https://news.ycombinator.com/item?id=23528118",
+    "month": "2020-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ERbvKrH-GC4": {
+    "title": "I'm turning 30 and I've produced no amazing art.",
+    "url": "https://news.ycombinator.com/item?id=3365751",
+    "month": "2011-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "aAb7hSCtvGw": {
+    "title": "API Design is UI for Developers",
+    "url": "https://news.ycombinator.com/item?id=3663104",
+    "month": "2012-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "c12cYAUTXXs": {
+    "title": "How Discord Scaled Elixir to 5M Concurrent Users",
+    "url": "https://news.ycombinator.com/item?id=14748689",
+    "month": "2017-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kCc8FmEb1nY": {
+    "title": "Google DeepMind CEO Says Some Form of AGI Possible in a Few Years",
+    "url": "https://news.ycombinator.com/item?id=35800127",
+    "month": "2023-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "p33CVV29OG8": {
+    "title": "Hash tables with open addressing",
+    "url": "https://news.ycombinator.com/item?id=13273961",
+    "month": "2016-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5Ge2RcvDlgw": {
+    "title": "Fusion “Breakthrough” Won’t Lead to Practical Fusion Energy",
+    "url": "https://news.ycombinator.com/item?id=33994939",
+    "month": "2022-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "a1zDuOPkMSw": {
+    "title": "Richard Hamming on Artificial Intelligence (1995) [video]",
+    "url": "https://news.ycombinator.com/item?id=11409952",
+    "month": "2016-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "qJEWOTZnFeg": {
+    "title": "Why Wolfram Tech Isn’t Open Source",
+    "url": "https://news.ycombinator.com/item?id=19561821",
+    "month": "2019-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "l9ZqXlHl65g": {
+    "title": "With New Ad Platform, Facebook Opens Gates to Its Vault of User Data",
+    "url": "https://news.ycombinator.com/item?id=8381761",
+    "month": "2014-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "1gEz__sMVaY": {
+    "title": "When Lobbying was Illegal",
+    "url": "https://news.ycombinator.com/item?id=11509420",
+    "month": "2016-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "2Vrhk5OjBP8": {
+    "title": "Veritasium: The SAT Question Everyone Got Wrong [video]",
+    "url": "https://news.ycombinator.com/item?id=38780364",
+    "month": "2023-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "8hAw1z8GdE8": {
+    "title": "The effects of sleep debt",
+    "url": "https://news.ycombinator.com/item?id=32095844",
+    "month": "2022-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LJ4W1g-6JiY": {
+    "title": "US scientists boost clean power hopes with fusion energy breakthrough",
+    "url": "https://news.ycombinator.com/item?id=33954009",
+    "month": "2022-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "gNRnrn5DE58": {
+    "title": "Cold restart whole system after total outage",
+    "url": "https://news.ycombinator.com/item?id=36795642",
+    "month": "2023-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "TH9VCN6UkyQ": {
+    "title": "Jonathan Blow: “C++ is a weird mess”",
+    "url": "https://news.ycombinator.com/item?id=17454615",
+    "month": "2018-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "d2lJUOv0hLA": {
+    "title": "Drone photos reveal an early Mesopotamian city made of marsh islands",
+    "url": "https://news.ycombinator.com/item?id=33298127",
+    "month": "2022-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "WwslBPj8GgI": {
+    "title": "Freakonomics: Quantifying Teacher Effectiveness?",
+    "url": "https://news.ycombinator.com/item?id=1040443",
+    "month": "2010-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "EZ05e7EMOLM": {
+    "title": "CUPID – the back story",
+    "url": "https://news.ycombinator.com/item?id=26531969",
+    "month": "2021-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "-zRN7XLCRhc": {
+    "title": "\"Solaris being canned, at least 50% of teams to be RIF'd in short term\"",
+    "url": "https://news.ycombinator.com/item?id=13082671",
+    "month": "2016-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "2pWv7GOvuf0": {
+    "title": "ACM Prize in Computing Awarded to AlphaGo Developer",
+    "url": "https://news.ycombinator.com/item?id=22754933",
+    "month": "2020-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "h7apO7q16V0": {
+    "title": "Convolutions, Fast Fourier Transform and polynomials (2022)",
+    "url": "https://news.ycombinator.com/item?id=40846259",
+    "month": "2024-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Nb2tebYAaOA": {
+    "title": "How much better was DEC Alpha than contemporary x86?",
+    "url": "https://news.ycombinator.com/item?id=22284052",
+    "month": "2020-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "dP1xVpMPn8M": {
+    "title": "Why Atom Can’t Replace Vim – Learning the lesson of vi",
+    "url": "https://news.ycombinator.com/item?id=7828961",
+    "month": "2014-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Z1PCtIaM_GQ": {
+    "title": "Colors in movies and TV: What happened to them?",
+    "url": "https://news.ycombinator.com/item?id=29925878",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5IUj1EZwpJY": {
+    "title": "The Most Powerful Law in Software",
+    "url": "https://news.ycombinator.com/item?id=36655210",
+    "month": "2023-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "mw2z9lV3W1g": {
+    "title": "Steve Wozniak cheered after telling students they have AI – actual intelligence",
+    "url": "https://news.ycombinator.com/item?id=48242530",
+    "month": "2026-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Ll6-eGDpimU": {
+    "title": "I Splurged for the Fanciest Dishwasher and It Was Worth It",
+    "url": "https://news.ycombinator.com/item?id=35097379",
+    "month": "2023-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "pwaWilO_Pig": {
+    "title": "Melatonin: Much More Than You Wanted to Know",
+    "url": "https://news.ycombinator.com/item?id=17636352",
+    "month": "2018-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "sGG-A80Tl5g": {
+    "title": "Epicurious Will No Longer Publish Beef Recipes",
+    "url": "https://news.ycombinator.com/item?id=26968019",
+    "month": "2021-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "CTV-wwszGw8": {
+    "title": "New York is using cameras with microphones to ticket loud cars",
+    "url": "https://news.ycombinator.com/item?id=30367575",
+    "month": "2022-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "stxVBJem3Rs": {
+    "title": "1999 Game Developers Conference (GDC) Recordings Archive",
+    "url": "https://news.ycombinator.com/item?id=36128037",
+    "month": "2023-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "GJCF-Ufapu8": {
+    "title": "WWII Propaganda Popularized Myth That Carrots Help You See in the Dark (2013)",
+    "url": "https://news.ycombinator.com/item?id=20410591",
+    "month": "2019-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "NVGuFdX5guE": {
+    "title": "Setting goals for 2021 – A brief guide about personal goal setting",
+    "url": "https://news.ycombinator.com/item?id=25731472",
+    "month": "2021-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "YR5WdGrpoug": {
+    "title": "NULL: The worst mistake of computer science? (2015)",
+    "url": "https://news.ycombinator.com/item?id=18603634",
+    "month": "2018-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "4XpnKHJAok8": {
+    "title": "Confusing Git Terminology",
+    "url": "https://news.ycombinator.com/item?id=38128071",
+    "month": "2023-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "42QuXLucH3Q": {
+    "title": "Dead sperm whale found in Indonesia had ingested '6kg of plastic'",
+    "url": "https://news.ycombinator.com/item?id=18501978",
+    "month": "2018-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "I8LbkfSSR58": {
+    "title": "A monoid is a category, a category is a monad, a monad is a monoid",
+    "url": "https://news.ycombinator.com/item?id=14127078",
+    "month": "2017-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "oIG9ztQw2Gc": {
+    "title": "Moore's Law, AI, and the pace of progress",
+    "url": "https://news.ycombinator.com/item?id=29526986",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "sWblpsLZ-O8": {
+    "title": "A dive into the making of a 64K Intro",
+    "url": "https://news.ycombinator.com/item?id=16854026",
+    "month": "2018-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wh4aWZRtTwU": {
+    "title": "If Your World Is Not Enchanted, You're Not Paying Attention",
+    "url": "https://news.ycombinator.com/item?id=41378037",
+    "month": "2024-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "snAhsXyO3Ck": {
+    "title": "Ask HN: How are you holding up?",
+    "url": "https://news.ycombinator.com/item?id=23613934",
+    "month": "2020-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JEYh5WACqEk": {
+    "title": "Germs and ancient migrations help explain our world of 'haves' and 'have nots'",
+    "url": "https://news.ycombinator.com/item?id=19046054",
+    "month": "2019-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "0fKBhvDjuy0": {
+    "title": "Voyager 1 is about to reach one light-day from Earth",
+    "url": "https://news.ycombinator.com/item?id=46061663",
+    "month": "2025-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "3nwwKbM_vJc": {
+    "title": "The rise of Anti-Distraction Software",
+    "url": "https://news.ycombinator.com/item?id=1425862",
+    "month": "2010-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "gSPNRu4ZPvE": {
+    "title": "Investors say agroforestry is climate friendly and also profitable",
+    "url": "https://news.ycombinator.com/item?id=23796146",
+    "month": "2020-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Uhx-26GfCBU": {
+    "title": "Cities Are Not Loud: Cars Are Loud, and Places Without Cars Are Quiet [video]",
+    "url": "https://news.ycombinator.com/item?id=27674209",
+    "month": "2021-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "biYciU1uiUw": {
+    "title": "Amazon Limits Authors to 3 Books a Day to Combat AI-Generated Material",
+    "url": "https://news.ycombinator.com/item?id=37580638",
+    "month": "2023-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "-k3mVnRlQLU": {
+    "title": "Being OK with not being extraordinary",
+    "url": "https://news.ycombinator.com/item?id=24267125",
+    "month": "2020-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "zDZFcDGpL4U": {
+    "title": "The Case for a Teacher Bar Exam",
+    "url": "https://news.ycombinator.com/item?id=5041602",
+    "month": "2013-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "-5wpm-gesOY": {
+    "title": "Timezone Bullshit",
+    "url": "https://news.ycombinator.com/item?id=26090193",
+    "month": "2021-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "fU9hR3kiOK0": {
+    "title": "Replacing a cache service with a database",
+    "url": "https://news.ycombinator.com/item?id=45084830",
+    "month": "2025-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZmNOAtZIgIk": {
+    "title": "Microsoft Research make breakthrough in audio speech recognition",
+    "url": "https://news.ycombinator.com/item?id=4146995",
+    "month": "2012-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "3kEfedtQVOY": {
+    "title": "Remote code execution vulnerability in ImageMagick",
+    "url": "https://news.ycombinator.com/item?id=11624132",
+    "month": "2016-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "0PclgBd6_Zs": {
+    "title": "Forth – The Early Years (1991)",
+    "url": "https://news.ycombinator.com/item?id=27048752",
+    "month": "2021-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "zBkNBP00wJE": {
+    "title": "Twenty years later I wrote a Tetris again",
+    "url": "https://news.ycombinator.com/item?id=12774487",
+    "month": "2016-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "7Hk9jct2ozY": {
+    "title": "I should have loved biology",
+    "url": "https://news.ycombinator.com/item?id=25151104",
+    "month": "2020-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "WVDQEoe6ZWY": {
+    "title": "U.S. surveillance laws have proven ineffective at countering terrorism",
+    "url": "https://news.ycombinator.com/item?id=22125694",
+    "month": "2020-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Ja5Q75hf6QI": {
+    "title": "Afghan president flees the country as Taliban move on Kabul",
+    "url": "https://news.ycombinator.com/item?id=28189683",
+    "month": "2021-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "msVuCEs8Ydo": {
+    "title": "NIST Pair of Atomic Clocks Reveal Einstein's Relativity at a Personal Scale",
+    "url": "https://news.ycombinator.com/item?id=24650347",
+    "month": "2020-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "_tpB-B8BXk0": {
+    "title": "Ask HN: How to deal with burnout and its consequences?",
+    "url": "https://news.ycombinator.com/item?id=33450345",
+    "month": "2022-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Zk11vI-7czE": {
+    "title": "A toxic, nightmarish lake created by our thirst for tech",
+    "url": "https://news.ycombinator.com/item?id=24792640",
+    "month": "2020-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "XuBdf9jYj7o": {
+    "title": "Mike Ey, Microsoft HoloLens designer, killed in hit and run",
+    "url": "https://news.ycombinator.com/item?id=9148349",
+    "month": "2015-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "hB6eY73sLV0": {
+    "title": "Speedrunners are vulnerability researchers, they just don't know it yet",
+    "url": "https://news.ycombinator.com/item?id=43234646",
+    "month": "2025-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "AvEqfg2sIH0": {
+    "title": "Structural engineers are unsung heroes",
+    "url": "https://news.ycombinator.com/item?id=16612101",
+    "month": "2018-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "IlU-zDU6aQ0": {
+    "title": "How I studied for 12 hours a day for over a year",
+    "url": "https://news.ycombinator.com/item?id=26977588",
+    "month": "2021-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "QyJZzq0v7Z4": {
+    "title": "Functional programming is not popular because it is weird (2016)",
+    "url": "https://news.ycombinator.com/item?id=28515333",
+    "month": "2021-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ROor6_NGIWU": {
+    "title": "Avout: Distributed State in Clojure",
+    "url": "https://news.ycombinator.com/item?id=10445433",
+    "month": "2015-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "jkrNMKz9pWU": {
+    "title": "Generative AI for Beginners",
+    "url": "https://news.ycombinator.com/item?id=38412110",
+    "month": "2023-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "IOiZatlZtGU": {
+    "title": "Proofs are Programs – 19th Century Logic and 21st Century Computing (2000) [pdf]",
+    "url": "https://news.ycombinator.com/item?id=13494586",
+    "month": "2017-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5TFDG-y-EHs": {
+    "title": "Ask HN: What are some of the most interesting YouTube channels to follow?",
+    "url": "https://news.ycombinator.com/item?id=35125507",
+    "month": "2023-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "AnrlSqtpOkw": {
+    "title": "Then and Now: How Little Things Have Changed (2016)",
+    "url": "https://news.ycombinator.com/item?id=15321922",
+    "month": "2017-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "6avJHaC3C2U": {
+    "title": "An uroboros program with 100 programming languages",
+    "url": "https://news.ycombinator.com/item?id=31536904",
+    "month": "2022-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "np_ylvc8Zj8": {
+    "title": "Hacker Publishes 2TB of Data from Cayman National Bank",
+    "url": "https://news.ycombinator.com/item?id=21570114",
+    "month": "2019-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "rNu8XDBSn10": {
+    "title": "So Long, and Thanks for All the Fish",
+    "url": "https://news.ycombinator.com/item?id=9528882",
+    "month": "2015-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wbSwFU6tY1c": {
+    "title": "Capturing Starman from 1M miles away",
+    "url": "https://news.ycombinator.com/item?id=16383544",
+    "month": "2018-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "BzhbAK1pdPM": {
+    "title": "ADHD Accommodations Guide",
+    "url": "https://news.ycombinator.com/item?id=29679830",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "hX2aZUav-54": {
+    "title": "A US federal agency is considering a ban on gas stoves",
+    "url": "https://news.ycombinator.com/item?id=34333893",
+    "month": "2023-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "ZUvGfuLlZus": {
+    "title": "List of Special Elevator Modes",
+    "url": "https://news.ycombinator.com/item?id=27777999",
+    "month": "2021-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wo84LFzx5nI": {
+    "title": "Fifty Shades of OOP",
+    "url": "https://news.ycombinator.com/item?id=46042045",
+    "month": "2025-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "UCgoxQCf5Jg": {
+    "title": "TinkerOS: A Fork of TempleOS",
+    "url": "https://news.ycombinator.com/item?id=29514637",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "2sjqTHE0zok": {
+    "title": "Confusing Git Terminology",
+    "url": "https://news.ycombinator.com/item?id=38119329",
+    "month": "2023-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "vK1DazRK_a0": {
+    "title": "Case against OOP is understated, not overstated (2020)",
+    "url": "https://news.ycombinator.com/item?id=30294814",
+    "month": "2022-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "f6kdp27TYZs": {
+    "title": "Having a Go - first time experience with Golang",
+    "url": "https://news.ycombinator.com/item?id=4218574",
+    "month": "2012-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "QPKKQnijnsM": {
+    "title": "Make elites compete: Why the 1% earn so much and what to do about it",
+    "url": "https://news.ycombinator.com/item?id=11366328",
+    "month": "2016-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kjBOesZCoqc": {
+    "title": "No bullshit guide to linear algebra – v2",
+    "url": "https://news.ycombinator.com/item?id=14116824",
+    "month": "2017-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "AF8d72mA41M": {
+    "title": "Isamu Akasaki’s blue LEDs changed how we light our world",
+    "url": "https://news.ycombinator.com/item?id=39747672",
+    "month": "2024-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "yJDv-zdhzMY": {
+    "title": "Douglas C. Engelbart, Inventor of the Computer Mouse, Dies at 88",
+    "url": "https://news.ycombinator.com/item?id=5989874",
+    "month": "2013-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Mfsnlbd-4xQ": {
+    "title": "Live Coding in Sporth: A Stack-Based Language for Audio Synthesis [pdf]",
+    "url": "https://news.ycombinator.com/item?id=17121473",
+    "month": "2018-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "0CDXJ6bMkMY": {
+    "title": "The Rise and Fall of Ambrosia Software (2019)",
+    "url": "https://news.ycombinator.com/item?id=25395820",
+    "month": "2020-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Erp8IAUouus": {
+    "title": "The Equifax breach may be the worst leak of personal info ever",
+    "url": "https://news.ycombinator.com/item?id=15200929",
+    "month": "2017-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "OoJsPvmFixU": {
+    "title": "What made Apollo a success? (1971) [pdf]",
+    "url": "https://news.ycombinator.com/item?id=38685661",
+    "month": "2023-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "HKQDSgBHPfY": {
+    "title": "DNA Testing Botched My Family's Heritage",
+    "url": "https://news.ycombinator.com/item?id=16159365",
+    "month": "2018-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kYHTzqHIngk": {
+    "title": "Spain will ban selling fruit and vegetables in plastic containers starting 2023",
+    "url": "https://news.ycombinator.com/item?id=28629701",
+    "month": "2021-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wfm2xCKOCNk": {
+    "title": "America could have $4 lunch bowls like Japan–but our zoning laws [prevent that]",
+    "url": "https://news.ycombinator.com/item?id=46647886",
+    "month": "2026-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "5pYeoZaoWrA": {
+    "title": "GameStop stock influencer Roaring Kitty may lose access to E-Trade, report says",
+    "url": "https://news.ycombinator.com/item?id=40593236",
+    "month": "2024-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "h6fcK_fRYaI": {
+    "title": "They're Made Out of Meat",
+    "url": "https://news.ycombinator.com/item?id=38422785",
+    "month": "2023-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "p2LZLYcu_JY": {
+    "title": "Media for Thinking the Unthinkable (2013)",
+    "url": "https://news.ycombinator.com/item?id=17190521",
+    "month": "2018-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "r-TLSBdHe1A": {
+    "title": "The naked truth about writing a programming language (2014)",
+    "url": "https://news.ycombinator.com/item?id=23056029",
+    "month": "2020-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "tc4ROCJYbm0": {
+    "title": "Unix: A History and a Memoir, by Brian Kernighan",
+    "url": "https://news.ycombinator.com/item?id=21382680",
+    "month": "2019-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "WFCvkkDSfIU": {
+    "title": "Rendering protein structures inside cells at the atomic level with Unreal Engine",
+    "url": "https://news.ycombinator.com/item?id=39552315",
+    "month": "2024-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "mScpHTIi-kM": {
+    "title": "Cells across the body talk to each other about aging",
+    "url": "https://news.ycombinator.com/item?id=38919551",
+    "month": "2024-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "KrksBdWcZgQ": {
+    "title": "Ask HN: What are some of the best technical talks you've heard?",
+    "url": "https://news.ycombinator.com/item?id=18219350",
+    "month": "2018-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "UF8uR6Z6KLc": {
+    "title": "You have only so much time – are you using it right?",
+    "url": "https://news.ycombinator.com/item?id=31747754",
+    "month": "2022-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "wt-iVFxgFWk": {
+    "title": "Is it possible to create a world like in the movie Matrix?",
+    "url": "https://news.ycombinator.com/item?id=4708056",
+    "month": "2012-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "CZIINXhGDcs": {
+    "title": "Slack wanted to stay independent, but was unable to compete with tech giants",
+    "url": "https://news.ycombinator.com/item?id=25400512",
+    "month": "2020-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "kF9KretXqJw": {
+    "title": "President Putin has announced a partial mobilization in Russia",
+    "url": "https://news.ycombinator.com/item?id=32925587",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "pTn6Ewhb27k": {
+    "title": "Well, Actually – Physics Answers",
+    "url": "https://news.ycombinator.com/item?id=25590722",
+    "month": "2020-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "n8m7lFQ3njk": {
+    "title": "Dijkstra Was Wrong About 'Radical Novelty'",
+    "url": "https://news.ycombinator.com/item?id=25265098",
+    "month": "2020-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "08mwXICY4JM": {
+    "title": "Samsung asks for planning permission for 11 fabs in Texas",
+    "url": "https://news.ycombinator.com/item?id=32218564",
+    "month": "2022-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "d8RRE2rDw4k": {
+    "title": "A global climate solution – if it can get past conspiracy theories and NIMBYs",
+    "url": "https://news.ycombinator.com/item?id=37836886",
+    "month": "2023-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "vTMF6xEiAaY": {
+    "title": "It seems that the good times for online Minecraft play are over",
+    "url": "https://news.ycombinator.com/item?id=32774393",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "roBkg-iPrbw": {
+    "title": "Chiptune.app",
+    "url": "https://news.ycombinator.com/item?id=36738747",
+    "month": "2023-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "pW-SOdj4Kkk": {
+    "title": "Text editing hates you too (2019)",
+    "url": "https://news.ycombinator.com/item?id=27240081",
+    "month": "2021-05",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "JxAXlJEmNMg": {
+    "title": "A Brief And Mostly Wrong History Of Programming Languages",
+    "url": "https://news.ycombinator.com/item?id=7150830",
+    "month": "2014-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "YEBfamv-_do": {
+    "title": "Crypto 101 – Introductory course on cryptography",
+    "url": "https://news.ycombinator.com/item?id=13093159",
+    "month": "2016-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Uj-rK8V-rik": {
+    "title": "Former Apple Employee Charged with Theft of Autonomous Car Project Trade Secrets",
+    "url": "https://news.ycombinator.com/item?id=17508616",
+    "month": "2018-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "OkmNXy7er84": {
+    "title": "OpenAI claims gold-medal performance at IMO 2025",
+    "url": "https://news.ycombinator.com/item?id=44618691",
+    "month": "2025-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "EKWGGDXe5MA": {
+    "title": "Ask HN: What is your favourite tech talk?",
+    "url": "https://news.ycombinator.com/item?id=16839245",
+    "month": "2018-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LA_DrBwkiJA": {
+    "title": "NaN Gates and Flip FLOPS",
+    "url": "https://news.ycombinator.com/item?id=21546805",
+    "month": "2019-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "BFld4EBO2RE": {
+    "title": "OP drew these corals with mathematical equations",
+    "url": "https://news.ycombinator.com/item?id=37105168",
+    "month": "2023-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "r3snVCRo_bI": {
+    "title": "YouTube says it has ‘no obligation’ to host anyone’s video",
+    "url": "https://news.ycombinator.com/item?id=21507171",
+    "month": "2019-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "fKy7ljRr0AA": {
+    "title": "Caroll Spinney has died",
+    "url": "https://news.ycombinator.com/item?id=21747522",
+    "month": "2019-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "t705r8ICkRw": {
+    "title": "Jack Dorsey texts Elon Musk, March 26, 2022",
+    "url": "https://news.ycombinator.com/item?id=33033824",
+    "month": "2022-09",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "nm1TxQj9IsQ": {
+    "title": "Ask HN: How did you correct your sleep patterns?",
+    "url": "https://news.ycombinator.com/item?id=29354445",
+    "month": "2021-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "Mc_4Z1oiXhY": {
+    "title": "Major Climate Report Describes a Strong Risk of Crisis as Early as 2040",
+    "url": "https://news.ycombinator.com/item?id=18171472",
+    "month": "2018-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "y_SXXTBypIg": {
+    "title": "Driverless robotaxi fleet paralyzed for hours in San Francisco",
+    "url": "https://news.ycombinator.com/item?id=31943946",
+    "month": "2022-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "6y8XgGhXkTQ": {
+    "title": "SXSW Cancels Gamer Panels After Threats",
+    "url": "https://news.ycombinator.com/item?id=10456090",
+    "month": "2015-10",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "nJPERZDfyWc": {
+    "title": "Copyright doesn't need 95 years to get the job done",
+    "url": "https://news.ycombinator.com/item?id=29788601",
+    "month": "2022-01",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "LO1mTELoj6o": {
+    "title": "Ask HN: Please Give Me Advice",
+    "url": "https://news.ycombinator.com/item?id=29448988",
+    "month": "2021-12",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "SWEts0rlezA": {
+    "title": "Ask HN: Benefits of front-end JavaScript frameworks?",
+    "url": "https://news.ycombinator.com/item?id=16549202",
+    "month": "2018-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "dljNabciEGg": {
+    "title": "Emacs is my new window manager",
+    "url": "https://news.ycombinator.com/item?id=36962621",
+    "month": "2023-08",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "zjkBMFhNj_g": {
+    "title": "Why has LLM progress seemingly stalled around the GPT-4 level? Or has it?",
+    "url": "https://news.ycombinator.com/item?id=40687717",
+    "month": "2024-06",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "60z_hpEAtD8": {
+    "title": "Exponentially Better Rotations",
+    "url": "https://news.ycombinator.com/item?id=31083344",
+    "month": "2022-04",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "U7VwtOrwceo": {
+    "title": "Mercedes Makes Better Performance a $1,200 Subscription in Its EVs",
+    "url": "https://news.ycombinator.com/item?id=33693269",
+    "month": "2022-11",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "vsMydMDi3rI": {
+    "title": "Golden Rules for Making Money (1880)",
+    "url": "https://news.ycombinator.com/item?id=19485621",
+    "month": "2019-03",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "_YWMGuh15nE": {
+    "title": "As much Stack Overflow as possible in 4096 bytes",
+    "url": "https://news.ycombinator.com/item?id=7256105",
+    "month": "2014-02",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  },
+  "GvtNyOzGogc": {
+    "title": "Local TV set to air discredited 'Plandemic' researcher's conspiracy theory",
+    "url": "https://news.ycombinator.com/item?id=23949419",
+    "month": "2020-07",
+    "sourceUrl": "https://hackertube.org/download/mentions.jsonl"
+  }
+}

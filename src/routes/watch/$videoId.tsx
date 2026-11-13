@@ -54,6 +54,7 @@ export const Route = createFileRoute('/watch/$videoId')({
         key={data.video.id}
         video={data.video}
         related={data.related}
+        editorial={data.editorial}
       />
     );
   },

@@ -111,7 +111,8 @@ const getAnalyticsConfigs = createServerFn().handler(async () => {
     gaId: configs.google_analytics_id?.trim() || '',
     plausibleDomain: plausibleOff ? '' : configs.plausible_domain?.trim() || '',
     plausibleSrc,
-    adsenseCode: configs.adsense_code?.trim() || '',
+    adsenseCode: envConfigs.adsense_client,
+    adsenseEnabled: envConfigs.adsense_enabled === 'true',
     crispWebsiteId:
       configs.crisp_enabled === 'true'
         ? configs.crisp_website_id?.trim() || ''
@@ -198,7 +199,10 @@ function RootComponent() {
           />
         ) : null}
         {analytics?.adsenseCode ? (
-          <Ads code={analytics.adsenseCode} loadScript={adsAllowed} />
+          <Ads
+            code={analytics.adsenseCode}
+            loadScript={adsAllowed && analytics.adsenseEnabled}
+          />
         ) : null}
         <CustomerService
           crispWebsiteId={analytics?.crispWebsiteId || undefined}

@@ -18,13 +18,19 @@ import { m } from '@/paraglide/messages.js';
 import { useVideoCollection } from '@/hooks/use-video-collection';
 import { publicVideoLabel } from '@/blocks/-hackertube-labels';
 import { HackerTubeShell } from '@/blocks/hackertube-shell';
+import {
+  WatchEditorialContent,
+  type WatchEditorialView,
+} from '@/components/hackertube/watch-editorial';
 
 export function HackerTubeWatch({
   video,
   related,
+  editorial,
 }: {
   video: Video;
   related: Video[];
+  editorial?: WatchEditorialView | null;
 }) {
   const [playing, setPlaying] = useState(false);
   const router = useRouter();
@@ -145,6 +151,9 @@ export function HackerTubeWatch({
                 })}
               </div>
             </section>
+            {editorial && (
+              <WatchEditorialContent editorial={editorial} videoId={video.id} />
+            )}
           </article>
           <aside className="ht-watch-aside">
             <section className="ht-watch-context">

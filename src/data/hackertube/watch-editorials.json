@@ -1,0 +1,160 @@
+{
+  "fNk_zzaMoSs": {
+    "status": "reviewed",
+    "reviewedAt": "2026-11-13",
+    "covers": [
+      "Grant Sanderson compares vectors as arrows, ordered lists of numbers, and objects defined by addition and scalar multiplication.",
+      "A coordinate system connects the geometric arrow to its numerical representation, making the order of the components meaningful.",
+      "Adding vectors is explained as combining displacements, with the geometric construction corresponding to addition of matching numerical components.",
+      "Scalar multiplication changes the length of an arrow, while a negative multiplier also reverses its direction in space.",
+      "The opening chapter establishes a geometric vocabulary for linear algebra before later lessons introduce more complicated transformations and matrices."
+    ],
+    "notes": [
+      "The useful distinction to retain is between an object and the way it is represented. An arrow makes direction and displacement visible; a column of numbers makes calculation convenient. Switching between them is the skill to practice here. Sanderson's example of representing a house by its area and price also shows why a vector need not describe a physical arrow. The choice and order of features belong to the model, not to the house itself.",
+      "For a paper exercise, draw the vectors (2, -1) and (-1, 3), add them geometrically, and check the result component by component. Then scale the result by a negative number and explain both changes you see. Finally, invent a pair of features for a non-geometric object and ask what adding two such records would actually mean. That last question helps distinguish a valid calculation from a useful interpretation."
+    ],
+    "audience": "This is suitable for beginners who know ordinary arithmetic and can read Cartesian coordinates. No matrix algebra or calculus is needed to follow the opening explanations.",
+    "prerequisite": {
+      "videoId": "ZK3O402wf1c",
+      "reason": "For optional background, Gilbert Strang approaches linear equations geometrically; compare how the same coordinates support a different question about relationships between unknowns."
+    },
+    "sources": [
+      {
+        "title": "3Blue1Brown: Vectors, what even are they?",
+        "url": "https://www.3blue1brown.com/lessons/vectors/",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  "PUv66718DII": {
+    "status": "reviewed",
+    "reviewedAt": "2026-11-13",
+    "covers": [
+      "Bret Victor argues that a creator should be able to see the consequences of an edit while making that edit.",
+      "Live programming demonstrations connect changes in code to visible results, reducing the separation between a program and its behavior.",
+      "Animation examples extend the immediate-feedback argument beyond writing code, showing the principle as a broader tool-design concern.",
+      "The talk connects technical demonstrations to choosing a guiding principle, rather than treating a collection of editor features as the goal."
+    ],
+    "notes": [
+      "The central question is what a tool makes observable at the moment a person needs to decide. A fast preview can help, but speed alone does not explain why a particular display is useful. In his accompanying writing, Victor distinguishes seeing a program's state and flow from merely giving an editor a live-coding feature. Read the demonstrations as proposed relationships between a person and their work, not as a checklist of fashionable interface controls.",
+      "To apply the argument, take one small task from your own workflow: adjusting an animation, changing a layout or investigating a calculation. List what you edit, what you must remember, and what you cannot see until a later step. Sketch a version that exposes one missing consequence beside the control that causes it. Then ask whether the display helps you predict behavior or simply produces more visual noise. This exercise tests the principle without requiring you to reproduce the demonstrated software."
+    ],
+    "audience": "The talk suits programmers, interaction designers and people who build creative tools. Familiarity with editing something and waiting for its result matters more than a particular programming language.",
+    "prerequisite": {
+      "videoId": "8pTEmbeENF4",
+      "reason": "For background, Victor’s historical programming talk offers another way to question familiar interfaces; use it to identify assumptions you normally leave unexamined."
+    },
+    "sources": [
+      {
+        "title": "Bret Victor: Inventing on Principle",
+        "url": "https://worrydream.com/InventingOnPrinciple/",
+        "checkedAt": "2026-11-13"
+      },
+      {
+        "title": "Bret Victor: Learnable Programming",
+        "url": "https://worrydream.com/LearnableProgramming/",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  "aMcJ1Jvtef0": {
+    "status": "reviewed",
+    "reviewedAt": "2026-11-13",
+    "covers": [
+      "Mark Ferrari demonstrates how color cycling can create animated scenery by changing palette entries instead of redrawing every frame.",
+      "Palette shifting is presented as a practical artistic technique for producing complex background effects within a limited-color approach.",
+      "The session connects earlier eight-bit drawing methods to Ferrari’s work on Ron Gilbert’s retro adventure game Thimbleweed Park.",
+      "Photoshop demonstrations show how contemporary tools can support the visual approach Ferrari describes as eight-bitish graphics for modern retro games."
+    ],
+    "notes": [
+      "The distinctive idea is that an image can carry an animation plan in its arrangement of color indices. This makes the palette part of the artwork's behavior, not just a final choice of swatches. The official session description explicitly distinguishes these effects from frame animation. Keep that distinction in mind when considering how the same scene could be represented: a sequence of complete pictures and a picture with a changing palette organize the work differently.",
+      "As a study exercise, sketch a simple water surface using several bands of color. Decide which parts should appear to move and which must remain visually stable. Now describe a sequence of palette changes that might produce that motion without moving the drawn boundaries. You do not need to claim a finished implementation; the useful result is a clear explanation of which information lives in the image and which lives in the animation rule. Compare the idea with storing individual frames and note the artistic constraints each approach introduces."
+    ],
+    "audience": "This session is useful for pixel artists, game developers and graphics programmers. Basic familiarity with raster images and palettes helps; advanced rendering mathematics is not a prerequisite.",
+    "prerequisite": {
+      "videoId": "jB0vBmiTr6o",
+      "reason": "For visual context, first watch the compact Elevated demo and note how constraints shape an image; Ferrari then supplies a different, palette-centered technique."
+    },
+    "sources": [
+      {
+        "title": "GDC Vault: 8 Bit and 8 Bitish Graphics—Outside the Box",
+        "url": "https://www.gdcvault.com/play/1023586/8-Bit-8-Bitish-Graphics",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  "NGFhc8R_uO4": {
+    "status": "reviewed",
+    "reviewedAt": "2026-11-13",
+    "covers": [
+      "The talk connects the scale of 22nm transistors with the physical manufacturing processes needed to build integrated circuits.",
+      "Clean fabrication environments are presented as part of the engineering problem, alongside the small structures being made on a chip.",
+      "Light-based patterning illustrates how semiconductor production depends on controlling physical constraints rather than simply drawing smaller circuit diagrams."
+    ],
+    "notes": [
+      "This is a manufacturing overview, so its value lies in connecting a device on a diagram with the process required to make it. The archive describes a historical discussion of transistors, clean fabrication facilities and optical patterning. Treat the named process scale as context for that explanation, not as a statement about the smallest features or commercial capabilities available today. A historical talk can explain a mechanism without being a reliable guide to current product specifications.",
+      "For a study exercise, divide a page into three columns: the intended electrical function, the physical structure, and the manufacturing difficulty. Place each concrete example from the talk in those columns as you encounter it. When a process sounds like a simple instruction, ask what must be controlled for that instruction to work repeatedly. Then identify which parts of your explanation concern one device and which concern an entire production facility. This separates circuit knowledge from process knowledge and gives you precise questions to pursue in a later lithography or fabrication lesson."
+    ],
+    "audience": "This is a broad introduction for technically curious viewers. A basic understanding of current and switching devices helps, but it is not a fabrication-process training course.",
+    "prerequisite": {
+      "videoId": "DXvAlwMAxiA",
+      "reason": "Start with Ben Eater’s explanation of an NPN transistor to separate what a device does electrically from the challenge of manufacturing many devices together."
+    },
+    "sources": [
+      {
+        "title": "HackerTube export: video description and catalog provenance",
+        "url": "https://hackertube.org/download/videos.jsonl",
+        "checkedAt": "2026-11-13"
+      },
+      {
+        "title": "UNICAMP: course reading list identifying the manufacturing lecture",
+        "url": "https://www.ifch.unicamp.br/pf-ifch/ementa/69946/so185a.pdf",
+        "checkedAt": "2026-11-13"
+      }
+    ]
+  },
+  "FITJMJjASUs": {
+    "status": "reviewed",
+    "reviewedAt": "2026-11-13",
+    "notes": [
+      "Jim Weirich turns the question of anonymous recursion into a sequence of Ruby refactorings. The factorial example begins with a familiar recursive definition, then exposes the missing name when the function is used anonymously. Functions that return other functions provide the pieces for rebuilding that behavior. The final expression is separated into an improver, a fixed-point combinator and the resulting factorial function, making each responsibility visible.",
+      "The calculator experiment gives fixed points a concrete meaning before functions themselves become the values being returned. To work through the derivation, keep a small table of each function's input and output. After every refactoring, evaluate factorial of five and explain why it still produces the same result. Pay particular attention to the wrapper that delays evaluation: removing it changes when recursion occurs in Ruby. This is an exercise in understanding evaluation, not a recommendation to replace ordinary recursive code with a combinator."
+    ],
+    "covers": [
+      "The relationship between Turing machines and Church's lambda calculus frames computation using anonymous functions rather than named procedures.",
+      "Repeated cosine calculations introduce fixed points before the factorial improver demonstrates that functions can also be fixed points.",
+      "Ruby lambdas, higher-order functions and composition support successive refactorings that remove the factorial definition's dependence on its own name.",
+      "Applicative-order evaluation requires delayed recursion; Weirich distinguishes the resulting Z combinator from the normal-order mathematical Y combinator."
+    ],
+    "audience": "For programmers comfortable tracing function calls; basic Ruby syntax helps, but the central challenge is following functions as values.",
+    "prerequisite": {
+      "videoId": "2Op3QLzMgSY",
+      "reason": "Review procedural abstraction and evaluation in this SICP introduction before following Weirich's nested anonymous functions."
+    },
+    "moments": [
+      {
+        "seconds": 809,
+        "description": "The audience's cosine calculation introduces a numerical fixed point.",
+        "sourceUrl": "https://www.youtube.com/watch?v=FITJMJjASUs"
+      },
+      {
+        "seconds": 979,
+        "description": "Factorial exposes the problem of anonymous functions referring to themselves.",
+        "sourceUrl": "https://www.youtube.com/watch?v=FITJMJjASUs"
+      },
+      {
+        "seconds": 2879,
+        "description": "Applicative-order evaluation explains the additional wrapper and the Z combinator.",
+        "sourceUrl": "https://www.youtube.com/watch?v=FITJMJjASUs"
+      }
+    ],
+    "sources": [
+      {
+        "title": "Confreaks: Jim Weirich, Y Not — public video transcript",
+        "url": "https://www.youtube.com/watch?v=FITJMJjASUs",
+        "checkedAt": "2026-11-13",
+        "kind": "transcript"
+      }
+    ]
+  }
+}
